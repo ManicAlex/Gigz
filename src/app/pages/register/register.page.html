@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+    
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-text *ngIf="!credentialsForm.controls.name.valid && (credentialsForm.controls.name.dirty)" color="danger">
+      <span>Name is not valid</span>
+    </ion-text>
+   
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-text *ngIf="!credentialsForm.controls.email.valid && (credentialsForm.controls.email.dirty)" color="danger">
+      <span>Email is not valid</span>
+    </ion-text>
+   
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-text *ngIf="!credentialsForm.controls.password.valid && (credentialsForm.controls.password.dirty)" color="danger">
+      <span>Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter and one number.</span>
+    </ion-text>
+    
+
+    <ion-radio-group formControlName="role">
+      <ion-item>
+        <ion-label>Band</ion-label>
+        <ion-radio slot="start" value="0"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Venue</ion-label>
+        <ion-radio slot="start" value="1"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-text *ngIf="!credentialsForm.controls.role.valid && (credentialsForm.controls.role.dirty)" color="danger">
+      <span>Role must be chosen</span>
+    </ion-text>
+    
+ 
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Register</ion-button>
+    <ion-button expand="full" type="button" routerLink="/login">Login</ion-button>
+  </form>
+</ion-content>
