@@ -17,6 +17,7 @@ export class AuthService {
   url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
+  halfRegisteredState = new BehaviorSubject(false);
  
   constructor(private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
     private plt: Platform, private alertController: AlertController) {
@@ -44,9 +45,12 @@ export class AuthService {
   register(credentials) {
     return this.http.post(`${this.url}/api/register`, credentials).pipe(
       tap(res => {
-        this.storage.set(TOKEN_KEY, res['token']);
+        this.storage.set(TOKEN_KEY, res['token'])
+        .then(() => {
         this.user = this.helper.decodeToken(res['token']);
-        this.authenticationState.next(true);
+        }).then(() => {
+          this.halfRegisteredState.next(true);
+        });
       }),
       catchError(e => {
       //   let value = false;
@@ -69,6 +73,7 @@ export class AuthService {
       //     }
           
       // }
+      this.showAlert("Failed registration");
       throw new Error(e);
       })
     );
@@ -96,16 +101,10 @@ export class AuthService {
   }
  
   getSpecialData() {
-    return this.http.get(`${this.url}/api/special`).pipe(
-      catchError(e => {
-        let status = e.status;
-        if (status === 401) {
-          this.showAlert('You are not authorized for this!');
-          this.logout();
-        }
-        throw new Error(e);
-      })
-    )
+    this.storage.get('access_token').then((val) => {
+      console.log('Your token is', val);
+    });
+    
   }
  
   isAuthenticated() {

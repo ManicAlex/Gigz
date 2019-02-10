@@ -33,6 +33,14 @@ export class AppComponent {
           this.router.navigate(['login']);
         }
       });
+
+      this.authService.halfRegisteredState.subscribe(state => {
+        if (state) {
+          this.router.navigate(['add-details']);
+        } else {
+          this.router.navigate(['login']);
+        }
+      });
  
     });
   }

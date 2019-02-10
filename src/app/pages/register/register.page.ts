@@ -20,6 +20,7 @@ export class RegisterPage implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+      password_confirmation: ['', Validators.required],
       role: ['', Validators.required]
     });
   }

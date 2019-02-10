@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Add details</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+ 
+    <ion-item>
+      <ion-label position="floating">Genre</ion-label>
+      <ion-input type="email" formControlName="genre"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label position="floating">BIOS</ion-label>
+      <ion-textarea formControlName="bios"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contact Number</ion-label>
+      <ion-input type="text" formControlName="contactNumber"></ion-input>
+    </ion-item>
+ 
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>
+  </form>
+</ion-content>

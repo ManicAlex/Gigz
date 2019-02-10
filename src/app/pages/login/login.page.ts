@@ -28,7 +28,6 @@ export class LoginPage implements OnInit {
   }
  
   register() {
-    console.log(this.credentialsForm.value);
     this.authService.register(this.credentialsForm.value).subscribe(res => {
       // Call Login to automatically login the new user
       let value = {

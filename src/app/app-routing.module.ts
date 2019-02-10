@@ -11,6 +11,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+  { path: 'add-details', loadChildren: './pages/add-details/add-details.module#AddDetailsPageModule' },
 ];
  
 @NgModule({

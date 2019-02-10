@@ -18,9 +18,7 @@ export class InsidePage implements OnInit {
   }
  
   loadSpecialInfo() {
-    this.authService.getSpecialData().subscribe(res => {
-      this.data = res['msg'];
-    });
+    this.authService.getSpecialData();
   }
  
   logout() {
