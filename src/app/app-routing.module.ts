@@ -11,13 +11,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'add-details', loadChildren: './pages/add-details/add-details.module#AddDetailsPageModule',
-  canActivate: [AuthGuardService]  },
+  { 
+    path: 'add-details', 
+    loadChildren: './pages/add-details/add-details.module#AddDetailsPageModule',
+    canActivate: [AuthGuardService]  
+},
   { 
     path: 'edit-details', 
-    loadChildren: './edit-details/edit-details.module#EditDetailsPageModule',
+    loadChildren: './pages/edit-details/edit-details.module#EditDetailsPageModule',
     canActivate: [AuthGuardService] 
-  },
+},
 ];
  
 @NgModule({
