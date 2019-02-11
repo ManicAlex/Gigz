@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
+import { UserDetailsUtilityService } from './services/user-details-utility.service';
  
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userDetails: UserDetailsUtilityService
   ) {
     this.initializeApp();
   }
@@ -25,7 +27,15 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
- 
+      
+      // this.userDetails.authenticationState.subscribe(state => {
+      //   if (state) {
+      //     this.router.navigate(['inside']);
+      //   } else {
+      //     console.log('Error – add validation')
+      //   }
+      // });
+
       this.authService.authenticationState.subscribe(state => {
         if (state) {
           this.router.navigate(['inside']);
@@ -41,6 +51,8 @@ export class AppComponent {
           this.router.navigate(['login']);
         }
       });
+
+      
  
     });
   }
