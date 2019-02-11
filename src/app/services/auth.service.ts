@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 import { environment } from '../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
  
 const TOKEN_KEY = 'access_token';
  
@@ -20,7 +21,7 @@ export class AuthService {
   halfRegisteredState = new BehaviorSubject(false);
  
   constructor(private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
-    private plt: Platform, private alertController: AlertController) {
+    private plt: Platform, private alertController: AlertController, private route: Router) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -49,30 +50,11 @@ export class AuthService {
         .then(() => {
         this.user = this.helper.decodeToken(res['token']);
         }).then(() => {
-          this.halfRegisteredState.next(true);
+          this.authenticationState.next(true);
+          this.route.navigate(['add-details']);
         });
       }),
       catchError(e => {
-      //   let value = false;
-      //   const obj = credentials;
-      //   if (credentials.email) {
-
-      //   }
-      //   for (var key in obj) {
-      //     if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      //         var val = obj[key];
-      //         // use val
-      //         console.log(val);
-      //         if (val === '') {
-      //           value = true;
-      //           this.showAlert("Please enter all details");
-      //         }
-      //         if (value = true) {
-      //           break; 
-      //         }
-      //     }
-          
-      // }
       this.showAlert("Failed registration");
       throw new Error(e);
       })
@@ -95,8 +77,9 @@ export class AuthService {
   }
  
   logout() {
-    this.storage.remove(TOKEN_KEY).then(() => {
+      this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
+      this.route.navigate(['login']);
     });
   }
  

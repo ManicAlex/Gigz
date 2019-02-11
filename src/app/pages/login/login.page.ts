@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ConnectApiService, Config } from '../../services/connect-api.service';
+import {Router} from '@angular/router';
   
 
 @Component({
@@ -14,9 +15,22 @@ export class LoginPage implements OnInit {
   credentialsForm: FormGroup;
   config: Config;
  
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private api: ConnectApiService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService, 
+    private api: ConnectApiService,
+    private router:Router
+    ) { }
  
   ngOnInit() {
+    this.authService.authenticationState.subscribe(state => {
+      if (state) {
+        console.log('Logged in');
+        this.router.navigate(['inside']);
+      } else {
+        this.router.navigate(['login']);
+      }
+  });
     this.credentialsForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]

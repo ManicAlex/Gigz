@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
- 
+import { Storage } from '@ionic/storage';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -18,39 +18,18 @@ export class AppComponent {
     private statusBar: StatusBar,
     private authService: AuthService,
     private router: Router,
-    private userDetails: UserDetailsUtilityService
+    private userDetails: UserDetailsUtilityService,
+    private storage: Storage
   ) {
     this.initializeApp();
   }
  
   initializeApp() {
-    this.platform.ready().then(() => {
+      this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
       
-      // this.userDetails.authenticationState.subscribe(state => {
-      //   if (state) {
-      //     this.router.navigate(['inside']);
-      //   } else {
-      //     console.log('Error – add validation')
-      //   }
-      // });
-
-      this.authService.authenticationState.subscribe(state => {
-        if (state) {
-          this.router.navigate(['inside']);
-        } else {
-          this.router.navigate(['login']);
-        }
-      });
-
-      this.authService.halfRegisteredState.subscribe(state => {
-        if (state) {
-          this.router.navigate(['add-details']);
-        } else {
-          this.router.navigate(['login']);
-        }
-      });
 
       
  

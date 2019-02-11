@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ConnectApiService, Config } from '../../services/connect-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,9 +14,19 @@ export class RegisterPage implements OnInit {
   credentialsForm: FormGroup;
   config: Config;
  
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private api: ConnectApiService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService, 
+    private api: ConnectApiService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
+    this.authService.authenticationState.subscribe(state => {
+      if (state) {
+        this.router.navigate(['inside']);
+      }
+  });
     this.credentialsForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

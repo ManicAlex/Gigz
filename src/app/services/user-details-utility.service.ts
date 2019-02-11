@@ -21,18 +21,23 @@ export class UserDetailsUtilityService {
   getUserDetails(token) {
     return this.http.get(`${this.url}/api/user?token=${token}`);
   }
+
+
   addDetails(credentials, token) {
     return this.http.post(`${this.url}/api/storeUserDetails`, this.getFormUrlEncoded(credentials),{
       headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
    }).pipe(
     tap(() => {
       this.authservice.authenticationState.next(true);
+      this.router.navigate(['inside']);
     }),
     catchError(e => {
       throw new Error(e);
     })
   );
   }
+
+
   getFormUrlEncoded(toConvert) {
 		const formBody = [];
 		for (const property in toConvert) {

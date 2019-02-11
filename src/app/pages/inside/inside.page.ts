@@ -2,6 +2,8 @@ import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
  
 @Component({
   selector: 'app-inside',
@@ -11,10 +13,17 @@ import { ToastController } from '@ionic/angular';
 export class InsidePage implements OnInit {
  
   data = '';
- 
-  constructor(private authService: AuthService, private storage: Storage, private toastController: ToastController) { }
+  loggedIn = new BehaviorSubject(false);
+
+  constructor(
+    private authService: AuthService, 
+    private storage: Storage, 
+    private toastController: ToastController,
+    private router: Router
+    ) { }
  
   ngOnInit() {
+    this.loggedIn.next(true);
   }
  
   loadSpecialInfo() {
