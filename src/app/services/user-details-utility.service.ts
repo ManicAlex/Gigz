@@ -71,5 +71,6 @@ export class UserDetailsUtilityService {
 			formBody.push(encodedKey + '=' + encodedValue);
 		}
 		return formBody.join('&');
-	}
+  }
+  
 }
