@@ -32,7 +32,7 @@ export class AddDetailsPage implements OnInit {
       //locationId: [],
     });
     this.storage.get('access_token').then((token) => {
-      this.details.getUserDetails(token)
+      this.details.getUser(token)
       .subscribe(data => {
         this.userId = data['user']['id'];
       }) 

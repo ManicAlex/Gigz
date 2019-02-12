@@ -18,10 +18,21 @@ export class UserDetailsUtilityService {
   url = environment.url;
   id = '';
 
-  getUserDetails(token) {
+  getUser(token) {
     return this.http.get(`${this.url}/api/user?token=${token}`);
   }
 
+  getUserDetails(token) {
+    return this.http.get(`${this.url}/api/editAuthUserDetails`,{
+      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+   });
+  }
+
+  getAllUserDetails(token) {
+    return this.http.get(`${this.url}/api/showAllUserDetails`,{
+      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+   });
+  }
 
   addDetails(credentials, token) {
     return this.http.post(`${this.url}/api/storeUserDetails`, this.getFormUrlEncoded(credentials),{
@@ -29,6 +40,20 @@ export class UserDetailsUtilityService {
    }).pipe(
     tap(() => {
       this.authservice.authenticationState.next(true);
+      this.router.navigate(['inside']);
+    }),
+    catchError(e => {
+      throw new Error(e);
+    })
+  );
+  }
+
+   editDetails(credentials, token) {
+    console.log(credentials);
+    return this.http.patch(`${this.url}/api/updateAuthUserDetails`, this.getFormUrlEncoded(credentials),{
+      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+   }).pipe(
+    tap(() => {
       this.router.navigate(['inside']);
     }),
     catchError(e => {
