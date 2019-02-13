@@ -10,9 +10,19 @@ import { UserDetailsUtilityService } from './../../services/user-details-utility
 })
 export class ListBandsPage implements OnInit {
 
+  users;
+
   constructor(private storage: Storage, private details: UserDetailsUtilityService, private http: HttpClient) { }
 
   ngOnInit() {
+
+    this.storage.get('access_token').then((token) => {
+      this.details.getAllUserDetails(token)
+      .subscribe(data => {
+        this.users = data['data'];
+        console.log(this.users);
+      }) 
+    });
   }
 
 }

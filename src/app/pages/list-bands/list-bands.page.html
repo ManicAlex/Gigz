@@ -5,42 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Genre</ion-card-subtitle>
-          <ion-card-title>User name</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-
-            BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-          BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Genre</ion-card-subtitle>
-            <ion-card-title>User name</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-  
-              BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-            BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-            <ion-card-header>
-              <ion-card-subtitle>Genre</ion-card-subtitle>
-              <ion-card-title>User name</ion-card-title>
-            </ion-card-header>
-          
-            <ion-card-content>
-    
-                BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-              BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-            </ion-card-content>
-          </ion-card>
+  <ion-text>Bands</ion-text>
+  <ul *ngFor="let user of users">
+    <img src='http://localhost:8888/Default.jpg'/>
+    <li>{{user.name}}</li>
+    <li>{{user.user_details.genre}}</li>
+  </ul>
 </ion-content>

@@ -29,8 +29,8 @@ export class UserDetailsUtilityService {
   }
 
   getAllUserDetails(token) {
-    return this.http.get(`${this.url}/api/showAllUserDetails`,{
-      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+    return this.http.get(`${this.url}/api/showUserAndDetails`,{
+      headers: {'Authorization':`Bearer ${token}`}
    });
   }
 
@@ -40,7 +40,7 @@ export class UserDetailsUtilityService {
    }).pipe(
     tap(() => {
       this.authservice.authenticationState.next(true);
-      this.router.navigate(['inside']);
+      this.router.navigate(['profile']);
     }),
     catchError(e => {
       throw new Error(e);
