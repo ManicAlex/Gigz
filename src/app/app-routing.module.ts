@@ -40,7 +40,13 @@ const routes: Routes = [
 },
 { 
   path: 'navbar', 
-  loadChildren: './pages/include/navbar/navbar.module#NavbarPageModule' },
+  loadChildren: './pages/include/navbar/navbar.module#NavbarPageModule' 
+},
+{ 
+  path: 'user-profile', 
+  loadChildren: './pages/user-profile/user-profile.module#UserProfilePageModule',
+  canActivate: [AuthGuardService]
+ },
 
 ];
  

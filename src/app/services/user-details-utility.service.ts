@@ -34,6 +34,20 @@ export class UserDetailsUtilityService {
    });
   }
 
+  getAllBands() {
+    return this.http.get(`${this.url}/api/showRole0`)
+  }
+
+  getAllVenues() {
+    return this.http.get(`${this.url}/api/showRole1`)
+  }
+
+  getUserById(token,id) {
+    return this.http.get(`${this.url}/api/showUserAndDetails/${id}`,{
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
   addDetails(credentials, token) {
     return this.http.post(`${this.url}/api/storeUserDetails`, this.getFormUrlEncoded(credentials),{
       headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
