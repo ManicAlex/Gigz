@@ -5,63 +5,12 @@
   </ion-toolbar>
 </ion-header>
 
-<<<<<<< HEAD
-<ion-content>
-    <div ion-fixed>
-    <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Genre</ion-card-subtitle>
-          <ion-card-title>User name</ion-card-title>
-=======
 <ion-content padding>
     <ion-card *ngFor="let user of users">
         <ion-card-header  (click)='goToProfile(user.id)'>
           <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
           <ion-card-title>{{user.name}}</ion-card-title>
->>>>>>> bfd9373dcd687ff735d1422129572c985e90bdaf
         </ion-card-header>
       </ion-card>
 
-<<<<<<< HEAD
-      <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Genre</ion-card-subtitle>
-            <ion-card-title>User name</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-  
-              BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-            BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-            <ion-card-header>
-              <ion-card-subtitle>Genre</ion-card-subtitle>
-              <ion-card-title>User name</ion-card-title>
-            </ion-card-header>
-          
-            <ion-card-content>
-    
-                BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-              BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-            </ion-card-content>
-          </ion-card>
-          <ion-card>
-              <ion-card-header>
-                <ion-card-subtitle>Genre</ion-card-subtitle>
-                <ion-card-title>User name</ion-card-title>
-              </ion-card-header>
-            
-              <ion-card-content>
-      
-                  BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-                BIOS BIOS BIOS BIOS BIOS BIOS BIOS
-              </ion-card-content>
-            </ion-card>
-            </div>
-          <app-footer></app-footer>
-=======
->>>>>>> bfd9373dcd687ff735d1422129572c985e90bdaf
 </ion-content>
