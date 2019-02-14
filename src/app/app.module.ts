@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { HeaderComponent } from './header/header.component';
+
 
  
 export function jwtOptionsFactory(storage) {
@@ -25,7 +25,7 @@ export function jwtOptionsFactory(storage) {
 }
  
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   HttpClientModule,

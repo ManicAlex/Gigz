@@ -24,7 +24,7 @@ const routes: Routes = [
 { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule', canActivate: [AuthGuardService] },
 { path: 'list-venues', loadChildren: './pages/list-venues/list-venues.module#ListVenuesPageModule', canActivate: [AuthGuardService] },
 { path: 'list-bands', loadChildren: './pages/list-bands/list-bands.module#ListBandsPageModule' },
-{ path: 'navbar', loadChildren: './pages/include/navbar/navbar.module#NavbarPageModule' },
+
 
 ];
  

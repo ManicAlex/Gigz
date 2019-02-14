@@ -1,12 +1,18 @@
 <ion-header>
+    <app-header></app-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title text-center>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content  padding>
-
+<ion-content>
+    <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add" (click)="Editdetails()"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    <div ion-fixed>
     <ion-card>
         <ion-card-header>
           <ion-card-subtitle>Genre</ion-card-subtitle>
@@ -17,9 +23,6 @@
           {{user['bios']}}
         </ion-card-content>
       </ion-card>
-
-<ion-button expand="full" (click)="listBands()">List Bands</ion-button>
-<ion-button expand="full" (click)="listVenues()">List Venues</ion-button>
-<ion-button expand="full" (click)="Navbar()">Navbar</ion-button>
-<ion-button expand="full" (click)="logout()">Logout</ion-button>
+    </div>
+<app-footer></app-footer>
 </ion-content>

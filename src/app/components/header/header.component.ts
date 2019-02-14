@@ -4,11 +4,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.page.html',
-  styleUrls: ['./navbar.page.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class NavbarPage implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private storage: Storage) { }
 
@@ -31,5 +31,4 @@ export class NavbarPage implements OnInit {
     this.authService.logout();
   }
 
-  
 }

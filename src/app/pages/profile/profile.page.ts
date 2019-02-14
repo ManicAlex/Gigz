@@ -46,12 +46,12 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['list-venues']);
   }
 
-  logout() {
-    this.authService.logout();
+  Editdetails(){
+    this.router.navigate(['edit-details']);
   }
 
-  Navbar(){
-    this.router.navigate(['navbar']);
+  logout() {
+    this.authService.logout();
   }
   
 }

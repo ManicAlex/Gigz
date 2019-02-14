@@ -4,7 +4,8 @@
   </ion-toolbar>
 </ion-header>
  
-<ion-content padding>
+<ion-content>
+    <div ion-fixed>
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
     <ion-item>
@@ -20,4 +21,6 @@
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
     <ion-button expand="full" type="button"  routerLink="/register">Register</ion-button>
   </form>
+    </div>
+  <app-footer></app-footer>
 </ion-content>

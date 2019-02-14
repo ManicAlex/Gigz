@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ListBandsPage } from './list-bands.page';
 import { Userprofile2Component } from './userprofile2/userprofile2.component';
+import { SharedComponentsModule } from 'src/app/components/shared-components.module';
 
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedComponentsModule
+    
   ],
   declarations: [ListBandsPage, Userprofile2Component]
 })
