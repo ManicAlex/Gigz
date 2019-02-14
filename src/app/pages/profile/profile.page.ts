@@ -13,26 +13,7 @@ import {UserServiceService} from './../../services/user-service.service';
 })
 export class ProfilePage implements OnInit {
   token;
-  user={
-    created_at: null,
-    email: null,
-    email_verified_at: null,
-    id: null,
-    name: null,
-    role: null,
-    updated_at: null,
-    user_details: {
-      avatarURL: null,
-      bios: null,
-      contactNumber: null,
-      created_at: null,
-      genre: null,
-      id: null,
-      locationId: null,
-      updated_at: null,
-      user_id: null,
-    }
-  }
+  user:object;
   constructor(
     private router: Router, 
     private authService: AuthService, 
@@ -43,13 +24,32 @@ export class ProfilePage implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.user = {
+      created_at: null,
+      email: null,
+      email_verified_at: null,
+      id: null,
+      name: null,
+      role: null,
+      updated_at: null,
+      user_details: {
+        avatarURL: null,
+        bios: null,
+        contactNumber: null,
+        created_at: null,
+        genre: null,
+        id: null,
+        locationId: null,
+        updated_at: null,
+        user_id: null,
+      }
+    };
     this.storage.get('access_token').then((token) => {
       this.token = token;
 
        this.getUser.getUserDetails(token)
        .subscribe(data2 => {
          this.user = data2['data']['0'];
-         console.log(this.user)
        })
     });
 

@@ -1,15 +1,21 @@
 <ion-header>
     <ion-toolbar>
-      <ion-title>List Bands</ion-title>
+      <ion-title>User Profile</ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-content padding>
-      <ion-card *ngFor="let user of users">
-          <ion-card-header (click)='goToProfile(user.id)'>
+  
+  <ion-content  padding>
+  
+      <ion-card>
+          <ion-card-header>
             <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
             <ion-card-title>{{user.name}}</ion-card-title>
           </ion-card-header>
+        
+          <ion-card-content>
+            <ion-text>{{user.user_details.bios}}</ion-text>
+          
+          </ion-card-content>
         </ion-card>
-  
   </ion-content>
