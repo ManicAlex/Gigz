@@ -30,7 +30,7 @@ export class ListVenuesPage implements OnInit {
   goToProfile(id) {
     this.router.navigate(['/user-profile'], { queryParams: { id: id } });
   }
-  countBands() {
+  countVenues() {
     if (this.users == []) {
       console.log('no results');
     }
