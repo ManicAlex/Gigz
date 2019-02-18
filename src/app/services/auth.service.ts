@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import {ToastController} from '@ionic/angular';
  
 const TOKEN_KEY = 'access_token';
  
@@ -20,8 +21,14 @@ export class AuthService {
   authenticationState = new BehaviorSubject(false);
   halfRegisteredState = new BehaviorSubject(false);
  
-  constructor(private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
-    private plt: Platform, private alertController: AlertController, private route: Router) {
+  constructor(private http: HttpClient, 
+    private helper: JwtHelperService, 
+    private storage: Storage,
+    private plt: Platform, 
+    private alertController: AlertController, 
+    private route: Router,
+    private toastController: ToastController
+    ) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -55,7 +62,7 @@ export class AuthService {
         });
       }),
       catchError(e => {
-      this.showAlert("Failed registration");
+        this.presentToast(e.error.msg);
       throw new Error(e);
       })
     );
@@ -70,7 +77,7 @@ export class AuthService {
           this.authenticationState.next(true);
         }),
         catchError(e => {
-          this.showAlert(e.error.message);
+          this.presentToast(e.error.message);
           throw new Error(e);
         })
       );
@@ -101,6 +108,15 @@ export class AuthService {
       buttons: ['OK']
     });
     alert.then(alert => alert.present());
+  }
+
+  async presentToast(msg:string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 4000,
+      color: 'danger'
+    });
+    toast.present();
   }
 }
 

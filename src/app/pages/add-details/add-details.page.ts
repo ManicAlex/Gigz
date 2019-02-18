@@ -20,8 +20,13 @@ export class AddDetailsPage implements OnInit {
   token;
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService
-    , private storage: Storage, private details: UserDetailsUtilityService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService,
+    private storage: Storage, 
+    private details: UserDetailsUtilityService, 
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
