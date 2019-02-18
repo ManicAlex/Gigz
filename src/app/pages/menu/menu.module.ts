@@ -6,13 +6,12 @@ import { AuthGuardService } from '../../services/auth-guard.service';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfilePage } from './profile.page';
-import { SharedComponentsModule } from 'src/app/components/shared-components.module';
+import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfilePage,
+    component: MenuPage,
     children: [
       { path: 'register', 
     loadChildren: '../register/register.module#RegisterPageModule' 
@@ -46,24 +45,34 @@ const routes: Routes = [
   path: 'user-profile',
   loadChildren: '../user-profile/user-profile.module#UserProfilePageModule',
   canActivate: [AuthGuardService]
-}
+},
+{ path: 'menu',
+loadChildren: './pages/menu/menu.module#MenuPageModule',
+canActivate: [AuthGuardService]
+},
+{ path: 'favourite',
+loadChildren: './pages/favourite/favourite.module#FavouritePageModule',
+canActivate: [AuthGuardService]
+},
+{ path: 'notifications',
+loadChildren: './pages/notifications/notifications.module#NotificationsPageModule',
+canActivate: [AuthGuardService]
+},
     ]
   },
   {
     path:'',
-    redirectTo: 'menu/profile'
+    redirectTo: '/menu/profile/'
   }
 ];
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    SharedComponentsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [ProfilePage]
+  declarations: [MenuPage]
 })
-export class ProfilePageModule {}
+export class MenuPageModule {}

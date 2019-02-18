@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterEvent } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { UserDetailsUtilityService } from './../../services/user-details-utility.service';
 import {UserServiceService} from './../../services/user-service.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,10 @@ import {UserServiceService} from './../../services/user-service.service';
 })
 export class ProfilePage implements OnInit {
   token;
+
+
+  selectedPath = '';
+
   user:object;
   constructor(
     private router: Router, 
@@ -22,6 +27,10 @@ export class ProfilePage implements OnInit {
     private http: HttpClient,
     private getUser: UserServiceService
     ) { }
+
+    
+
+  
 
   ngOnInit() {
     this.user = {
@@ -51,6 +60,9 @@ export class ProfilePage implements OnInit {
        .subscribe(data2 => {
          this.user = data2['data']['0'];
        })
+    });
+    this.router.events.subscribe((event: RouterEvent) => {
+      this.selectedPath = event.url;
     });
 
   }

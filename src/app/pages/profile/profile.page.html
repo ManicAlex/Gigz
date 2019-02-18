@@ -1,29 +1,46 @@
 <ion-header>
-    <app-header></app-header>
-  <ion-toolbar>
+    
+    <ion-toolbar color="dark" text-center>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
     <ion-title text-center>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content>
-    <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+<ion-content color="mediun" padding>
+      <ion-fab vertical="top" horizontal="end" edge slot="fixed">
         <ion-fab-button>
-          <ion-icon name="add" (click)="Editdetails()"></ion-icon>
+          <ion-icon name="settings"></ion-icon>
         </ion-fab-button>
+        <ion-fab-list side="botton">
+          <ion-fab-button><ion-icon name="add" routerLink="/menu/edit-details"></ion-icon></ion-fab-button>
+          <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+          <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+          <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+        </ion-fab-list>
       </ion-fab>
-    <div ion-fixed>
+
+
+
     <ion-card>
         <ion-card-header>
-          <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
-          <ion-card-title>{{user.name}}</ion-card-title>
+            <ion-avatar class="avatar">
+                <img src="../../../assets/img/default.png">
+              </ion-avatar>
+              
+            <ion-card-title text-center>{{user.name}}</ion-card-title>
+          <ion-card-subtitle text-center>Genre: {{user.user_details.genre}}</ion-card-subtitle>
         </ion-card-header>
       
-        <ion-card-content>
-          <ion-text>{{user.user_details.bios}}</ion-text>
+        <ion-card-content test-center>
+          <ion-text class="bio">{{user.user_details.bios}}</ion-text>
         
         </ion-card-content>
       </ion-card>
-    </div>
-<app-footer></app-footer>
+
+
 </ion-content>

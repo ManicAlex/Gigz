@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   listVenues(){
-    this.router.navigate(['list-venues']);
+    this.router.navigate(['menu']);
   }
 
   Profile(){

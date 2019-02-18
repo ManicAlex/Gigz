@@ -38,9 +38,24 @@ const routes: Routes = [
   loadChildren: './pages/list-bands/list-bands.module#ListBandsPageModule',
   canActivate: [AuthGuardService] 
 },
-{ 
-  path: 'navbar', 
-  loadChildren: './pages/include/navbar/navbar.module#NavbarPageModule' },
+{
+  path: 'user-profile',
+  loadChildren: './pages/user-profile/user-profile.module#UserProfilePageModule',
+  canActivate: [AuthGuardService]
+},
+  { path: 'menu',
+   loadChildren: './pages/menu/menu.module#MenuPageModule',
+   canActivate: [AuthGuardService]
+   },
+  { path: 'favourite',
+   loadChildren: './pages/favourite/favourite.module#FavouritePageModule',
+   canActivate: [AuthGuardService]
+   },
+  { path: 'notifications',
+   loadChildren: './pages/notifications/notifications.module#NotificationsPageModule',
+   canActivate: [AuthGuardService]
+   },
+
 
 ];
  

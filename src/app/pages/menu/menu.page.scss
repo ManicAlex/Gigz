@@ -1,0 +1,9 @@
+.active-item {
+    border-left: 8px solid var(--ion-color-primary);
+}
+.split-pane-md.split-pane-visible>.split-pane-side {
+    min-width: 270px;
+    max-width: 15%;
+    border-right: var(--border);
+    border-left: 0;
+}
