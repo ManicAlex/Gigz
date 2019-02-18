@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Show my Requests</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-card *ngFor="let request of requests">
+          <ion-card-header (click)='goToProfile(user.id)'>
+            <ion-card-subtitle>Location: {{request.location}}</ion-card-subtitle>
+            <ion-card-title>{{request.details}}</ion-card-title>
+            <ion-text>€{{request.price}}</ion-text><br>
+            <ion-text *ngIf="request.status === 0">Pending</ion-text>
+            <ion-text *ngIf="request.status === 1">Accepted</ion-text>
+            <ion-text *ngIf="request.status === 2">Rejected</ion-text>
+          </ion-card-header>
+        </ion-card>
+  
+  </ion-content>

@@ -10,7 +10,7 @@
   
   
   <ion-content  padding>
-  
+      <ion-text></ion-text>
       <ion-card>
           <ion-card-header>
             <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
@@ -21,5 +21,6 @@
             <ion-text>{{user.user_details.bios}}</ion-text>
           
           </ion-card-content>
-        </ion-card>
+      </ion-card>
+      <ion-button expand="full" type="submit" (click)='onSubmit()'>Book</ion-button>
   </ion-content>

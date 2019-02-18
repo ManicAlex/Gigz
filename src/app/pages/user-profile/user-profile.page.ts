@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserDetailsUtilityService } from 'src/app/services/user-details-utility.service';
 import { Storage } from '@ionic/storage';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,11 +15,13 @@ export class UserProfilePage implements OnInit {
     private service:UserDetailsUtilityService,
     private storage: Storage,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    public toastController: ToastController
     ) { }
 
     id:number;
     user;
+    success:boolean;
 
   ngOnInit() {
     this.user = {
@@ -44,12 +47,26 @@ export class UserProfilePage implements OnInit {
     this.actRoute.queryParams.subscribe(params => {
        this.id = params['id'];
     });
+    if (!this.id) {
+      this.presentNoIDToast();
+      this.router.navigate(['list-bands']);
+    }
     this.storage.get('access_token').then((token) => {
       this.service.getUserById(token,this.id).subscribe(val => {
         this.user = val['data'][0];
-        console.log(this.user);
       });
     });
   }
+  onSubmit() {
+    this.router.navigate(['/send-request'], { queryParams: { id: this.id } });
+  }
 
+  async presentNoIDToast() {
+    const toast = await this.toastController.create({
+      message: 'No user ID selected',
+      duration: 4000,
+      color: 'danger'
+    });
+    toast.present();
+  }
 }

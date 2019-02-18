@@ -42,20 +42,19 @@ const routes: Routes = [
   path: 'user-profile',
   loadChildren: './pages/user-profile/user-profile.module#UserProfilePageModule',
   canActivate: [AuthGuardService]
+ },
+{ 
+  path: 'send-request', 
+  loadChildren: './pages/send-request/send-request.module#SendRequestPageModule',
+  canActivate: [AuthGuardService] 
 },
-  { path: 'menu',
-   loadChildren: './pages/menu/menu.module#MenuPageModule',
-   canActivate: [AuthGuardService]
-   },
-  { path: 'favourite',
-   loadChildren: './pages/favourite/favourite.module#FavouritePageModule',
-   canActivate: [AuthGuardService]
-   },
-  { path: 'notifications',
-   loadChildren: './pages/notifications/notifications.module#NotificationsPageModule',
-   canActivate: [AuthGuardService]
-   },
-
+{ 
+  path: 'menu', 
+  loadChildren: './pages/menu/menu.module#MenuPageModule',
+  canActivate: [AuthGuardService] 
+},
+  { path: 'show-my-requests', loadChildren: './pages/show-my-requests/show-my-requests.module#ShowMyRequestsPageModule' },
+  { path: 'show-requests-received', loadChildren: './pages/show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule' },
 
 ];
  

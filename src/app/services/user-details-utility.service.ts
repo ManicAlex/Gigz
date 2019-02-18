@@ -76,6 +76,38 @@ export class UserDetailsUtilityService {
   );
   }
 
+  sendRequest(credentials,token,id) {
+    return this.http.post(
+      `${this.url}/api/storeRequest/${id}`, 
+      credentials,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  showRequestsByUser(token) {
+    return this.http.get(
+      `${this.url}/api/showRequestsByUser`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  acceptRequest(id, token) {
+    return this.http.get(
+      `${this.url}/api/acceptRequest/${id}`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  declineRequest(id, token) {
+    return this.http.get(
+      `${this.url}/api/declineRequest/${id}`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
 
   getFormUrlEncoded(toConvert) {
 		const formBody = [];
