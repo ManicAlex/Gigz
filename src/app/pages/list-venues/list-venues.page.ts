@@ -24,11 +24,10 @@ export class ListVenuesPage implements OnInit {
     this.details.getAllVenues()
     .subscribe(data => {
       this.users = data['data'];
-      console.log(this.users);
     });
   }
   goToProfile(id) {
-    this.router.navigate(['/user-profile'], { queryParams: { id: id } });
+    this.router.navigate(['/menu/user-profile'], { queryParams: { id: id } });
   }
   countVenues() {
     if (this.users == []) {

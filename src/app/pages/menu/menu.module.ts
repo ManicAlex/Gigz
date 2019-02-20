@@ -78,7 +78,7 @@ canActivate: [AuthGuardService]
   },
   {
     path:'',
-    redirectTo: '/menu/profile/'
+    redirectTo: '/menu/profile'
   }
 ];
 

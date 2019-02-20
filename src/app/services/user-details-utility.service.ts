@@ -109,6 +109,14 @@ export class UserDetailsUtilityService {
    });
   }
 
+  displayRequestsRecievedDetails(token) {
+    return this.http.get(
+      `${this.url}/api/requestingUsersToAuth`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
   getFormUrlEncoded(toConvert) {
 		const formBody = [];
 		for (const property in toConvert) {

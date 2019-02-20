@@ -9,5 +9,10 @@
 </ion-header>
 
 <ion-content padding>
-
+    <ion-card *ngFor="let value of values">
+        <ion-card-header  (click)='goToRequest(value.id)'>
+          <img src="../../../assets/img/default.png">
+          <ion-card-title>Request made by {{value.name}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
 </ion-content>
