@@ -10,4 +10,24 @@
 
 <ion-content padding>
 
+    <ion-content padding>
+        <ion-card *ngFor="let user of users">
+            <ion-card-header (click)='goToProfile(user.id)'>
+                <ion-item>
+              <ion-thumbnail slot="start">
+                    <img src="../../../assets/img/default.png">
+                  </ion-thumbnail>
+                  <ion-list>
+                  <ion-list-header><ion-card-title color="primary" text-center>{{user.name}}</ion-card-title></ion-list-header>
+                  <ion-item>
+                  <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle></ion-item>
+                  <ion-item>
+                  <ion-card-subtitle>Number: {{user.user_details.contactNumber}}</ion-card-subtitle></ion-item>
+                </ion-list>
+                </ion-item>
+            </ion-card-header>
+          </ion-card>        
+    </ion-content>
+  
+
 </ion-content>

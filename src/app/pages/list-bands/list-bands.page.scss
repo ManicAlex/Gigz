@@ -1,3 +1,8 @@
-[ion-fixed] {
-    min-height: calc(100% - 98px); // adjust to your footer height!
-}
+ion-card {
+    background-color: white !important;
+  }
+  
+  ion-content {
+    --background: rgba(224, 219, 219, 0.473) !important;
+  
+  }

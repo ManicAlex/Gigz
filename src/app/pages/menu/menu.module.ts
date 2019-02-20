@@ -47,17 +47,33 @@ const routes: Routes = [
   canActivate: [AuthGuardService]
 },
 { path: 'menu',
-loadChildren: './pages/menu/menu.module#MenuPageModule',
+loadChildren: '../menu/menu.module#MenuPageModule',
 canActivate: [AuthGuardService]
 },
 { path: 'favourite',
-loadChildren: './pages/favourite/favourite.module#FavouritePageModule',
+loadChildren: '../favourite/favourite.module#FavouritePageModule',
 canActivate: [AuthGuardService]
 },
 { path: 'notifications',
-loadChildren: './pages/notifications/notifications.module#NotificationsPageModule',
+loadChildren: '../notifications/notifications.module#NotificationsPageModule',
 canActivate: [AuthGuardService]
 },
+{ 
+  path: 'send-request', 
+  loadChildren: '../send-request/send-request.module#SendRequestPageModule',
+  canActivate: [AuthGuardService] 
+},
+{ 
+  path: 'show-my-requests', 
+  loadChildren: '../show-my-requests/show-my-requests.module#ShowMyRequestsPageModule',
+  canActivate: [AuthGuardService] 
+},
+{ 
+  path: 'show-requests-received', 
+  loadChildren: '../show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule',
+  canActivate: [AuthGuardService] 
+},
+
     ]
   },
   {

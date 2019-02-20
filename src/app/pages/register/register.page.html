@@ -1,10 +1,21 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Register</ion-title>
+  <ion-toolbar color="dark" text-center>
+    <ion-title>Gigz</ion-title>
   </ion-toolbar>
 </ion-header>
  
-<ion-content padding>
+<ion-content>
+    
+    <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <div class="avatar">
+                  <img src="../../../assets/img/logo.png">
+                 </div>
+            <div text-center>
+              <h4>Register Form</h4>
+            </div>
+            <div padding>
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
     
     <ion-item>
@@ -59,4 +70,8 @@
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Register</ion-button>
     <ion-button expand="full" type="button" routerLink="/login">Login</ion-button>
   </form>
+</div>
+</ion-col>
+</ion-row>
+</ion-grid>
 </ion-content>

@@ -1,26 +1,29 @@
 <ion-header>
     <ion-toolbar color="dark" text-center>
-
         <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
       <ion-title>User Profile</ion-title>
     </ion-toolbar>
   </ion-header>
   
   
-  <ion-content  padding>
-      <ion-text></ion-text>
+  <ion-content padding>
       <ion-card>
           <ion-card-header>
-            <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
-            <ion-card-title>{{user.name}}</ion-card-title>
+              <ion-avatar class="avatar">
+                  <img src="../../../assets/img/default.png">
+                </ion-avatar>
+                
+              <ion-card-title text-center>{{user.name}}</ion-card-title>
+            <ion-card-subtitle text-center>Genre: {{user.user_details.genre}}</ion-card-subtitle>
+            <ion-card-subtitle text-center>Number: {{user.user_details.contactNumber}}</ion-card-subtitle>
           </ion-card-header>
         
           <ion-card-content>
-            <ion-text>{{user.user_details.bios}}</ion-text>
+            <ion-text class="bio">{{user.user_details.bios}}</ion-text>
           
           </ion-card-content>
-      </ion-card>
-      <ion-button expand="full" type="submit" (click)='onSubmit()'>Book</ion-button>
+        </ion-card>
+      <ion-button padding expand="full" type="submit" (click)='onSubmit()'>Book</ion-button>
   </ion-content>

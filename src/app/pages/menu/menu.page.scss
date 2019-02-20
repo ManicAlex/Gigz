@@ -7,3 +7,9 @@
     border-right: var(--border);
     border-left: 0;
 }
+
+.hcs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }

@@ -48,7 +48,7 @@ export class SendRequestPage implements OnInit {
       this.details.sendRequest(this.credentialsForm.value,token,this.id)
       .subscribe(res => {
         this.presentToast();
-        this.router.navigate([`profile`])
+        this.router.navigate([`menu/profile`])
       })
     });
   }

@@ -54,7 +54,7 @@ export class UserDetailsUtilityService {
    }).pipe(
     tap(() => {
       this.authservice.authenticationState.next(true);
-      this.router.navigate(['profile']);
+      this.router.navigate(['menu/profile']);
     }),
     catchError(e => {
       throw new Error(e);
@@ -68,7 +68,7 @@ export class UserDetailsUtilityService {
       headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
    }).pipe(
     tap(() => {
-      this.router.navigate(['inside']);
+      this.router.navigate(['menu/profile']);
     }),
     catchError(e => {
       throw new Error(e);

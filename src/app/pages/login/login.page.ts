@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     this.authService.authenticationState.subscribe(state => {
       if (state) {
         console.log('Logged in');
-        this.router.navigate(['menu']);
+        this.router.navigate(['menu/profile']);
       } else {
         this.router.navigate(['login']);
       }

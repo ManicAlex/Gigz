@@ -24,7 +24,7 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.authService.authenticationState.subscribe(state => {
       if (state) {
-        this.router.navigate(['profile']);
+        this.router.navigate(['menu/profile']);
       }
   });
     this.credentialsForm = this.formBuilder.group({

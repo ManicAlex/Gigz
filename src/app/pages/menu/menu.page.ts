@@ -17,9 +17,14 @@ export class MenuPage implements OnInit {
       icon: 'person'
     },
     {
-      title: 'Edit Profile',
-      url: '/menu/edit-details',
-      icon: 'create'
+      title: 'Notifications',
+      url: '/menu/notifications',
+      icon: 'notifications'
+    },
+    {
+      title: 'Favorites',
+      url: '/menu/favourite',
+      icon: 'star'
     },
     {
       title: 'Venue Feed',
@@ -32,14 +37,9 @@ export class MenuPage implements OnInit {
       icon: 'microphone'
     },
     {
-      title: 'Favorites',
-      url: '/menu/favourite',
-      icon: 'star'
-    },
-    {
-      title: 'Notifications',
-      url: '/menu/notifications',
-      icon: 'notifications'
+      title: 'Edit Profile',
+      url: '/menu/edit-details',
+      icon: 'create'
     }
   ];
 

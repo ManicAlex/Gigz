@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content color="mediun" padding>
+<ion-content>
       <ion-fab vertical="top" horizontal="end" edge slot="fixed">
         <ion-fab-button>
           <ion-icon name="settings"></ion-icon>
@@ -25,7 +25,7 @@
       </ion-fab>
 
 
-
+  
     <ion-card>
         <ion-card-header>
             <ion-avatar class="avatar">
@@ -34,13 +34,14 @@
               
             <ion-card-title text-center>{{user.name}}</ion-card-title>
           <ion-card-subtitle text-center>Genre: {{user.user_details.genre}}</ion-card-subtitle>
+          <ion-card-subtitle text-center>Number: {{user.user_details.contactNumber}}</ion-card-subtitle>
         </ion-card-header>
       
-        <ion-card-content test-center>
+        <ion-card-content>
           <ion-text class="bio">{{user.user_details.bios}}</ion-text>
         
         </ion-card-content>
       </ion-card>
-
+  
 
 </ion-content>

@@ -11,9 +11,21 @@
 <ion-content padding>
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
-    <ion-item>
+    <ion-item lines="none">
       <ion-label position="stacked">Genre</ion-label>
-      <ion-input type="email" formControlName="genre"></ion-input>
+      <select type="email" formControlName="genre">
+          <option disabled selected>Select One</option>
+          <option  value="Jazz">Jazz</option>
+          <option  value="Rock">Rock</option>
+          <option  value="Pop">Pop</option>
+          <option  value="Folk">Folk</option>
+          <option  value="Hip hop">Hip hop</option>
+          <option  value="Country">Country</option>
+          <option  value="Dance">Dance</option>
+          <option  value="Funk">Funk</option>
+          <option  value="Techno">Techno</option>
+        </select>
+
     </ion-item>
  
     <ion-item>

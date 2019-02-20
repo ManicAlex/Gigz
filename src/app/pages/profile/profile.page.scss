@@ -1,4 +1,11 @@
+ion-card {
+  background-color: white !important;
+}
 
+ion-content {
+  --background: rgba(224, 219, 219, 0.473) !important;
+
+}
 
 .avatar{
     margin: auto;
@@ -11,19 +18,9 @@
  .bio{
     margin: auto;
     text-align: center !important;
-    font-size: 60px !important;
+    font-size: 20px !important;
  }
 
  .active-item {
     border-left: 8px solid var(--ion-color-primary);
-}
-
-.card {
-    background-color: #000; // black
-    box-shadow: none;
-  }
-
-  ion-content{
-
-    --ion-background-color:#111D12 !important;
 }

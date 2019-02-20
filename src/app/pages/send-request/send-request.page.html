@@ -1,5 +1,8 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="dark" text-center>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
       <ion-title>Send Request</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -27,6 +30,6 @@
           <ion-datetime  display-format="YYYY-MM-DD HH:mm:ss" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
       </ion-item>
    
-      <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>
+      <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Booking Request</ion-button>
     </form>
   </ion-content>
