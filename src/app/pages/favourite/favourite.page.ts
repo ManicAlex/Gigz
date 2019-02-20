@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-favourite',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouritePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
-
+  goToProfile(id) {
+    this.router.navigate(['/menu/user-profile'], { queryParams: { id: id } });
+  }
 }

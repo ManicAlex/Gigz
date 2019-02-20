@@ -29,7 +29,7 @@ export class ListBandsPage implements OnInit {
   }
 
   goToProfile(id) {
-    this.router.navigate(['/user-profile'], { queryParams: { id: id } });
+    this.router.navigate(['/menu/user-profile'], { queryParams: { id: id } });
   }
 
   countBands() {

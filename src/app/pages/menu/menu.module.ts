@@ -47,22 +47,22 @@ const routes: Routes = [
   canActivate: [AuthGuardService]
 },
 { path: 'menu',
-loadChildren: './pages/menu/menu.module#MenuPageModule',
+loadChildren: '../menu/menu.module#MenuPageModule',
 canActivate: [AuthGuardService]
 },
 { path: 'favourite',
-loadChildren: './pages/favourite/favourite.module#FavouritePageModule',
+loadChildren: '../favourite/favourite.module#FavouritePageModule',
 canActivate: [AuthGuardService]
 },
 { path: 'notifications',
-loadChildren: './pages/notifications/notifications.module#NotificationsPageModule',
+loadChildren: '../notifications/notifications.module#NotificationsPageModule',
 canActivate: [AuthGuardService]
 },
     ]
   },
   {
     path:'',
-    redirectTo: '/menu/profile/'
+    redirectTo: '/menu/profile'
   }
 ];
 

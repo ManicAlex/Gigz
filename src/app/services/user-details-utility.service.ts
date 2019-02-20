@@ -54,7 +54,7 @@ export class UserDetailsUtilityService {
    }).pipe(
     tap(() => {
       this.authservice.authenticationState.next(true);
-      this.router.navigate(['profile']);
+      this.router.navigate(['menu/profile']);
     }),
     catchError(e => {
       throw new Error(e);
@@ -63,17 +63,17 @@ export class UserDetailsUtilityService {
   }
 
    editDetails(credentials, token) {
-    console.log(credentials);
-    return this.http.patch(`${this.url}/api/updateAuthUserDetails`, this.getFormUrlEncoded(credentials),{
-      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
-   }).pipe(
-    tap(() => {
-      this.router.navigate(['inside']);
-    }),
-    catchError(e => {
-      throw new Error(e);
-    })
-  );
+      console.log(credentials);
+      return this.http.patch(`${this.url}/api/updateAuthUserDetails`, this.getFormUrlEncoded(credentials),{
+        headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+    }).pipe(
+      tap(() => {
+        this.router.navigate(['inside']);
+      }),
+      catchError(e => {
+        throw new Error(e);
+      })
+    );
   }
 
   sendRequest(credentials,token,id) {
@@ -104,6 +104,14 @@ export class UserDetailsUtilityService {
   declineRequest(id, token) {
     return this.http.get(
       `${this.url}/api/declineRequest/${id}`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  displayRequestsRecievedDetails(token) {
+    return this.http.get(
+      `${this.url}/api/requestingUsersToAuth`, 
       {
       headers: {'Authorization':`Bearer ${token}`}
    });

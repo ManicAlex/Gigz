@@ -53,8 +53,16 @@ const routes: Routes = [
   loadChildren: './pages/menu/menu.module#MenuPageModule',
   canActivate: [AuthGuardService] 
 },
-  { path: 'show-my-requests', loadChildren: './pages/show-my-requests/show-my-requests.module#ShowMyRequestsPageModule' },
-  { path: 'show-requests-received', loadChildren: './pages/show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule' },
+  { 
+    path: 'show-my-requests', 
+    loadChildren: './pages/show-my-requests/show-my-requests.module#ShowMyRequestsPageModule', 
+    canActivate: [AuthGuardService] 
+  },
+  { 
+    path: 'show-requests-received', 
+    loadChildren: './pages/show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule',
+    canActivate: [AuthGuardService] 
+   },
 
 ];
  

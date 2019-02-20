@@ -10,22 +10,11 @@
   
   <ion-content padding>
       <ion-card *ngFor="let user of users">
-          <ion-card-header (click)='goToProfile(user.id)'>
-            <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
-            <ion-card-title>{{user.name}}</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-        <ion-card>
-          <ion-item>
-            <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-label>ion-item in a card, icon left, button right</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
-          </ion-item>
-        
-          <ion-card-content>
-            This is content, without any paragraph or header tags,
-            within an ion-card-content element.
-          </ion-card-content>
-        </ion-card>
+        <ion-card-header (click)='goToProfile(user.id)'>
+          <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle>
+          <ion-card-title>{{user.name}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+       
         
   </ion-content>
