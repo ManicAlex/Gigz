@@ -1,34 +1,18 @@
 describe('Clicking on the login button ', function(){  
-    var username, password, loginButton;
-
+    var username,password,button1;
     beforeEach(function() {
-        browser.get('/#/login');
-        username = element(by.model('vm.username'));
-        password = element(by.model('vm.password'));
-        loginButton = element(by.linkText('Log in'));
+        browser.get('/login');
+        button1 =  element(by.css('.button1'))
     });
 
-    it('should validate the credentials for a successful login and display the My Dinners view', function() {  
-        username.sendKeys('gonehybrid');
-        password.sendKeys('password');
-    
-        loginButton.click().then(function() {
-            expect(browser.getLocationAbsUrl()).toMatch('/my-dinners');
-    
-            var dinners = element.all(by.repeater('dinner in vm.dinners'));
-            expect(dinners.count()).toEqual(3);
-        });
+    it('should have a title', function() {  
+        expect(browser.getTitle()).toEqual('Gigz');
     });
+    it('should move to register', function() {
+        button1.click();
+     ////   demo();
+    
+        expect(browser.getCurrentUrl()).toMatch('/register');
+      });
 
-    it('should display a popup for an unsuccessful login', function() {  
-        username.sendKeys('gonehybrid');
-        password.sendKeys('idontknow');
-    
-        loginButton.click().then(function() {
-            expect(browser.getLocationAbsUrl()).toMatch('/login');
-    
-            var popup = element(by.css('.popup-container.popup-showing.active'));
-            expect(popup.isDisplayed()).toBeTruthy();
-        });
-    });
 });

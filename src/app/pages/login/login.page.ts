@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { ConnectApiService, Config } from '../../services/connect-api.service';
 import {Router} from '@angular/router';
   
 
@@ -13,12 +12,10 @@ import {Router} from '@angular/router';
 export class LoginPage implements OnInit {
  
   credentialsForm: FormGroup;
-  config: Config;
  
   constructor(
     private formBuilder: FormBuilder, 
     private authService: AuthService, 
-    private api: ConnectApiService,
     private router:Router
     ) { }
  
@@ -51,14 +48,4 @@ export class LoginPage implements OnInit {
       this.authService.login(value).subscribe();
     })
   };
-
-  showConfig() {
-    this.api.getConfig()
-      .subscribe((data: Config) => this.config = {
-          heroesUrl: data['heroesUrl'],
-          textfile:  data['textfile']
-      });
-  }
-  
- 
 }
