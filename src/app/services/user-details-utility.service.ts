@@ -4,16 +4,21 @@ import { environment } from '../../environments/environment';
 import { Storage } from '@ionic/storage';
 import { tap, catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-
+import {ToastController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserDetailsUtilityService {
 
-  constructor(private http: HttpClient, private storage: Storage, private router: Router,private authservice:AuthService) { }
+  constructor(
+    private http: HttpClient, 
+    private storage: Storage,
+    private router: Router,
+    private authservice:AuthService,
+    private toastController: ToastController
+    ) { }
 
   url = environment.url;
   id = '';
@@ -93,17 +98,17 @@ export class UserDetailsUtilityService {
    });
   }
 
-  acceptRequest(id, token) {
-    return this.http.get(
-      `${this.url}/api/acceptRequest/${id}`, 
+  acceptRequest(id,token) {
+    return this.http.patch(
+      `${this.url}/api/acceptRequest/${id}`,'', 
       {
       headers: {'Authorization':`Bearer ${token}`}
    });
   }
 
-  declineRequest(id, token) {
-    return this.http.get(
-      `${this.url}/api/declineRequest/${id}`, 
+  declineRequest(id,token) {
+    return this.http.patch(
+      `${this.url}/api/declineRequest/${id}`, '',
       {
       headers: {'Authorization':`Bearer ${token}`}
    });
@@ -115,6 +120,31 @@ export class UserDetailsUtilityService {
       {
       headers: {'Authorization':`Bearer ${token}`}
    });
+  }
+
+  getRequest(id, token) {
+    return this.http.get(
+      `${this.url}/api/showRequestsToAuth/${id}`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  async presentToast(msg:string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 4000,
+      color: 'danger'
+    });
+    toast.present();
+  }
+  async presentPositiveToast(msg:string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 4000,
+      color: 'success'
+    });
+    toast.present();
   }
 
   getFormUrlEncoded(toConvert) {

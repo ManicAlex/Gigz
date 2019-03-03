@@ -45,9 +45,7 @@ export class EditDetailsPage implements OnInit {
     this.credentialsForm = this.formBuilder.group({
       genre: ['', Validators.required],
       bios: ['', Validators.required],
-      //avatarURL: [],
       contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{10}$/)]],
-      //locationId: [],
     });
   }
 

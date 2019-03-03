@@ -63,6 +63,7 @@ const routes: Routes = [
     loadChildren: './pages/show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule',
     canActivate: [AuthGuardService] 
    },
+  { path: 'request', loadChildren: './pages/request/request.module#RequestPageModule' },
 
 ];
  

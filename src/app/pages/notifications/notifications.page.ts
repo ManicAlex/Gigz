@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserDetailsUtilityService } from 'src/app/services/user-details-utility.service';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
+import {SharedDetailsService} from 'src/app/services/shared-details.service'
 
 @Component({
   selector: 'app-notifications',
@@ -12,11 +13,13 @@ export class NotificationsPage implements OnInit {
 
   constructor(
     private details: UserDetailsUtilityService,
+    private sharedDetails: SharedDetailsService,
     private storage:Storage,
     private router: Router
     ) { }
 
     values:object;
+    currentValue:object;
 
   ngOnInit() {
     this.storage.get('access_token').then((token) => {
@@ -32,7 +35,9 @@ export class NotificationsPage implements OnInit {
   }
 
   goToRequest(id) {
-    this.router.navigate(['/request'], { queryParams: { id: id } });
+    this.currentValue = this.values[id];
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/request']);
   }
 
 }

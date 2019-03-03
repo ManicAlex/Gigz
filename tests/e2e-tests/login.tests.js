@@ -1,3 +1,4 @@
+
 describe('Clicking on the login button ', function(){  
     var username,password,button1;
     beforeEach(function() {
@@ -10,8 +11,6 @@ describe('Clicking on the login button ', function(){
     });
     it('should move to register', function() {
         button1.click();
-     ////   demo();
-    
         expect(browser.getCurrentUrl()).toMatch('/register');
       });
 

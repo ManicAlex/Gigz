@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { HttpClient } from '@angular/common/http';
 import { UserDetailsUtilityService } from './../../services/user-details-utility.service';
 import { Router } from '@angular/router';
 
@@ -13,10 +11,8 @@ export class ListBandsPage implements OnInit {
 
   users;
 
-  constructor(
-    private storage: Storage, 
+  constructor( 
     private details: UserDetailsUtilityService, 
-    private http: HttpClient,
     private router: Router
     ) { }
 
