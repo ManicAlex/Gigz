@@ -25,6 +25,7 @@ export class ShowMyRequestsPage implements OnInit {
       });
     });
   }
+  
 
   acceptRequest(id) {
     this.storage.get('access_token').then((token) => {

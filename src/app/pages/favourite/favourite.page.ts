@@ -21,7 +21,7 @@ export class FavouritePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.details.getAllBands()
+    this.details.getAllVenues()
     .subscribe(data => {
       this.users = data['data'];
       console.log(this.users);
@@ -32,7 +32,7 @@ export class FavouritePage implements OnInit {
     this.router.navigate(['/user-profile'], { queryParams: { id: id } });
   }
 
-  countBands() {
+  countVenues() {
     if (this.users == []) {
       console.log('no results');
     }

@@ -18,7 +18,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Notifications',
-      url: '/menu/notifications',
+      url: '/menu/show-my-requests',
       icon: 'notifications'
     },
     {

@@ -7,6 +7,7 @@ import { UserDetailsUtilityService } from './../../services/user-details-utility
 import {UserServiceService} from './../../services/user-service.service';
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',

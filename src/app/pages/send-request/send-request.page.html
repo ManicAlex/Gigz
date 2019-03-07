@@ -26,8 +26,8 @@
       </ion-item>
 
       <ion-item>
-          <ion-label position="floating">Date</ion-label>
-          <ion-datetime  display-format="YYYY-MM-DD HH:mm:ss" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
+          <ion-label position="floating">Date: YYYY-MM-DD HH:mm(24h)</ion-label>
+          <ion-datetime  display-format="YYYY-MM-DD HH:mm:ss" min="2019" max="2022" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
       </ion-item>
    
       <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Booking Request</ion-button>

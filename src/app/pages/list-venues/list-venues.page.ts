@@ -26,9 +26,11 @@ export class ListVenuesPage implements OnInit {
       this.users = data['data'];
     });
   }
+
   goToProfile(id) {
     this.router.navigate(['/menu/user-profile'], { queryParams: { id: id } });
   }
+  
   countVenues() {
     if (this.users == []) {
       console.log('no results');

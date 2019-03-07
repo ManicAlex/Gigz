@@ -1,22 +1,33 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
-          </ion-buttons>
-      <ion-title>Show my Requests</ion-title>
+  <ion-toolbar color="dark" text-center>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <ion-title>Notifications</ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-content padding>
+  <ion-content>
       <ion-card *ngFor="let request of requests">
           <ion-card-header (click)='goToProfile(user.id)'>
-            <ion-card-subtitle>Location: {{request.location}}</ion-card-subtitle>
-            <ion-card-title>{{request.details}}</ion-card-title>
-            <ion-text>€{{request.price}}</ion-text><br>
-            <ion-text *ngIf="request.status === 0">Pending</ion-text>
+              <ion-item>
+            <ion-thumbnail slot="start">
+                  <img src="../../../assets/img/default.png">
+                </ion-thumbnail>
+                <ion-row >
+                    <ion-col size="12" size-md>
+                <ion-card-title color="dark">{{request.details}}</ion-card-title></ion-col>
+                <ion-col size="12" size-md>
+                    <ion-card-subtitle color="dark">Location: {{request.location}}</ion-card-subtitle></ion-col>
+                    <ion-col size="12" size-md>
+                        <ion-text>€{{request.price}}</ion-text></ion-col>
+                        <ion-col size="12" size-md>
+                            <ion-text *ngIf="request.status === 0">Pending</ion-text>
             <ion-text *ngIf="request.status === 1">Accepted</ion-text>
             <ion-text *ngIf="request.status === 2">Rejected</ion-text>
+                        </ion-col>
+                </ion-row>
+              </ion-item>
           </ion-card-header>
-        </ion-card>
-  
+        </ion-card>        
   </ion-content>

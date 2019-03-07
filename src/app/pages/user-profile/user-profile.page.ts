@@ -58,7 +58,7 @@ export class UserProfilePage implements OnInit {
     });
   }
   onSubmit() {
-    this.router.navigate(['/send-request'], { queryParams: { id: this.id } });
+    this.router.navigate(['menu/send-request'], { queryParams: { id: this.id } });
   }
 
   async presentNoIDToast() {

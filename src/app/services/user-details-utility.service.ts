@@ -117,6 +117,33 @@ export class UserDetailsUtilityService {
    });
   }
 
+
+  storeReview(credentials,token,id) {
+    return this.http.post(
+      `${this.url}/api/storeReview/${id}`, 
+      credentials,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  showReviews(id, token) {
+    return this.http.get(
+      `${this.url}/api/showReviews/${id}`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  myReviews(token) {
+    return this.http.get(
+      `${this.url}/api/myReviews`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+
   getFormUrlEncoded(toConvert) {
 		const formBody = [];
 		for (const property in toConvert) {
