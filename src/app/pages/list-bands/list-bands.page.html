@@ -8,7 +8,12 @@
     </ion-toolbar>
   </ion-header>
   
+<<<<<<< HEAD
   <ion-content>
+=======
+  <ion-content padding>
+      <ion-text *ngIf="findIfEmpty()">No bands yet.</ion-text>
+>>>>>>> b00e4ca68333c4ef4908cbcd388d421a3e9130dc
       <ion-card *ngFor="let user of users">
           <ion-card-header (click)='goToProfile(user.id)'>
               <ion-item>

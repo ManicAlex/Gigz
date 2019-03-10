@@ -21,9 +21,9 @@
     <ion-text>Requests:</ion-text>
   <div *ngFor="let request of requests">
       <ion-text>Price: {{request.price}}</ion-text>
-      <ion-text>Price: {{request.details}}</ion-text>
-      <ion-text>Date: {{date}}</ion-text>
-      <ion-text>Time: {{time}}</ion-text>
+      <ion-text>Details: {{request.details}}</ion-text>
+      <ion-text>Date: {{getFormattedDate(request.requestDate)}}</ion-text>
+      <ion-text>Time: {{getFormattedTime(request.requestDate)}}</ion-text>
       <ion-text>Status: {{getStatus(request.status)}}</ion-text>
     
     <ion-button expand="full" color="success" (click)='acceptRequest(request.id)' *ngIf='request.status === 0'>Accept</ion-button>

@@ -36,5 +36,12 @@ export class ListVenuesPage implements OnInit {
       console.log('no results');
     }
   }
+  findIfEmpty() {
+    if (this.users['length'] === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }

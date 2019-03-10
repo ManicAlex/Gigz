@@ -3,6 +3,7 @@ import { UserDetailsUtilityService } from 'src/app/services/user-details-utility
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
 import {SharedDetailsService} from 'src/app/services/shared-details.service'
+import { ValueAccessor } from '@ionic/angular/dist/directives/control-value-accessors/value-accessor';
 
 @Component({
   selector: 'app-notifications',
@@ -20,9 +21,31 @@ export class NotificationsPage implements OnInit {
 
     values:object;
     currentValue:object;
+    acceptedValues:object;
+    acceptedValuesOther:object;
+    declinedValues:object;
 
   ngOnInit() {
+    this.values,this.acceptedValues,this.declinedValues = null;
     this.storage.get('access_token').then((token) => {
+      this.details.displayAcceptedRequestsFromSelf(token).subscribe(
+        data => {
+          this.acceptedValuesOther = data['data'];
+          console.log(this.acceptedValuesOther);
+        }
+      );
+      this.details.displayAcceptedRequests(token).subscribe(
+        data => {
+          this.acceptedValues = data['data'];
+          console.log(this.acceptedValues);
+        }
+      );
+      this.details.displayRejectedRequests(token).subscribe(
+        data => {
+          this.declinedValues = data['data'];
+          console.log(this.declinedValues);
+        }
+      );
       this.details.displayRequestsRecievedDetails(token).subscribe(
         data => {
           this.values = data['data'];
@@ -38,6 +61,14 @@ export class NotificationsPage implements OnInit {
     this.currentValue = this.values[id];
     this.sharedDetails.setData(this.currentValue);
     this.router.navigate(['/request']);
+  }
+
+  findIfEmpty() {
+    if (this.values['length'] === 0 && this.acceptedValues['length'] === 0 && this.declinedValues['length'] === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

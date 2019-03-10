@@ -26,6 +26,13 @@ ion-content {
     text-align: center !important;
     font-size: 20px !important;
  }
+ .favourites {
+  width:2rem;
+  height:auto;
+  position:absolute;
+  right:1rem;
+  top:1rem;
+}
 
  .active-item {
     border-left: 8px solid var(--ion-color-primary);
@@ -54,5 +61,4 @@ ion-button {
     margin-bottom: 30px;
 
   }
-  
-}
+} 

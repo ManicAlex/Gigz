@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDetailsUtilityService } from './../../services/user-details-utility.service';
 import { Router } from '@angular/router';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'app-list-bands',
@@ -13,7 +14,8 @@ export class ListBandsPage implements OnInit {
 
   constructor( 
     private details: UserDetailsUtilityService, 
-    private router: Router
+    private router: Router,
+    private storage: Storage
     ) { }
 
   ngOnInit() {
@@ -28,9 +30,11 @@ export class ListBandsPage implements OnInit {
     this.router.navigate(['/menu/user-profile'], { queryParams: { id: id } });
   }
 
-  countBands() {
-    if (this.users == []) {
-      console.log('no results');
+  findIfEmpty() {
+    if (this.users['length'] === 0) {
+      return true;
+    } else {
+      return false;
     }
   }
 
