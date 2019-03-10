@@ -122,6 +122,29 @@ export class UserDetailsUtilityService {
    });
   }
 
+  displayAcceptedRequests(token) {
+    return this.http.get(
+      `${this.url}/api/requestingUsersToAuthAccept`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  displayRejectedRequests(token) {
+    return this.http.get(
+      `${this.url}/api/requestingUsersToAuthDecline`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+  displayAcceptedRequestsFromSelf(token) {
+    return this.http.get(
+      `${this.url}/api/showRequestedFromUserAccepted`, 
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
   getRequest(id, token) {
     return this.http.get(
       `${this.url}/api/showRequestsToAuth/${id}`, 
@@ -156,5 +179,43 @@ export class UserDetailsUtilityService {
 		}
 		return formBody.join('&');
   }
-  
+
+  storeFav(id, token) {
+    return this.http.post(
+      `${this.url}/api/storeFav/${id}`,'',
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  getAllFavourites(token){
+    return this.http.get(
+      `${this.url}/api/favoritedUsersTrue`,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+
+  unfavourite(id, token) {
+    return this.http.patch(
+      `${this.url}/api/unFavorite/${id}`,'',
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+  storeReview(credentials,token,id) {
+    return this.http.post(
+      `${this.url}/api/storeReview/${id}`, 
+      credentials,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+  showReviewsById(token,id) {
+    return this.http.get(
+      `${this.url}/api/showReviews/${id}`,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
 }

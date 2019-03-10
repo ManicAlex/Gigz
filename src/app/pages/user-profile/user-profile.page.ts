@@ -3,6 +3,7 @@ import { UserDetailsUtilityService } from 'src/app/services/user-details-utility
 import { Storage } from '@ionic/storage';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,12 +17,16 @@ export class UserProfilePage implements OnInit {
     private storage: Storage,
     private router: Router,
     private actRoute: ActivatedRoute,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private formBuilder: FormBuilder
     ) { }
 
     id:number;
     user;
     success:boolean;
+    credentialsForm: FormGroup;
+    token:string;
+    reviews;
 
   ngOnInit() {
     this.user = {
@@ -52,13 +57,63 @@ export class UserProfilePage implements OnInit {
       this.router.navigate(['list-bands']);
     }
     this.storage.get('access_token').then((token) => {
+      this.token = token;
       this.service.getUserById(token,this.id).subscribe(val => {
         this.user = val['data'][0];
+        console.log(this.id)
       });
     });
+    console.log(this.token);
+    console.log(this.user);
+    this.storage.get('access_token').then((token) => {
+      console.log(this.id)
+      this.service.showReviewsById(token,this.id).subscribe(val => {
+        this.reviews = val['data'];
+          console.log(val['data']);
+        }
+      );
+  });
+  
+      
+    this.credentialsForm = this.formBuilder.group({
+      rating: ['', [Validators.required]],
+      body: ['', [Validators.required]]
+    });
   }
-  onSubmit() {
+
+  book() {
     this.router.navigate(['/send-request'], { queryParams: { id: this.id } });
+  }
+
+  onSubmit() {
+    this.storage.get('access_token').then((token) => {
+      this.service.storeReview(this.credentialsForm.value,token,this.user['id']).subscribe(
+        res => {
+          if (res['success']) {
+            this.service.presentPositiveToast('Review added successfully');
+          } else {
+            this.service.presentToast('Review failed to be added')
+          }
+        }
+      );
+    }
+    );
+  }
+
+  storeFav(id) {
+    this.storage.get('access_token').then(
+      token => {
+        this.service.storeFav(id,token).subscribe(
+          res => {
+            if (res['success']) {
+              this.service.presentPositiveToast('Added to favourites');
+            } else {
+              this.service.presentToast('Failed to add to favourites');
+            }
+          }
+        );
+      }
+    )
   }
 
   async presentNoIDToast() {

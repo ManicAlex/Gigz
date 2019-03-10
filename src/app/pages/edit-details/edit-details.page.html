@@ -13,7 +13,7 @@
  
     <ion-item lines="none">
       <ion-label position="stacked">Genre</ion-label>
-      <select type="email" formControlName="genre">
+      <select type="email" formControlName="genre" value="{{user['genre']}}">
           <option disabled selected>Select One</option>
           <option  value="Jazz">Jazz</option>
           <option  value="Rock">Rock</option>
@@ -30,12 +30,12 @@
  
     <ion-item>
       <ion-label position="stacked">Bio</ion-label>
-      <ion-textarea formControlName="bios"></ion-textarea>
+      <ion-textarea formControlName="bios" value="{{user['bios']}}"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Contact Number</ion-label>
-      <ion-input type="text" formControlName="contactNumber"></ion-input>
+      <ion-input type="text" formControlName="contactNumber"  value="{{user['contactNumber']}}"></ion-input>
     </ion-item>
  
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>

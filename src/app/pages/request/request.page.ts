@@ -105,26 +105,28 @@ export class RequestPage implements OnInit {
         return "Pending";
       }
     }
+
+    getFormattedDate(date) {
+      let date2 = new Date(date)
+      const day = date2.getDate();
+      const month = date2.getMonth() + 1;
+      const year = date2.getFullYear();
+    
+      return `${day}/${month}/${year}`;
+    }
+    
+    getFormattedTime(date) {
+      let date2 = new Date(date)
+      let hours = date2.getHours();
+      let mins = date2.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      return `${hours}:${mins} ${ampm}`;
+    }
 }
 
-function getFormattedDate(date) {
-  let date2 = new Date(date)
-  const day = date2.getDate();
-  const month = date2.getMonth() + 1;
-  const year = date2.getFullYear();
 
-  return `${day}/${month}/${year}`;
-}
-
-function getFormattedTime(date) {
-  let date2 = new Date(date)
-  let hours = date2.getHours();
-  let mins = date2.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-  return `${hours}:${mins} ${ampm}`;
-}
 
 
 

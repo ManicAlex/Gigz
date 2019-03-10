@@ -9,6 +9,7 @@
   </ion-header>
   
   <ion-content padding>
+      <ion-text *ngIf="findIfEmpty()">No bands yet.</ion-text>
       <ion-card *ngFor="let user of users">
           <ion-card-header (click)='goToProfile(user.id)'>
               <ion-item>
