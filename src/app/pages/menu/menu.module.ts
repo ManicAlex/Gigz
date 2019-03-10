@@ -72,11 +72,7 @@ canActivate: [AuthGuardService]
   path: 'show-requests-received', 
   loadChildren: '../show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule',
   canActivate: [AuthGuardService] 
-},
-{ path: 'add-review', 
-loadChildren: '../add-review/add-review.module#AddReviewPageModule',
-canActivate: [AuthGuardService] 
-},
+}
 
     ]
   },

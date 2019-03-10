@@ -118,6 +118,14 @@ export class AuthService {
     });
     toast.present();
   }
+  async presentPositiveToast(msg:string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 4000,
+      color: 'success'
+    });
+    toast.present();
+  }
 }
 
 export interface Config {

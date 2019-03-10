@@ -29,10 +29,6 @@ export class ProfilePage implements OnInit {
     private getUser: UserServiceService
     ) { }
 
-    
-
-  
-
   ngOnInit() {
     this.user = {
       created_at: null,
