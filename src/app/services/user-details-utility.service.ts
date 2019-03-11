@@ -218,4 +218,11 @@ export class UserDetailsUtilityService {
       headers: {'Authorization':`Bearer ${token}`}
    });
   }
+  showAuthUsersReviews(token) {
+    return this.http.get(
+      `${this.url}/api/myReviews`,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
 }
