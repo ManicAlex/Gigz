@@ -42,4 +42,16 @@
         
         </ion-card-content>
       </ion-card>
+<<<<<<< HEAD
+=======
+      <ion-text>Reviews:</ion-text>
+      <ion-card *ngFor="let review of reviews">
+        <ion-card-subtitle *ngIf="findIfEmpty()">No reviews yet.</ion-card-subtitle>
+          <ion-card-header>
+            <ion-card-subtitle>Rating: {{review['rating']}}</ion-card-subtitle>
+            <ion-card-title>{{review['body']}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+>>>>>>> 31a27d5787bc7912861eecdb785297de434fba97
 </ion-content>

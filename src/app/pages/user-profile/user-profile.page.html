@@ -37,9 +37,16 @@
           </ion-card-content>
           <ion-button margin="5px" expand="full" type="submit" (click)='book()'>Book</ion-button>
         </ion-card>
+<<<<<<< HEAD
 
       
+=======
+      <ion-button padding expand="full" type="submit" (click)='book()'>Book</ion-button>
+      <ion-text>Reviews:</ion-text>
+      <ion-card-subtitle *ngIf="findIfEmpty()">No reviews yet.</ion-card-subtitle>
+>>>>>>> 31a27d5787bc7912861eecdb785297de434fba97
       <ion-card *ngFor="let review of reviews">
+  
           <ion-card-header>
             <ion-card-subtitle>Rating: {{review['rating']}}</ion-card-subtitle>
             <ion-card-title>{{review['body']}}</ion-card-title>

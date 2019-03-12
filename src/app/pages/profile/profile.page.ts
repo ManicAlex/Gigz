@@ -15,7 +15,11 @@ import {UserServiceService} from './../../services/user-service.service';
 })
 export class ProfilePage implements OnInit {
   token;
+<<<<<<< HEAD
  
+=======
+  reviews;
+>>>>>>> 31a27d5787bc7912861eecdb785297de434fba97
 
 
   selectedPath = '';
@@ -62,6 +66,13 @@ export class ProfilePage implements OnInit {
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
     });
+    this.storage.get('access_token').then((token) => {
+      this.details.showAuthUsersReviews(token).subscribe(val => {
+        this.reviews = val['data'];
+          console.log(val['data']);
+        }
+      );
+      });
 
   }
 
@@ -80,6 +91,14 @@ export class ProfilePage implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  findIfEmpty() {
+    if (this.reviews['length'] === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
   
 }

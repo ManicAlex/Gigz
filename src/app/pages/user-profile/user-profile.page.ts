@@ -124,4 +124,12 @@ export class UserProfilePage implements OnInit {
     });
     toast.present();
   }
+
+  findIfEmpty() {
+    if (this.reviews['length'] === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
