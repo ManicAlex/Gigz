@@ -23,13 +23,6 @@ export class FavouritePage implements OnInit {
   token;
 
   ngOnInit() {
-<<<<<<< HEAD
-    this.details.getAllVenues()
-    .subscribe(data => {
-      this.users = data['data'];
-      console.log(this.users);
-    });
-=======
     this.storage.get('access_token').then(token => {
       this.token = token;
       this.details.getAllFavourites(token)
@@ -38,18 +31,12 @@ export class FavouritePage implements OnInit {
         console.log(this.users);
       });
    });
->>>>>>> b00e4ca68333c4ef4908cbcd388d421a3e9130dc
   }
 
   goToProfile(id) {
-    this.router.navigate(['/user-profile'], { queryParams: { id: id } });
+    this.router.navigate(['menu/user-profile'], { queryParams: { id: id } });
   }
 
-<<<<<<< HEAD
-  countVenues() {
-    if (this.users == []) {
-      console.log('no results');
-=======
   unfavourite(id) {
     this.details.unfavourite(id,this.token).subscribe(
       res => {
@@ -73,7 +60,6 @@ export class FavouritePage implements OnInit {
       return true;
     } else {
       return false;
->>>>>>> b00e4ca68333c4ef4908cbcd388d421a3e9130dc
     }
   }
 }

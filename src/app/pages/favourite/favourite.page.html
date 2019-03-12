@@ -9,8 +9,6 @@
 </ion-header>
 
 
-<<<<<<< HEAD
-=======
     <ion-content padding>
         <ion-text *ngIf="findIfEmpty()">No favourites yet.</ion-text>
         <ion-card *ngFor="let user of users">
@@ -19,22 +17,29 @@
               <ion-thumbnail slot="start">
                     <img src="../../../assets/img/default.png">
                   </ion-thumbnail>
-                  <ion-list>
-                  <ion-list-header><ion-card-title color="primary" text-center>{{user.name}}</ion-card-title></ion-list-header>
-                  <!-- <ion-item>
-                  <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle></ion-item>
-                  <ion-item>
-                  <ion-card-subtitle>Number: {{user.user_details.contactNumber}}</ion-card-subtitle></ion-item> -->
+                  <ion-row >
+                      <ion-col padding size="12" size-md>
+                        <ion-card-title color="primary" text-center>{{user.name}}</ion-card-title>
+                      </ion-col>
+                      <ion-col padding size="12" size-md>
+                  <ion-card-subtitle>Genre:<br> {{user.user_details.genre}}</ion-card-subtitle>
+                </ion-col>
+                  <ion-col padding size="12" size-md>
+                  <ion-card-subtitle>Number:<br> {{user.user_details.contactNumber}}</ion-card-subtitle>
+                  </ion-col>
+                  <ion-col padding size="12" size-md>
+
                   <ion-button (click)="unfavourite(user.id)">Unfavourite</ion-button>
-                </ion-list>
+                  </ion-col>
+                  </ion-row>
+
                 </ion-item>
             </ion-card-header>
           </ion-card>        
     </ion-content>
   
->>>>>>> b00e4ca68333c4ef4908cbcd388d421a3e9130dc
 
-<ion-content>
+<!-- <ion-content>
     <ion-card *ngFor="let user of users">
         <ion-card-header (click)='goToProfile(user.id)'>
             <ion-item>
@@ -54,6 +59,6 @@
             </ion-item>
         </ion-card-header>
       </ion-card>        
-</ion-content>
+</ion-content> -->
   
 

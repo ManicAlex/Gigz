@@ -7,13 +7,23 @@
     <ion-title>Edit Profile</ion-title>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content padding>
+<ion-content>
+    <ion-card>
+    <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col align-self-center size-md="10" size-xs="12">
+              <div class="avatar">
+                  <img src="../../../assets/img/logo.png">
+                 </div>
+            <div text-center>
+              <h4>Edit Details</h4>
+            </div>
+            <div padding>
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
     <ion-item lines="none">
       <ion-label position="stacked">Genre</ion-label>
-      <select type="email" formControlName="genre" value="{{user['genre']}}">
+      <select expand="full" type="email" formControlName="genre" value="{{user['genre']}}">
           <option disabled selected>Select One</option>
           <option  value="Jazz">Jazz</option>
           <option  value="Rock">Rock</option>
@@ -40,4 +50,9 @@
  
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>
   </form>
+</div>
+</ion-col>
+</ion-row>
+</ion-grid>
+      </ion-card>
 </ion-content>

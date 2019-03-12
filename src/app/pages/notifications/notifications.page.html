@@ -12,14 +12,28 @@
     <ion-text *ngIf="findIfEmpty()">No notifications yet.</ion-text>
     <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
         <ion-card-header  (click)='goToRequest(t)'>
+            <ion-grid>
+                <ion-row align-items-center >
+                    <div class="hcs">
+                    <ion-col size="12" size-md>
+            <ion-avatar class="avatar">
           <img src="../../../assets/img/default.png">
+            </ion-avatar>
+                    </ion-col>
+                    <ion-col align-self-start size="12" size-md>
           <ion-card-title>Request accepted by {{value.user['name']}}</ion-card-title>
+                    </ion-col>
+                    </div>
+                </ion-row>
+            </ion-grid>
         </ion-card-header>
     </ion-card>
     <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="i">
         <ion-card-header  (click)='goToRequest(b)'>
           <ion-text>Accepted</ion-text>
+          <ion-avatar class="avatar">
           <img src="../../../assets/img/default.png">
+          </ion-avatar>
           <ion-card-title>Request made by {{value.name}}</ion-card-title>
           <ion-text>{{value.user_details['genre']}}</ion-text>
         </ion-card-header>
@@ -27,14 +41,18 @@
     <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="i">
         <ion-card-header  (click)='goToRequest(l)'>
           <ion-text>Declined</ion-text>
+          <ion-avatar class="avatar">
           <img src="../../../assets/img/default.png">
+          </ion-avatar>
           <ion-card-title>Request made by {{value.name}}</ion-card-title>
           <ion-text>{{value.user_details['genre']}}</ion-text>
         </ion-card-header>
     </ion-card>
     <ion-card *ngFor="let value of values; let i = index" [attr.data-index]="i">
       <ion-card-header  (click)='goToRequest(i)'>
+          <ion-avatar class="avatar">
         <img src="../../../assets/img/default.png">
+          </ion-avatar>
         <ion-card-title>Request made by {{value.name}}</ion-card-title>
         <ion-text>{{value.user_details['genre']}}</ion-text>
       </ion-card-header>

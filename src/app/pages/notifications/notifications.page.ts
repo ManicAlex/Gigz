@@ -60,7 +60,7 @@ export class NotificationsPage implements OnInit {
   goToRequest(id) {
     this.currentValue = this.values[id];
     this.sharedDetails.setData(this.currentValue);
-    this.router.navigate(['/request']);
+    this.router.navigate(['menu/request']);
   }
 
   findIfEmpty() {

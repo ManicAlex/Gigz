@@ -11,12 +11,22 @@ ion-content {
 
 }
 
+.col-style{
+  text-align: left !important;
+}
+
+.row-style{
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+}
+
 .avatar{
     margin: auto;
     width:100% !important;  
     height : 100% !important;  
-    max-width: 150px !important;  //any size
-    max-height: 150px !important; //any size 
+    max-width: 5rem !important;  //any size
+    max-height: 5rem !important; //any size 
     border: 1px solid var(--ion-color-primary);
     
  }
@@ -52,5 +62,34 @@ ion-button {
     margin-bottom: 20px;
 
   }
+ 
+  .col-style{
+    text-align: center !important;
+  }
   
+  .row-style{
+    align-items: center !important;
+    justify-content: space-evenly !important;
+  }
+
+  .ion-padding, [padding] {
+   --padding-start: var(--ion-padding, 0.3rem)!important;
+   --padding-end: var(--ion-padding, 0.3rem)!important;
+   --padding-top: var(--ion-padding, 0.3rem)!important; 
+    --padding-bottom: var(--ion-padding, 0.3rem)!important; 
+   padding-left: var(--ion-padding, 0.3rem)!important; 
+     padding-right: var(--ion-padding, 0.3rem)!important; 
+     padding-top: var(--ion-padding, 0.3rem)!important; 
+    padding-bottom: var(--ion-padding, 0.3rem)!important; 
+}
+
+.avatar{
+  margin: auto;
+  width:100% !important;  
+  height : 100% !important;  
+  max-width: 3rem !important;  //any size
+  max-height: 3rem !important; //any size 
+  border: 1px solid var(--ion-color-primary);
+  
+}
 }

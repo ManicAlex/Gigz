@@ -80,14 +80,9 @@ export class UserProfilePage implements OnInit {
       body: ['', [Validators.required]]
     });
   }
-<<<<<<< HEAD
-  onSubmit() {
-    this.router.navigate(['menu/send-request'], { queryParams: { id: this.id } });
-=======
 
   book() {
-    this.router.navigate(['/send-request'], { queryParams: { id: this.id } });
->>>>>>> b00e4ca68333c4ef4908cbcd388d421a3e9130dc
+    this.router.navigate(['menu/send-request'], { queryParams: { id: this.id } });
   }
 
   onSubmit() {

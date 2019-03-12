@@ -15,6 +15,7 @@ import {UserServiceService} from './../../services/user-service.service';
 })
 export class ProfilePage implements OnInit {
   token;
+ 
 
 
   selectedPath = '';
@@ -64,7 +65,6 @@ export class ProfilePage implements OnInit {
 
   }
 
-  
 
   listBands(){
     this.router.navigate(['list-bands']);
