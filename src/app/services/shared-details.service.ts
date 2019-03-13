@@ -16,4 +16,5 @@ export class SharedDetailsService {
   setData(data) {
     this.data = data;
   }
+  
 }

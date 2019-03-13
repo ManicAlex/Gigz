@@ -59,9 +59,33 @@ export class NotificationsPage implements OnInit {
 
   goToRequest(id) {
     this.currentValue = this.values[id];
+    console.log(this.values);
     this.sharedDetails.setData(this.currentValue);
     this.router.navigate(['/request']);
   }
+
+  goToAcceptedRequest(id) {
+    this.currentValue = this.acceptedValues[id];
+    console.log(this.acceptedValues);
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/request']);
+  }
+
+  goToAcceptedRequestOther(id) {
+    this.currentValue = this.acceptedValuesOther[id];
+    console.log(this.currentValue);
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/request']);
+  }
+
+  goToRejectedRequest(id) {
+    this.currentValue = this.declinedValues[id];
+    console.log(this.declinedValues);
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/request']);
+  }
+
+  
 
   findIfEmpty() {
     if (this.values['length'] === 0 && this.acceptedValues['length'] === 0 && this.declinedValues['length'] === 0) {

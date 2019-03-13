@@ -10,22 +10,22 @@
 
 <ion-content padding>
     <ion-text *ngIf="findIfEmpty()">No notifications yet.</ion-text>
-    <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(t)'>
+    <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="t">
+        <ion-card-header  (click)='goToAcceptedRequestOther(t)'>
           <img src="../../../assets/img/default.png">
           <ion-card-title>Request accepted by {{value.user['name']}}</ion-card-title>
         </ion-card-header>
     </ion-card>
-    <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(b)'>
+    <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="b">
+        <ion-card-header  (click)='goToAcceptedRequest(b)'>
           <ion-text>Accepted</ion-text>
           <img src="../../../assets/img/default.png">
           <ion-card-title>Request made by {{value.name}}</ion-card-title>
           <ion-text>{{value.user_details['genre']}}</ion-text>
         </ion-card-header>
     </ion-card>
-    <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(l)'>
+    <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="l">
+        <ion-card-header  (click)='goToRejectedRequest(l)'>
           <ion-text>Declined</ion-text>
           <img src="../../../assets/img/default.png">
           <ion-card-title>Request made by {{value.name}}</ion-card-title>
