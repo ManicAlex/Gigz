@@ -13,16 +13,38 @@
       <ion-card *ngFor="let user of users">
           <ion-card-header (click)='goToProfile(user.id)'>
               <ion-item>
-            <ion-thumbnail slot="start">
+                  <ion-grid>
+                      <ion-row class="row-style">
+                          <ion-col padding size="12" size-md>
+                              <div class="col-style">
+            <ion-avatar class="avatar">
                   <img src="../../../assets/img/default.png">
-                </ion-thumbnail>
-                <ion-list>
-                <ion-list-header><ion-card-title color="primary" text-center>{{user.name}}</ion-card-title></ion-list-header>
-                <ion-item>
-                <ion-card-subtitle>Genre: {{user.user_details.genre}}</ion-card-subtitle></ion-item>
-                <ion-item>
-                <ion-card-subtitle>Number: {{user.user_details.contactNumber}}</ion-card-subtitle></ion-item>
-              </ion-list>
+                </ion-avatar>
+                              </div>
+                          </ion-col>
+  
+                    <ion-col padding size="12" size-md>
+                        <div class="col-style">
+                <ion-card-title color="primary">{{user.name}}</ion-card-title>
+                        </div>
+                      </ion-col>
+                <ion-col padding size="6" size-md>
+                    <div class="col-style">
+                <ion-card-subtitle color="dark">Genre:<br> {{user.user_details.genre}}</ion-card-subtitle>
+                    </div>
+                  </ion-col>
+                <ion-col padding size="6" size-md>
+                    <div class="col-style">
+                <ion-card-subtitle color="dark">Number:<br>  {{user.user_details.contactNumber}}</ion-card-subtitle>
+                    </div>
+                  </ion-col>
+                <ion-col padding size="12" size-md>
+                    <div class="col-style">
+                    <ion-card-subtitle  color="dark">Email:<br> {{user.email}}</ion-card-subtitle>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
               </ion-item>
           </ion-card-header>
         </ion-card>        

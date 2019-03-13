@@ -7,8 +7,18 @@
     </ion-toolbar>
   </ion-header>
    
-
-  <ion-content padding>
+  <ion-content>
+      <ion-card>
+      <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col align-self-center size-md="10" size-xs="12">
+                <div class="avatar">
+                    <img src="../../../assets/img/logo.png">
+                   </div>
+              <div text-center>
+                <h4>Please Fill Out Request Details</h4>
+              </div>
+              <div padding>
     <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
       <ion-item>
         <ion-label position="floating">Location</ion-label>
@@ -26,10 +36,15 @@
       </ion-item>
 
       <ion-item>
-          <ion-label position="floating">Date</ion-label>
-          <ion-datetime  display-format="YYYY-MM-DD HH:mm:ss" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
+          <ion-label position="floating">Date: YYYY-MM-DD HH:mm(24h)</ion-label>
+          <ion-datetime  display-format="YYYY-MM-DD HH:mm:ss" min="2019" max="2022" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
       </ion-item>
    
       <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Booking Request</ion-button>
     </form>
-  </ion-content>
+</div>
+</ion-col>
+</ion-row>
+</ion-grid>
+      </ion-card>
+</ion-content>

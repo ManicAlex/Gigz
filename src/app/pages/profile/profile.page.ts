@@ -7,6 +7,7 @@ import { UserDetailsUtilityService } from './../../services/user-details-utility
 import {UserServiceService} from './../../services/user-service.service';
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -19,12 +20,12 @@ export class ProfilePage implements OnInit {
 
   selectedPath = '';
 
-  user:object;
+  user: object;
   constructor(
-    private router: Router, 
-    private authService: AuthService, 
-    private storage: Storage, 
-    private details: UserDetailsUtilityService, 
+    private router: Router,
+    private authService: AuthService,
+    private storage: Storage,
+    private details: UserDetailsUtilityService,
     private http: HttpClient,
     private getUser: UserServiceService
     ) { }
@@ -56,7 +57,7 @@ export class ProfilePage implements OnInit {
        this.getUser.getUserDetails(token)
        .subscribe(data2 => {
          this.user = data2['data']['0'];
-       })
+       });
     });
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
@@ -71,17 +72,16 @@ export class ProfilePage implements OnInit {
 
   }
 
-  
 
-  listBands(){
+  listBands() {
     this.router.navigate(['list-bands']);
   }
 
-  listVenues(){
+  listVenues() {
     this.router.navigate(['list-venues']);
   }
 
-  Editdetails(){
+  Editdetails() {
     this.router.navigate(['edit-details']);
   }
 
@@ -96,5 +96,4 @@ export class ProfilePage implements OnInit {
       return false;
     }
   }
-  
 }

@@ -225,4 +225,18 @@ export class UserDetailsUtilityService {
       headers: {'Authorization':`Bearer ${token}`}
    });
   }
+  showAcceptedCount(token) {
+    return this.http.get(
+      `${this.url}/api/showAcceptedCount`,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
+  showPendingCount(token) {
+    return this.http.get(
+      `${this.url}/api/showPendingCount`,
+      {
+      headers: {'Authorization':`Bearer ${token}`}
+   });
+  }
 }
