@@ -14,15 +14,15 @@
     align-items: center;
   }
 
-// div.count {
-//     display: none;
 
-// }
-
-
-div.count:nth-of-type(2)
+.count:nth-last-of-type(1)
 {
-    background: red !important;
-    display: block!important;
+    color: red !important;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+
 
 }
