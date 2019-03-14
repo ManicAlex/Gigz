@@ -11,7 +11,15 @@
 
 <ion-content padding>
     <div *ngIf="test">
-    <ion-text *ngIf="findIfEmpty()">No notifications yet.</ion-text>
+
+    <ion-card padding *ngIf="findIfEmpty()">
+        <ion-row padding class="row-style">
+            <ion-col padding class="row-style" size="12" size-md>
+        <ion-card-title padding color="primary">No notifications yet</ion-card-title>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
     <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
         <ion-card-header  (click)='goToRequest(t)'>
             <ion-grid>
