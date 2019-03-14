@@ -1,0 +1,82 @@
+ion-card {
+    background-color: white !important;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0.07rem solid var(--ion-color-medium);
+  }
+  
+  ion-content {
+    --background: url('../../../assets/img/login.jpg') !important;
+  
+  }
+  
+  ion-card-title{
+    font-size: 2rem !important;
+  
+  }
+  .row-style{
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-inline-start: 10rem!important;
+    padding-inline-end: 10rem!important;
+  }
+  
+  .avatar{
+      margin: auto;
+      width:100% !important;  
+      height : 100% !important;  
+      max-width: 10rem !important;  //any size
+      max-height: 10rem !important; //any size 
+      border: 1px solid var(--ion-color-primary);
+      
+   }
+  
+   .bio{
+      margin: auto;
+      text-align: center !important;
+      font-size: 20px !important;
+   }
+   .favourites {
+    width:2rem;
+    height:auto;
+    position:absolute;
+    right:1rem;
+    top:1rem;
+  }
+  
+   .active-item {
+      border-left: 8px solid var(--ion-color-primary);
+  }
+  
+  $white-color: #fff;
+   $height100: 100%;
+  
+  
+  
+  ion-button {
+      font-weight: 300;
+  }
+  
+  @media (min-width: 240px) and (max-width: 768px) {
+    ion-content {
+      --background: rgba(224, 219, 219, 0.473) !important;
+    
+    }
+    ion-card {
+      background-color: white !important;
+      color: var(--ion-color-primary);
+      width: 80%;
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom: 30px;
+  
+    }
+    .row-style{
+      justify-content: center !important;
+   
+      padding-inline-start: 0.1rem!important;
+      padding-inline-end: 0.1rem!important;
+    }
+  } 

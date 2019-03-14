@@ -10,42 +10,84 @@
   
   <ion-content padding>
       <ion-text *ngIf="findIfEmpty()">No bands yet.</ion-text>
+      <div *ngIf="user">
       <ion-card *ngFor="let user of users">
-          <ion-card-header (click)='goToProfile(user.id)'>
-              <ion-item>
+          <ion-card-content (click)='goToProfile(user.id)'>
                   <ion-grid>
                       <ion-row class="row-style">
-                          <ion-col padding size="12" size-md>
-                              <div class="col-style">
+                          <ion-col  class="col-style" size="12" size-md>
+                              
             <ion-avatar class="avatar">
                   <img src="../../../assets/img/default.png">
                 </ion-avatar>
-                              </div>
+                          
                           </ion-col>
   
-                    <ion-col padding size="12" size-md>
-                        <div class="col-style">
+                    <ion-col size="12" size-md>
+                        
                 <ion-card-title color="primary">{{user.name}}</ion-card-title>
-                        </div>
+                      
                       </ion-col>
-                <ion-col padding size="6" size-md>
-                    <div class="col-style">
+                <ion-col class="col-style" size="6" size-md>
+                   
                 <ion-card-subtitle color="dark">Genre:<br> {{user.user_details.genre}}</ion-card-subtitle>
-                    </div>
+                  
                   </ion-col>
-                <ion-col padding size="6" size-md>
-                    <div class="col-style">
+                <ion-col  class="col-style" size="6" size-md>
+                    
                 <ion-card-subtitle color="dark">Number:<br>  {{user.user_details.contactNumber}}</ion-card-subtitle>
-                    </div>
+                   
                   </ion-col>
-                <ion-col padding size="12" size-md>
-                    <div class="col-style">
+                <ion-col  class="col-style" size="12" size-md>
+                    
                     <ion-card-subtitle  color="dark">Email:<br> {{user.email}}</ion-card-subtitle>
-                    </div>
+                    
                   </ion-col>
                 </ion-row>
               </ion-grid>
-              </ion-item>
-          </ion-card-header>
-        </ion-card>        
+          </ion-card-content>
+        </ion-card>   
+      </div>
+
+      <div *ngIf="!user">
+          <ion-card *ngFor="let user of users">
+              <ion-card-content>
+                      <ion-grid>
+                          <ion-row class="row-style">
+                              <ion-col  class="col-style" size="12" size-md>
+                                  
+                <ion-avatar class="fakeavatar">
+                    <ion-spinner></ion-spinner>
+                    </ion-avatar>
+                              
+                              </ion-col>
+      
+                        <ion-col size="12" size-md>
+                            
+                    <ion-card-title color="primary"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                          
+                          </ion-col>
+                    <ion-col class="col-style" size="6" size-md>
+                       
+                    <ion-card-subtitle color="dark"><ion-skeleton-text animated style="width: 40%"> </ion-skeleton-text> <br><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-subtitle>
+                      
+                      </ion-col>
+                    <ion-col  class="col-style" size="6" size-md>
+                        
+                    <ion-card-subtitle color="dark"><ion-skeleton-text animated style="width: 40%"> </ion-skeleton-text> <br><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-subtitle>
+                       
+                      </ion-col>
+                    <ion-col  class="col-style" size="12" size-md>
+                        
+                        <ion-card-subtitle  color="dark"><ion-skeleton-text animated style="width: 40%"> </ion-skeleton-text> <br><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-subtitle>
+                        
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+              </ion-card-content>
+            </ion-card>   
+          </div>
+
+
+
   </ion-content>

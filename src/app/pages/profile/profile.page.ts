@@ -8,6 +8,7 @@ import {UserServiceService} from './../../services/user-service.service';
 
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -15,11 +16,10 @@ import {UserServiceService} from './../../services/user-service.service';
 })
 export class ProfilePage implements OnInit {
   token;
-<<<<<<< HEAD
- 
-=======
   reviews;
->>>>>>> 31a27d5787bc7912861eecdb785297de434fba97
+  data: any;
+  review: any;
+ 
 
 
   selectedPath = '';
@@ -32,7 +32,9 @@ export class ProfilePage implements OnInit {
     private details: UserDetailsUtilityService, 
     private http: HttpClient,
     private getUser: UserServiceService
+    
     ) { }
+
 
   ngOnInit() {
     this.user = {
@@ -63,9 +65,12 @@ export class ProfilePage implements OnInit {
          this.user = data2['data']['0'];
        })
     });
+
+    
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
     });
+
     this.storage.get('access_token').then((token) => {
       this.details.showAuthUsersReviews(token).subscribe(val => {
         this.reviews = val['data'];
@@ -74,7 +79,24 @@ export class ProfilePage implements OnInit {
       );
       });
 
+
+
   }
+
+      ionViewWillEnter() {
+      setTimeout(() => {
+        this.data = this.user;
+
+        this.review = this.reviews; 
+      }, 3000);
+    }
+
+ 
+
+
+    
+    
+
 
 
   listBands(){

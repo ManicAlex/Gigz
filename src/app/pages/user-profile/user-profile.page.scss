@@ -2,12 +2,18 @@ ion-card {
   background-color: white !important;
   width: 80%;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0.07rem solid var(--ion-color-medium);
 }
 
 ion-content {
   --background: url('../../../assets/img/login.jpg') !important;
+
+}
+
+ion-card-title{
+  font-size: 2rem !important;
 
 }
 .row-style{
@@ -27,10 +33,26 @@ ion-content {
     
  }
 
+ .fakeavatar{
+  margin: auto;
+  width:100% !important;  
+  height : 100% !important;  
+  max-width: 10rem !important;  //any size
+  max-height: 10rem !important; //any size 
+  
+}
+.heading{
+  margin: auto !important;
+  position: absolute;
+  text-align: center !important;
+  font-size: 2rem !important;
+  display: inline-block !important;
+}
+
  .bio{
     margin: auto;
     text-align: center !important;
-    font-size: 20px !important;
+    font-size: 1rem !important;
  }
  .favourites {
   width:2rem;

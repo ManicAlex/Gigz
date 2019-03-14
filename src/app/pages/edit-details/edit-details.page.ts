@@ -7,6 +7,7 @@ import { tap, catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { pipe } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-edit-details',

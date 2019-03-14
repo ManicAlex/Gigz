@@ -11,6 +11,7 @@ import {Storage} from '@ionic/storage';
 export class ListBandsPage implements OnInit {
 
   users;
+  user: any;
 
   constructor( 
     private details: UserDetailsUtilityService, 
@@ -36,6 +37,14 @@ export class ListBandsPage implements OnInit {
     } else {
       return false;
     }
+  }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.user = {
+
+      };
+    }, 3000);
   }
 
 }

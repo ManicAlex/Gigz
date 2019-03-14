@@ -9,6 +9,7 @@
   
   
   <ion-content>
+    <div *ngIf="test">
       <ion-card>
           <ion-card-header>
               <img src="../../../assets/img/favourite.jpg" class='favourites' (click)="storeFav(user.id)">
@@ -37,19 +38,17 @@
           </ion-card-content>
           <ion-button margin="5px" expand="full" type="submit" (click)='book()'>Book</ion-button>
         </ion-card>
-<<<<<<< HEAD
-
-      
-=======
-      <ion-button padding expand="full" type="submit" (click)='book()'>Book</ion-button>
-      <ion-text>Reviews:</ion-text>
-      <ion-card-subtitle *ngIf="findIfEmpty()">No reviews yet.</ion-card-subtitle>
->>>>>>> 31a27d5787bc7912861eecdb785297de434fba97
-      <ion-card *ngFor="let review of reviews">
+<div class="heading">
+        <ion-text padding color="primary" text-center>Reviews</ion-text>
+      </div>
+      <ion-card *ngFor="let review of reviews">      
+        <ion-card-subtitle color="primary" text-center *ngIf="findIfEmpty()">No reviews yet.</ion-card-subtitle>
   
           <ion-card-header>
-            <ion-card-subtitle>Rating: {{review['rating']}}</ion-card-subtitle>
-            <ion-card-title>{{review['body']}}</ion-card-title>
+            <ion-card-subtitle color="primary" text-center>Rating: {{review['rating']}}</ion-card-subtitle>
+            <ion-card-content>
+              <ion-text color="dark" class="bio">{{review['body']}}</ion-text>
+            </ion-card-content>
           </ion-card-header>
         </ion-card>
 
@@ -69,5 +68,71 @@
               <ion-button margin="5px" expand="full" type="submit" [disabled]="!credentialsForm.valid">Add review</ion-button>
             </form>
         </ion-card>
-            
+    </div>
+
+
+    <div *ngIf="!test">
+        <ion-card>
+            <ion-card-header>
+                <img src="../../../assets/img/favourite.jpg" class='favourites'>
+                <ion-card-title padding color="primary" text-center><ion-skeleton-text animated style="width: 15%"></ion-skeleton-text></ion-card-title>
+                <ion-grid>
+                    <ion-row class="row-style">
+                        <ion-col size="12" size-md="6">
+                <ion-avatar class="fakeavatar">
+                    <ion-spinner></ion-spinner>
+                  </ion-avatar>
+                        </ion-col>
+                        <ion-col size="12" size-md="6">
+                <ion-card-subtitle color="dark" font="90px" text-center><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-subtitle>
+                <br>
+  
+                <ion-card-subtitle color="dark" text-center><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-subtitle>
+                <br>
+                <ion-card-subtitle color="dark" text-center><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-subtitle>
+                </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-card-header>
+          
+            <ion-card-content  padding text-center>
+              <ion-text color="dark" class="bio"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <br> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+            </ion-card-content>
+            <ion-button margin="5px" expand="full" type="submit" (click)='book()'>Book</ion-button>
+          </ion-card>
+  
+          <div class="heading">
+              <ion-text padding color="primary" text-center>Reviews</ion-text>
+            </div>
+        <ion-card *ngFor="let review of reviews">
+    
+            <ion-card-header>
+              <ion-card-subtitle><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></ion-card-subtitle>
+              <ion-card-title><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text> <br> <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+            </ion-card-header>
+          </ion-card>
+  
+          <ion-card>
+            <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+                <ion-title padding color="primary" text-center>Add review</ion-title>
+                <ion-item>
+                  <ion-label padding position="floating">Rating</ion-label>
+                  <ion-input padding type="text" formControlName="rating"></ion-input>
+                </ion-item>
+             
+                <ion-item>
+                  <ion-label padding position="floating">Message</ion-label>
+                  <ion-input padding type="text" formControlName="body"></ion-input>
+                </ion-item>
+             
+                <ion-button margin="5px" expand="full" type="submit" [disabled]="!credentialsForm.valid">Add review</ion-button>
+              </form>
+          </ion-card>
+        </div>
+    
+
+
   </ion-content>
+
+

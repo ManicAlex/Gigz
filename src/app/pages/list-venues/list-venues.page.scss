@@ -2,8 +2,9 @@ ion-card {
   background-color: white !important;
   width: 70%;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0.07rem solid var(--ion-color-dark);
 }
 
 ion-content {
@@ -11,15 +12,23 @@ ion-content {
 
 }
 
-.col-style{
-  text-align: left !important;
-}
 
-.row-style{
+
+ion-row {
   align-items: center !important;
-  justify-content: flex-start !important;
+  justify-content: space-around!important;
 
 }
+.col-style{
+
+  text-align: center !important;
+}
+
+// .row-style{
+//   align-items: center !important;
+//   justify-content: space-around !important;
+
+// }
 
 .avatar{
     margin: auto;
@@ -31,11 +40,15 @@ ion-content {
     
  }
 
- .bio{
-    margin: auto;
-    text-align: center !important;
-    font-size: 20px !important;
- }
+ .fakeavatar{
+  margin: auto;
+  width:100% !important;  
+  height : 100% !important;  
+  max-width: 5rem !important;  //any size
+  max-height: 5rem !important; //any size 
+ 
+  
+}
 
  .active-item {
     border-left: 8px solid var(--ion-color-primary);
@@ -59,7 +72,12 @@ ion-button {
     background-color: white !important;
     color: var(--ion-color-primary);
     width: 80%;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
+
+  }
+
+  ion-col{
+    text-align: center !important;
 
   }
  

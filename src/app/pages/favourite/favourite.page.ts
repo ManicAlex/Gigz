@@ -21,6 +21,7 @@ export class FavouritePage implements OnInit {
   ) { }
 
   token;
+  user: any;
 
   ngOnInit() {
     this.storage.get('access_token').then(token => {
@@ -62,4 +63,13 @@ export class FavouritePage implements OnInit {
       return false;
     }
   }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.user = {
+
+      };
+    }, 3000);
+  }
+
 }

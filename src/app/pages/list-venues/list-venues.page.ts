@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ListVenuesPage implements OnInit {
 
   users;
+  user: any;
 
   constructor(
     private storage: Storage, 
@@ -43,5 +44,14 @@ export class ListVenuesPage implements OnInit {
       return false;
     }
   }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.user = {
+
+      };
+    }, 3000);
+  }
+
 
 }
