@@ -38,9 +38,9 @@
           </ion-card-content>
           <ion-button margin="5px" expand="full" type="submit" (click)='book()'>Book</ion-button>
         </ion-card>
-<div class="heading">
-        <ion-text padding color="primary" text-center>Reviews</ion-text>
-      </div>
+        <ion-card>
+            <ion-card-title padding color="primary" text-center>Reviews</ion-card-title>
+        </ion-card>
       <ion-card *ngFor="let review of reviews">      
         <ion-card-subtitle color="primary" text-center *ngIf="findIfEmpty()">No reviews yet.</ion-card-subtitle>
   
@@ -102,9 +102,9 @@
             <ion-button margin="5px" expand="full" type="submit" (click)='book()'>Book</ion-button>
           </ion-card>
   
-          <div class="heading">
-              <ion-text padding color="primary" text-center>Reviews</ion-text>
-            </div>
+          <ion-card>
+              <ion-card-title padding color="primary" text-center>Reviews</ion-card-title>
+          </ion-card>
         <ion-card *ngFor="let review of reviews">
     
             <ion-card-header>

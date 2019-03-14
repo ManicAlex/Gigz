@@ -82,14 +82,17 @@ export class ProfilePage implements OnInit {
 
 
   }
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.data  = {
 
-      ionViewWillEnter() {
-      setTimeout(() => {
-        this.data = this.user;
+      },
+      this.review = {
 
-        this.review = this.reviews; 
-      }, 3000);
-    }
+      };
+
+    }, 3000);
+  }
 
  
 

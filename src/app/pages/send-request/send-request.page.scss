@@ -2,8 +2,8 @@ ion-card {
     background-color: white !important;
     width: 80%;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border: 0.07rem solid var(--ion-color-dark);
   }
 
@@ -11,6 +11,10 @@ ion-card {
   ion-content {
     --background: url('../../../assets/img/login.jpg') !important;
   
+  }
+
+  ion-card-title{
+      font-size: 2rem;
   }
   
 
@@ -37,4 +41,8 @@ ion-button {
         width: 80%;
     
       }
+
+      ion-card-title{
+        font-size: 1.3rem;
+    }
 }

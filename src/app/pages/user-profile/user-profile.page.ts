@@ -13,7 +13,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class UserProfilePage implements OnInit {
 
   constructor(
-    private service:UserDetailsUtilityService,
+    private service: UserDetailsUtilityService,
     private storage: Storage,
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -21,11 +21,11 @@ export class UserProfilePage implements OnInit {
     private formBuilder: FormBuilder
     ) { }
 
-    id:number;
+    id: number;
     user;
-    success:boolean;
+    success: boolean;
     credentialsForm: FormGroup;
-    token:string;
+    token: string;
     reviews;
     test: any;
 
@@ -59,23 +59,21 @@ export class UserProfilePage implements OnInit {
     }
     this.storage.get('access_token').then((token) => {
       this.token = token;
-      this.service.getUserById(token,this.id).subscribe(val => {
+      this.service.getUserById(token, this.id).subscribe(val => {
         this.user = val['data'][0];
-        console.log(this.id)
+        console.log(this.id);
       });
     });
     console.log(this.token);
     console.log(this.user);
     this.storage.get('access_token').then((token) => {
-      console.log(this.id)
-      this.service.showReviewsById(token,this.id).subscribe(val => {
+      console.log(this.id);
+      this.service.showReviewsById(token, this.id).subscribe(val => {
         this.reviews = val['data'];
           console.log(val['data']);
         }
       );
   });
-  
-      
     this.credentialsForm = this.formBuilder.group({
       rating: ['', [Validators.required]],
       body: ['', [Validators.required]]
@@ -88,12 +86,12 @@ export class UserProfilePage implements OnInit {
 
   onSubmit() {
     this.storage.get('access_token').then((token) => {
-      this.service.storeReview(this.credentialsForm.value,token,this.user['id']).subscribe(
+      this.service.storeReview(this.credentialsForm.value, token, this.user['id']).subscribe(
         res => {
           if (res['success']) {
             this.service.presentPositiveToast('Review added successfully');
           } else {
-            this.service.presentToast('Review failed to be added')
+            this.service.presentToast('Review failed to be added');
           }
         }
       );
@@ -104,7 +102,7 @@ export class UserProfilePage implements OnInit {
   storeFav(id) {
     this.storage.get('access_token').then(
       token => {
-        this.service.storeFav(id,token).subscribe(
+        this.service.storeFav(id, token).subscribe(
           res => {
             if (res['success']) {
               this.service.presentPositiveToast('Added to favourites');
@@ -114,7 +112,7 @@ export class UserProfilePage implements OnInit {
           }
         );
       }
-    )
+    );
   }
 
   async presentNoIDToast() {

@@ -4,7 +4,7 @@ ion-card {
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  border: 0.07rem solid var(--ion-color-medium);
+  border: 0.07rem solid var(--ion-color-dark);
 }
 
 ion-content {
@@ -14,14 +14,60 @@ ion-content {
 
 ion-card-title{
   font-size: 2rem !important;
+}
+
+.heading{
+  margin: auto !important;
+  text-align: center !important;
+  font-size: 2rem !important;
+  border: 0.07rem solid var(--ion-color-dark);
+}
+
+.favourites {
+  width:2rem;
+  height:auto;
+  position:absolute;
+  right:1rem;
+  top:1rem;
+}
+
+
+
+ion-card {
+  background-color: white !important;
+  width: 70%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0.07rem solid var(--ion-color-dark);
+}
+
+ion-content {
+  --background: url('../../../assets/img/login.jpg') !important;
 
 }
-.row-style{
-  align-items: center !important;
-  justify-content: flex-start !important;
-  padding-inline-start: 10rem!important;
-  padding-inline-end: 10rem!important;
+ion-skeleton-text {
+animation: pulse 1s infinite ease-in-out;
 }
+
+
+ion-row {
+  align-items: center !important;
+  justify-content: space-around!important;
+
+}
+.col-style{
+
+  text-align: center !important;
+
+}
+
+  .row-style{
+    justify-content: center !important;
+ 
+    padding-inline-start: 10rem!important;
+    padding-inline-end: 10rem!important;
+  }
 
 .avatar{
     margin: auto;
@@ -37,16 +83,10 @@ ion-card-title{
   margin: auto;
   width:100% !important;  
   height : 100% !important;  
-  max-width: 10rem !important;  //any size
-  max-height: 10rem !important; //any size 
+  max-width: 5rem !important;  //any size
+  max-height: 5rem !important; //any size 
+ 
   
-}
-.heading{
-  margin: auto !important;
-  position: absolute;
-  text-align: center !important;
-  font-size: 2rem !important;
-  display: inline-block !important;
 }
 
  .bio{
@@ -54,13 +94,6 @@ ion-card-title{
     text-align: center !important;
     font-size: 1rem !important;
  }
- .favourites {
-  width:2rem;
-  height:auto;
-  position:absolute;
-  right:1rem;
-  top:1rem;
-}
 
  .active-item {
     border-left: 8px solid var(--ion-color-primary);
@@ -84,15 +117,46 @@ ion-button {
     background-color: white !important;
     color: var(--ion-color-primary);
     width: 80%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
 
   }
-  .row-style{
-    justify-content: center !important;
- 
-    padding-inline-start: 0.1rem!important;
-    padding-inline-end: 0.1rem!important;
+
+  ion-col{
+    text-align: center !important;
+
   }
-} 
+ 
+  .col-style{
+    text-align: center !important;
+  }
+  
+  .row-style{
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    padding-inline-start: 0rem!important;
+    padding-inline-end: 0rem!important;
+  }
+
+
+
+  .ion-padding, [padding] {
+   --padding-start: var(--ion-padding, 0.3rem)!important;
+   --padding-end: var(--ion-padding, 0.3rem)!important;
+   --padding-top: var(--ion-padding, 0.3rem)!important; 
+    --padding-bottom: var(--ion-padding, 0.3rem)!important; 
+   padding-left: var(--ion-padding, 0.3rem)!important; 
+     padding-right: var(--ion-padding, 0.3rem)!important; 
+     padding-top: var(--ion-padding, 0.3rem)!important; 
+    padding-bottom: var(--ion-padding, 0.3rem)!important; 
+}
+
+.avatar{
+  margin: auto;
+  width:100% !important;  
+  height : 100% !important;  
+  max-width: 5rem !important;  //any size
+  max-height: 5rem !important; //any size 
+  border: 1px solid var(--ion-color-primary);
+  
+}
+}

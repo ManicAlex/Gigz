@@ -3,7 +3,6 @@ import { UserDetailsUtilityService } from 'src/app/services/user-details-utility
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
 import {SharedDetailsService} from 'src/app/services/shared-details.service'
-import { ValueAccessor } from '@ionic/angular/dist/directives/control-value-accessors/value-accessor';
 
 @Component({
   selector: 'app-notifications',
@@ -12,21 +11,23 @@ import { ValueAccessor } from '@ionic/angular/dist/directives/control-value-acce
 })
 export class NotificationsPage implements OnInit {
 
+  test: any;
+
   constructor(
     private details: UserDetailsUtilityService,
     private sharedDetails: SharedDetailsService,
-    private storage:Storage,
+    private storage: Storage,
     private router: Router
     ) { }
 
-    values:object;
-    currentValue:object;
-    acceptedValues:object;
-    acceptedValuesOther:object;
-    declinedValues:object;
+    values: object;
+    currentValue: object;
+    acceptedValues: object;
+    acceptedValuesOther: object;
+    declinedValues: object;
 
   ngOnInit() {
-    this.values,this.acceptedValues,this.declinedValues = null;
+    this.values, this.acceptedValues, this.declinedValues = null;
     this.storage.get('access_token').then((token) => {
       this.details.displayAcceptedRequestsFromSelf(token).subscribe(
         data => {
@@ -49,7 +50,7 @@ export class NotificationsPage implements OnInit {
       this.details.displayRequestsRecievedDetails(token).subscribe(
         data => {
           this.values = data['data'];
-          console.log(this.values);
+          console.log(data);
         }
       );
       console.log(this.values);
@@ -59,8 +60,30 @@ export class NotificationsPage implements OnInit {
 
   goToRequest(id) {
     this.currentValue = this.values[id];
+    console.log(this.values);
     this.sharedDetails.setData(this.currentValue);
-    this.router.navigate(['menu/request']);
+    this.router.navigate(['/menu/request']);
+  }
+
+  goToAcceptedRequest(id) {
+    this.currentValue = this.acceptedValues[id];
+    console.log(this.acceptedValues);
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/menu/request']);
+  }
+
+  goToAcceptedRequestOther(id) {
+    this.currentValue = this.acceptedValuesOther[id];
+    console.log(this.currentValue);
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/menu/request']);
+  }
+
+  goToRejectedRequest(id) {
+    this.currentValue = this.declinedValues[id];
+    console.log(this.declinedValues);
+    this.sharedDetails.setData(this.currentValue);
+    this.router.navigate(['/menu/request']);
   }
 
   findIfEmpty() {
@@ -69,6 +92,14 @@ export class NotificationsPage implements OnInit {
     } else {
       return false;
     }
+  }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.test = {
+
+      };
+    }, 3000);
   }
 
 }

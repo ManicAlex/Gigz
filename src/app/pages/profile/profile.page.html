@@ -38,7 +38,7 @@
         </ion-card-header>
       
         <ion-card-content text-center>
-          <ion-text color="dark" class="bio">{{user.user_details.bios}}</ion-text>
+          <ion-text color="dark" class="bio">{{user['user_details']['bios']}}</ion-text>
         
         </ion-card-content>
       </ion-card>
@@ -51,7 +51,7 @@
                   <ion-row class="row-style">
                       <ion-col class="col-style" size="12" size-md="6">
   
-              <ion-avatar>
+              <ion-avatar class="fakeavatar">
                   <ion-spinner></ion-spinner>
                 </ion-avatar>
                       </ion-col>
@@ -78,7 +78,6 @@
 
         <div *ngIf="review">
       <ion-card *ngFor="let review of reviews">
-        <ion-card-subtitle *ngIf="findIfEmpty()">No reviews yet.</ion-card-subtitle>
           <ion-card-header>
             <ion-card-subtitle text-center>Rating: {{review['rating']}}</ion-card-subtitle>
             <br>

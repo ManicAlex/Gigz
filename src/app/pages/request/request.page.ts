@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SharedDetailsService} from 'src/app/services/shared-details.service'
+import {SharedDetailsService} from 'src/app/services/shared-details.service';
 import {UserDetailsUtilityService} from 'src/app/services/user-details-utility.service';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
@@ -18,7 +18,7 @@ export class RequestPage implements OnInit {
     private router: Router
   ) { }
 
-  user:object = {
+  user: object = {
     created_at: null,
       email: null,
       email_verified_at: null,
@@ -38,9 +38,8 @@ export class RequestPage implements OnInit {
         user_id: null,
       }
     };
-  
     requests;
-    token:string;
+    token: string;
     id;
 
   ngOnInit() {
@@ -50,22 +49,21 @@ export class RequestPage implements OnInit {
     this.storage.get('access_token').then(
       (token) => {
         this.token = token;
-        this.details.getRequest(this.id,token).subscribe(
+        this.details.getRequest(this.id, token).subscribe(
           data => {
             this.requests = data['data'];
-            console.log(this.requests);
+            console.log(data);
           }
         );
       })
       ;
-      
     }
     acceptRequest(id) {
-        this.details.acceptRequest(id,this.token).subscribe(
+        this.details.acceptRequest(id, this.token).subscribe(
           (res) => {
             console.log(res);
             if (res['success'] === true) {
-              this.details.getRequest(this.id,this.token).subscribe(
+              this.details.getRequest(this.id, this.token).subscribe(
                 data => {
                   this.requests = data['data'];
                   console.log(this.requests);
@@ -79,11 +77,11 @@ export class RequestPage implements OnInit {
         );
     }
     decline(id) {
-        this.details.declineRequest(id,this.token).subscribe(
+        this.details.declineRequest(id, this.token).subscribe(
           (res) => {
             console.log(res);
             if (res['success'] === true) {
-              this.details.getRequest(this.id,this.token).subscribe(
+              this.details.getRequest(this.id, this.token).subscribe(
                 data => {
                   this.requests = data['data'];
                   console.log(this.requests);
@@ -98,28 +96,26 @@ export class RequestPage implements OnInit {
     }
     getStatus(status) {
       if (status === 1) {
-        return "Accepted";
+        return 'Accepted';
       } else if (status === 2) {
-        return "Rejected";
+        return 'Rejected';
       } else {
-        return "Pending";
+        return 'Pending';
       }
     }
 
     getFormattedDate(date) {
-      let date2 = new Date(date)
+      const date2 = new Date(date);
       const day = date2.getDate();
       const month = date2.getMonth() + 1;
       const year = date2.getFullYear();
-    
       return `${day}/${month}/${year}`;
     }
-    
     getFormattedTime(date) {
-      let date2 = new Date(date)
+      const date2 = new Date(date);
       let hours = date2.getHours();
-      let mins = date2.getMinutes();
-      var ampm = hours >= 12 ? 'pm' : 'am';
+      const mins = date2.getMinutes();
+      const ampm = hours >= 12 ? 'pm' : 'am';
       hours = hours % 12;
       hours = hours ? hours : 12;
       return `${hours}:${mins} ${ampm}`;

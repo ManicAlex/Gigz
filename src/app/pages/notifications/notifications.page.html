@@ -8,53 +8,209 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content padding>
+    <div *ngIf="test">
     <ion-text *ngIf="findIfEmpty()">No notifications yet.</ion-text>
     <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
         <ion-card-header  (click)='goToRequest(t)'>
             <ion-grid>
-                <ion-row align-items-center >
-                    <div class="hcs">
+                <div class="hcs">
+                <ion-row align-items-start >
                     <ion-col size="12" size-md>
             <ion-avatar class="avatar">
           <img src="../../../assets/img/default.png">
             </ion-avatar>
                     </ion-col>
-                    <ion-col align-self-start size="12" size-md>
-          <ion-card-title>Request accepted by {{value.user['name']}}</ion-card-title>
+                    <ion-col align-items-start class="col-style" size="12" size-md>
+          <ion-card-title>Request hass been accpted by {{value.user['name']}}</ion-card-title>
                     </ion-col>
-                    </div>
+                    <ion-col  class="col-style" size="12" size-md>
+                        <ion-text color="success">Accepted</ion-text>
+                                  </ion-col>
+                    
+                </ion-row>
+                </div>
+            </ion-grid>
+        </ion-card-header>
+    </ion-card>
+    
+    <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="b">
+        <ion-card-header  (click)='goToAcceptedRequest(b)'>
+            <ion-grid>
+                <ion-row class="row-style">
+                    <ion-col  class="col-style" size="12" size-md>
+          <ion-avatar class="avatar">
+          <img src="../../../assets/img/default.png">
+          </ion-avatar>
+                    </ion-col>
+                    <ion-col  class="col-style" size="12" size-md>
+          <ion-card-title>Request made by {{value.name}}</ion-card-title>
+                    </ion-col>
+                    <ion-col  class="col-style" size="6" size-md>
+          <ion-text>{{value.user_details['genre']}}</ion-text>
+                    </ion-col>
+                    <ion-col  class="col-style" size="6" size-md>
+                        <ion-text color="success">Accepted</ion-text>
+                                  </ion-col>
                 </ion-row>
             </ion-grid>
         </ion-card-header>
     </ion-card>
-    <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(b)'>
-          <ion-text>Accepted</ion-text>
-          <ion-avatar class="avatar">
-          <img src="../../../assets/img/default.png">
-          </ion-avatar>
-          <ion-card-title>Request made by {{value.name}}</ion-card-title>
-          <ion-text>{{value.user_details['genre']}}</ion-text>
+
+    <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="l">
+        <ion-card-header  (click)='goToRejectedRequest(l)'>
+          
+          <ion-grid>
+              <ion-row class="row-style">
+                  <ion-col  class="col-style" size="12" size-md>
+        <ion-avatar class="avatar">
+        <img src="../../../assets/img/default.png">
+        </ion-avatar>
+        
+                  </ion-col>
+                  <ion-col  class="col-style" size="12" size-md>
+                      
+        <ion-card-title>Request made by {{value.name}}</ion-card-title>
+                  </ion-col>
+                  <ion-col  class="col-style" size="6" size-md>
+        <ion-text>{{value.user_details['genre']}}</ion-text>
+                  </ion-col>
+                  <ion-col  class="col-style" size="6" size-md>
+                      <ion-text color="danger">Declined</ion-text>
+                                </ion-col>
+              </ion-row>
+          </ion-grid>
         </ion-card-header>
     </ion-card>
-    <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(l)'>
-          <ion-text>Declined</ion-text>
-          <ion-avatar class="avatar">
-          <img src="../../../assets/img/default.png">
-          </ion-avatar>
-          <ion-card-title>Request made by {{value.name}}</ion-card-title>
-          <ion-text>{{value.user_details['genre']}}</ion-text>
-        </ion-card-header>
-    </ion-card>
+
     <ion-card *ngFor="let value of values; let i = index" [attr.data-index]="i">
       <ion-card-header  (click)='goToRequest(i)'>
-          <ion-avatar class="avatar">
+         
+          <ion-grid>
+              <ion-row class="row-style">
+                  <ion-col  class="col-style" size="12" size-md>
+        <ion-avatar class="avatar">
         <img src="../../../assets/img/default.png">
-          </ion-avatar>
+        </ion-avatar>
+                  </ion-col>
+                  <ion-col  class="col-style" size="12" size-md>
         <ion-card-title>Request made by {{value.name}}</ion-card-title>
+                  </ion-col>
+                  <ion-col  class="col-style" size="6" size-md>
         <ion-text>{{value.user_details['genre']}}</ion-text>
+                  </ion-col>
+                  <ion-col  class="col-style" size="6" size-md>
+                      <ion-text color="warning">Pending</ion-text>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
       </ion-card-header>
     </ion-card>
+</div>
+
+
+
+
+
+
+ <div *ngIf="!test">
+
+
+
+        <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
+            <ion-card-header>
+                <ion-grid>
+                    <div class="hcs">
+                    <ion-row align-items-start >
+                        <ion-col size="12" size-md>
+                            <ion-avatar class="fakeavatar">
+                                <ion-spinner></ion-spinner>
+                                </ion-avatar>
+                        </ion-col>
+                        <ion-col align-items-start class="col-style" size="12" size-md>
+              <ion-card-title><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                        </ion-col>
+                        <ion-col  class="col-style" size="12" size-md>
+                            <ion-text color="success"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                      </ion-col>
+                        
+                    </ion-row>
+                    </div>
+                </ion-grid>
+            </ion-card-header>
+        </ion-card>
+        
+        <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="b">
+            <ion-card-header>
+                <ion-grid>
+                    <ion-row class="row-style">
+                        <ion-col  class="col-style" size="12" size-md>
+                            <ion-avatar class="fakeavatar">
+                                <ion-spinner></ion-spinner>
+                                </ion-avatar>
+                        </ion-col>
+                        <ion-col  class="col-style" size="12" size-md>
+              <ion-card-title><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                        </ion-col>
+                        <ion-col  class="col-style" size="6" size-md>
+              <ion-text><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                        </ion-col>
+                        <ion-col  class="col-style" size="6" size-md>
+                            <ion-text color="success"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                      </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-header>
+        </ion-card>
+    
+        <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="l">
+            <ion-card-header>
+              
+              <ion-grid>
+                  <ion-row class="row-style">
+                      <ion-col  class="col-style" size="12" size-md>
+                          <ion-avatar class="fakeavatar">
+                              <ion-spinner></ion-spinner>
+                              </ion-avatar>
+                      </ion-col>
+                      <ion-col  class="col-style" size="12" size-md>
+                          
+            <ion-card-title><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                      </ion-col>
+                      <ion-col  class="col-style" size="6" size-md>
+            <ion-text><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                      </ion-col>
+                      <ion-col  class="col-style" size="6" size-md>
+                          <ion-text color="danger"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                    </ion-col>
+                  </ion-row>
+              </ion-grid>
+            </ion-card-header>
+        </ion-card>
+    
+        <ion-card *ngFor="let value of values; let i = index" [attr.data-index]="i">
+          <ion-card-header>
+             
+              <ion-grid>
+                  <ion-row class="row-style">
+                      <ion-col  class="col-style" size="12" size-md>
+                          <ion-avatar class="fakeavatar">
+                              <ion-spinner></ion-spinner>
+                              </ion-avatar>
+                      </ion-col>
+                      <ion-col  class="col-style" size="12" size-md>
+            <ion-card-title><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                      </ion-col>
+                      <ion-col  class="col-style" size="6" size-md>
+            <ion-text><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                      </ion-col>
+                      <ion-col  class="col-style" size="6" size-md>
+                          <ion-text color="warning"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                      </ion-col>
+                  </ion-row>
+              </ion-grid>
+          </ion-card-header>
+        </ion-card>
+ </div>
 </ion-content>
