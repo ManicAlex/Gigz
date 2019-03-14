@@ -20,7 +20,8 @@ export class MenuPage implements OnInit {
     {
       title: 'Notifications',
       url: '/menu/notifications',
-      icon: 'notifications'
+      icon: 'notifications',
+      count: 'totalCount()'
     },
     {
       title: 'Favourites',

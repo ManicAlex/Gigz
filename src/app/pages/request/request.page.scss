@@ -19,8 +19,11 @@ ion-card {
   .row-style{
     align-items: center !important;
     justify-content: flex-start !important;
-    padding-inline-start: 10rem!important;
-    padding-inline-end: 10rem!important;
+  }
+
+  .col-style{
+
+    text-align: center !important;
   }
   
   .avatar{
@@ -31,6 +34,13 @@ ion-card {
       max-height: 10rem !important; //any size 
       border: 1px solid var(--ion-color-primary);
       
+   }
+
+   .line{
+    border-bottom : 0.5px solid var(--ion-color-medium); 
+    
+
+
    }
   
    .bio{

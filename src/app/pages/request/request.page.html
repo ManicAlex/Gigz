@@ -33,26 +33,36 @@
             </ion-grid>
 
         </ion-card-header>
+
         <ion-card-title padding color="primary" text-center>Request Details</ion-card-title>
-            <div *ngFor="let request of requests">
+        
+        <div *ngFor="let request of requests">
             <ion-grid>
-                <ion-row padding >
-                    <ion-col>
-            <ion-text>Price: {{request.price}}</ion-text>
+                <div class="line">
+                <ion-row>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Price:</ion-text>
+            <ion-text padding color="dark">€{{request.price}}</ion-text>
                     </ion-col>
-                    <ion-col>
-            <ion-text>Details: {{request.details}}</ion-text>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Details</ion-text><br>
+            <ion-text padding color="dark">{{request.details}}</ion-text>
                     </ion-col>
-                    <ion-col>
-            <ion-text>Date: {{getFormattedDate(request.requestDate)}}</ion-text>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Date</ion-text>
+            <ion-text padding color="dark">{{getFormattedDate(request.requestDate)}}</ion-text>
                     </ion-col>
-            <ion-col >
-            <ion-text>Time: {{getFormattedTime(request.requestDate)}}</ion-text>
+            <ion-col class="col-style" size="12" size-md >
+            <ion-text color="primary">Time:</ion-text>
+            <ion-text padding color="dark">{{getFormattedTime(request.requestDate)}}</ion-text>
             </ion-col>
-            <ion-col>
-            <ion-text>Status: {{getStatus(request.status)}}</ion-text>
+            <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Status:</ion-text>
+            <ion-text padding color="dark">{{getStatus(request.status)}}</ion-text>
             </ion-col>
+
                 </ion-row>
+                </div>
             </ion-grid>
 
             <ion-grid>
