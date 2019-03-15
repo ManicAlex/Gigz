@@ -17,8 +17,8 @@ import {UserServiceService} from './../../services/user-service.service';
 export class ProfilePage implements OnInit {
   token;
   reviews;
-  data: any;
-  review: any;
+  skel: any;
+ 
  
 
 
@@ -82,17 +82,6 @@ export class ProfilePage implements OnInit {
 
 
   }
-  ionViewWillEnter() {
-    setTimeout(() => {
-      this.data  = {
-
-      },
-      this.review = {
-
-      };
-
-    }, 3000);
-  }
 
  
 
@@ -125,5 +114,14 @@ export class ProfilePage implements OnInit {
       return false;
     }
   }
+
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.skel  = {
+
+      };
+    }, 2000);
+  }
+
   
 }

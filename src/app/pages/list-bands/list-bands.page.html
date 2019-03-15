@@ -12,7 +12,7 @@
       <ion-text *ngIf="findIfEmpty()">No bands yet.</ion-text>
       <div *ngIf="user">
       <ion-card *ngFor="let user of users">
-          <ion-card-content (click)='goToProfile(user.id)'>
+          <ion-card-content no-padding (click)='goToProfile(user.id)'>
                   <ion-grid>
                       <ion-row class="row-style">
                           <ion-col  class="col-style" size="12" size-md>
@@ -25,28 +25,29 @@
   
                     <ion-col size="12" size-md>
                         
-                <ion-card-title color="primary">{{user.name}}</ion-card-title>
-                      
+                        <ion-card-title color="primary">{{user.name}}</ion-card-title>
+                
                       </ion-col>
                 <ion-col class="col-style" size="6" size-md>
                    
-                <ion-card-subtitle color="dark">Genre:<br> {{user.user_details.genre}}</ion-card-subtitle>
+                <ion-card-subtitle color="primary">Genre:</ion-card-subtitle>
+                <ion-card-subtitle  class="info" color="dark">{{user.user_details.genre}}</ion-card-subtitle>
                   
                   </ion-col>
                 <ion-col  class="col-style" size="6" size-md>
                     
-                <ion-card-subtitle color="dark">Number:<br>  {{user.user_details.contactNumber}}</ion-card-subtitle>
-                   
+                <ion-card-subtitle color="primary">Number:</ion-card-subtitle>
+                <ion-card-subtitle  class="info" color="dark">{{user.user_details.contactNumber}}</ion-card-subtitle>
                   </ion-col>
                 <ion-col  class="col-style" size="12" size-md>
-                    
-                    <ion-card-subtitle  color="dark">Email:<br> {{user.email}}</ion-card-subtitle>
-                    
+       
+                    <ion-card-subtitle color="primary">Email:</ion-card-subtitle>
+                <ion-card-subtitle  class="info" color="dark">{{user.email}}</ion-card-subtitle>
                   </ion-col>
                 </ion-row>
               </ion-grid>
           </ion-card-content>
-        </ion-card>   
+        </ion-card>    
       </div>
 
       <div *ngIf="!user">

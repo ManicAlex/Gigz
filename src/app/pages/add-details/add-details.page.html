@@ -7,7 +7,19 @@
   </ion-toolbar>
 </ion-header>
  
-<ion-content padding>
+<ion-content>
+    
+    <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <div class="avatar">
+                  <img src="../../../assets/img/logo.png">
+                 </div>
+            <div text-center>
+              <h4>Register Form</h4>
+            </div>
+            <div padding>
+     
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
       <ion-item lines="none">
@@ -39,4 +51,8 @@
  
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>
   </form>
+</div>
+</ion-col>
+</ion-row>
+</ion-grid>
 </ion-content>

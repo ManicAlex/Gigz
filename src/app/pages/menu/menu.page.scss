@@ -14,6 +14,10 @@
     align-items: center;
   }
 
+  ion-content {
+    --background: #fff no-repeat 100% 100% / cover !important;
+  
+  }
 
 .count:nth-last-of-type(1)
 {

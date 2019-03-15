@@ -10,37 +10,42 @@
 
 
 <ion-content padding>
-    <div *ngIf="test">
+    <div *ngIf="skel">
 
-    <ion-card padding *ngIf="findIfEmpty()">
-        <ion-row padding class="row-style">
-            <ion-col padding class="row-style" size="12" size-md>
-        <ion-card-title padding color="primary">No notifications yet</ion-card-title>
-            </ion-col>
-        </ion-row>
-    </ion-card>
+                    <ion-card padding *ngIf="findIfEmpty()">
+                        <ion-row  class="row-style">
+                            <ion-col  class="row-style" size="12" size-md>
+                        <ion-card-title padding text-center color="primary">No Notifications Yet</ion-card-title>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
 
     <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(t)'>
+        <ion-card-header no-padding  (click)='goToRequest(t)'>
+
             <ion-grid>
-                <div class="hcs">
-                <ion-row align-items-start >
-                    <ion-col size="12" size-md>
-            <ion-avatar class="avatar">
-          <img src="../../../assets/img/default.png">
-            </ion-avatar>
-                    </ion-col>
-                    <ion-col align-items-start class="col-style" size="12" size-md>
-          <ion-card-title>Request from {{value.user['name']}}</ion-card-title>
-                    </ion-col>
-                </ion-row>
-                </div>
-            </ion-grid>
+                    <ion-row class="row-style">
+                        <ion-col  class="col-style" size="12" size-md>
+              <ion-avatar class="avatar">
+              <img src="../../../assets/img/default.png">
+              </ion-avatar>
+                        </ion-col>
+                        <ion-col  class="col-style" size="12" size-md>
+              <ion-text color="dark">Request from</ion-text>
+                        </ion-col>
+                        <ion-col  class="col-style" size="12" size-md>
+                                <ion-card-title color="primary">{{value.user['name']}}</ion-card-title>
+                        </ion-col>
+                        <ion-col  class="col-style" size="0" size-md>
+
+                                      </ion-col>
+                    </ion-row>
+                </ion-grid>
         </ion-card-header>
     </ion-card>
     
     <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="b">
-        <ion-card-header  (click)='goToAcceptedRequest(b)'>
+        <ion-card-header no-padding  (click)='goToAcceptedRequest(b)'>
             <ion-grid>
                 <ion-row class="row-style">
                     <ion-col  class="col-style" size="12" size-md>
@@ -49,12 +54,12 @@
           </ion-avatar>
                     </ion-col>
                     <ion-col  class="col-style" size="12" size-md>
-          <ion-card-title>Request made by {{value.name}}</ion-card-title>
+          <ion-text color="dark">Request from</ion-text>
                     </ion-col>
-                    <ion-col  class="col-style" size="6" size-md>
-          <ion-text>{{value.user_details['genre']}}</ion-text>
+                    <ion-col  class="col-style" size="12" size-md>
+                            <ion-card-title color="primary">{{value.name}}</ion-card-title>
                     </ion-col>
-                    <ion-col  class="col-style" size="6" size-md>
+                    <ion-col  class="col-style" size="12" size-md>
                         <ion-text color="success">Accepted</ion-text>
                                   </ion-col>
                 </ion-row>
@@ -63,7 +68,7 @@
     </ion-card>
 
     <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="l">
-        <ion-card-header  (click)='goToRejectedRequest(l)'>
+        <ion-card-header no-padding   (click)='goToRejectedRequest(l)'>
           
           <ion-grid>
               <ion-row class="row-style">
@@ -74,13 +79,12 @@
         
                   </ion-col>
                   <ion-col  class="col-style" size="12" size-md>
-                      
-        <ion-card-title>Request made by {{value.name}}</ion-card-title>
-                  </ion-col>
-                  <ion-col  class="col-style" size="6" size-md>
-        <ion-text>{{value.user_details['genre']}}</ion-text>
-                  </ion-col>
-                  <ion-col  class="col-style" size="6" size-md>
+                        <ion-text color="dark">Request from</ion-text>
+                                  </ion-col>
+                                  <ion-col  class="col-style" size="12" size-md>
+                                          <ion-card-title color="primary">{{value.name}}</ion-card-title>
+                                  </ion-col>
+                  <ion-col  class="col-style" size="12" size-md>
                       <ion-text color="danger">Declined</ion-text>
                                 </ion-col>
               </ion-row>
@@ -89,7 +93,7 @@
     </ion-card>
 
     <ion-card *ngFor="let value of values; let i = index" [attr.data-index]="i">
-      <ion-card-header  (click)='goToRequest(i)'>
+      <ion-card-header no-padding  (click)='goToRequest(i)'>
          
           <ion-grid>
               <ion-row class="row-style">
@@ -99,12 +103,12 @@
         </ion-avatar>
                   </ion-col>
                   <ion-col  class="col-style" size="12" size-md>
-        <ion-card-title>Request made by {{value.name}}</ion-card-title>
-                  </ion-col>
-                  <ion-col  class="col-style" size="6" size-md>
-        <ion-text>{{value.user_details['genre']}}</ion-text>
-                  </ion-col>
-                  <ion-col  class="col-style" size="6" size-md>
+                        <ion-text color="dark">Request from</ion-text>
+                                  </ion-col>
+                                  <ion-col  class="col-style" size="12" size-md>
+                                          <ion-card-title color="primary">{{value.name}}</ion-card-title>
+                                  </ion-col>
+                  <ion-col  class="col-style" size="12" size-md>
                       <ion-text color="warning">Pending</ion-text>
                   </ion-col>
               </ion-row>
@@ -118,7 +122,16 @@
 
 
 
- <div *ngIf="!test">
+ <div *ngIf="!skel">
+
+
+            <ion-card padding *ngIf="findIfEmpty()">
+                    <ion-row  class="row-style">
+                        <ion-col  class="row-style" size="12" size-md>
+                    <ion-card-title padding text-center color="primary"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
 
 
 

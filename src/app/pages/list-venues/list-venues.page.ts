@@ -50,7 +50,7 @@ export class ListVenuesPage implements OnInit {
       this.user = {
 
       };
-    }, 3000);
+    }, 2000);
   }
 
 

@@ -11,90 +11,145 @@
 </ion-header>
 
 
-<ion-content>
-
-    <ion-card *ngIf="data">
+<ion-content padding>
+    <div *ngIf="skel">
+    <ion-card>
         <ion-card-header>
             <ion-card-title padding color="primary" text-center>{{user.name}}</ion-card-title>
             <ion-grid>
-                <ion-row class="row-style">
-                    <ion-col class="col-style" size="12" size-md="6">
-
+                <ion-row class="row-main">
+                    <ion-col size="12" size-md="6">
             <ion-avatar class="avatar">
                 <img src="../../../assets/img/default.png">
               </ion-avatar>
                     </ion-col>
-              
-
-                  <ion-col class="col-style" size="12" size-md="6">
-          <ion-card-subtitle color="dark" text-center>Genre: {{user.user_details.genre}}</ion-card-subtitle>
-          <br>
-          <ion-card-subtitle color="dark" text-center>Number: {{user.user_details.contactNumber}}</ion-card-subtitle>
-          <br>
-          <ion-card-subtitle color="dark" text-center>Email: {{user.email}}</ion-card-subtitle>
-        </ion-col>
+                    <ion-col size="12" size-md="6">
+                            <ion-row>
+                                    <ion-col class="col-style" size="12" size-md>
+                            <ion-text color="primary">Genre:</ion-text>
+                            <ion-text padding color="dark">{{user.user_details['genre']}}</ion-text>
+                                    </ion-col>
+                            </ion-row>
+            
+            <ion-row>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Number:</ion-text>
+            <ion-text padding color="dark">{{user.user_details.contactNumber}}</ion-text>
+                    </ion-col>
             </ion-row>
-        </ion-grid>
+           
+            <ion-row>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Email::</ion-text>
+            <ion-text padding color="dark">{{user.email}}</ion-text>
+                    </ion-col>
+            </ion-row>
+        
+            </ion-col>
+              </ion-row>
+            </ion-grid>
+
         </ion-card-header>
       
-        <ion-card-content text-center>
+        <ion-card-content padding text-center>
           <ion-text color="dark" class="bio">{{user['user_details']['bios']}}</ion-text>
         
         </ion-card-content>
       </ion-card>
 
+      <ion-card>
+      
+      <ion-card-title class="reviews" padding color="primary" text-center>Reviews</ion-card-title>
+    </ion-card>
 
-      <ion-card *ngIf="!data">
-          <ion-card-header>
-              <ion-card-title padding color="primary" text-center><ion-skeleton-text animated style="width: 15%"></ion-skeleton-text></ion-card-title>
-              <ion-grid>
-                  <ion-row class="row-style">
-                      <ion-col class="col-style" size="12" size-md="6">
-  
-              <ion-avatar class="fakeavatar">
-                  <ion-spinner></ion-spinner>
-                </ion-avatar>
-                      </ion-col>
+    <ion-card padding *ngIf="findIfEmpty()">
+        <ion-row  class="row-style">
+            <ion-col  class="row-style" size="12" size-md>
+        <ion-card-title class="bio" text-center color="dark">No Reviews Yet</ion-card-title>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+  <ion-card *ngFor="let review of reviews">      
+
+      <ion-card-header>
+        <ion-card-subtitle class="bio" color="medium" text-center>Rating: {{review['rating']}}</ion-card-subtitle>
+        <ion-card-content >
+          <ion-text  padding color="dark" class="bio">{{review['body']}}</ion-text>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+    </div>
+
+
+
+    <div *ngIf="!skel">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title padding color="primary" text-center><ion-skeleton-text animated style="width: 30%"> </ion-skeleton-text></ion-card-title>
+                <ion-grid>
+                    <ion-row class="row-main">
+                        <ion-col size="12" size-md="6">
+                            <ion-avatar class="fakeavatar">
+                                <ion-spinner></ion-spinner>
+                                </ion-avatar>
+                        </ion-col>
+                        <ion-col size="12" size-md="6">
+                                <ion-row>
+                                        <ion-col class="col-style" size="12" size-md>
+                                
+                                <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                        </ion-col>
+                                </ion-row>
                 
-  
-                    <ion-col class="col-style" size="12" size-md="6">
-
-                        <ion-card-subtitle color="dark" text-center><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-card-subtitle>
-                        <br>
-                        <ion-card-subtitle color="dark" text-center><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-card-subtitle>
-                        <br>
-                        <ion-card-subtitle color="dark" text-center><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-card-subtitle>
-          </ion-col>
-              </ion-row>
-          </ion-grid>
-          </ion-card-header>
-        
-          <ion-card-content text-center>
-              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                <ion-row>
+                        <ion-col class="col-style" size="12" size-md>
+                
+                <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                        </ion-col>
+                </ion-row>
+               
+                <ion-row>
+                        <ion-col class="col-style" size="12" size-md>
+                
+                <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                        </ion-col>
+                </ion-row>
+            
+                </ion-col>
+                  </ion-row>
+                </ion-grid>
+    
+            </ion-card-header>
           
-          </ion-card-content>
-        </ion-card >
-
-
-        <div *ngIf="review">
-      <ion-card *ngFor="let review of reviews">
+            <ion-card-content text-center>
+              <ion-text color="dark" class="bio"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text><br><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+            
+            </ion-card-content>
+          </ion-card>
+    
+          <ion-card>
+          
+          <ion-card-title class="reviews" padding color="primary" text-center>Reviews</ion-card-title>
+        </ion-card>
+    
+        <ion-card padding *ngIf="findIfEmpty()">
+            <ion-row  class="row-style">
+                <ion-col  class="row-style" size="12" size-md>
+            <ion-card-title class="bio" text-center color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-card-title>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+      <ion-card *ngFor="let review of reviews">      
+    
           <ion-card-header>
-            <ion-card-subtitle text-center>Rating: {{review['rating']}}</ion-card-subtitle>
-            <br>
-            <ion-text color="dark" class="bio">{{review['body']}}</ion-text>
+            <ion-card-subtitle color="primary" text-center><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-card-subtitle>
+            <ion-card-content padding>
+              <ion-text color="dark" class="bio"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+            </ion-card-content>
           </ion-card-header>
         </ion-card>
-      </div>
+        </div>
 
-        <div *ngIf="!review">
-        <ion-card *ngFor="let review of reviews">
-              <ion-card-header>
-                <ion-card-subtitle text-center><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></ion-card-subtitle>
-                <br>
-                <ion-text color="dark" class="bio"><ion-skeleton-text animated style="width: 100%"></ion-skeleton-text></ion-text>
-              </ion-card-header>
-            </ion-card>
-          </div>
 
         
 
