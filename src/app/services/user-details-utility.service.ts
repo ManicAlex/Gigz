@@ -20,7 +20,7 @@ export class UserDetailsUtilityService {
     private toastController: ToastController
     ) { }
 
-  url = environment.url;
+  url = 'http://www.stefandesigns.org/index.php/';
   id = '';
 
   getUser(token) {

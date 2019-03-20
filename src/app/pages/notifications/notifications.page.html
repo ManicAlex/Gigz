@@ -21,7 +21,7 @@
                     </ion-card>
 
     <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
-        <ion-card-header no-padding  (click)='goToRequest(t)'>
+        <ion-card-header no-padding>
 
             <ion-grid>
                     <ion-row class="row-style">
@@ -31,7 +31,7 @@
               </ion-avatar>
                         </ion-col>
                         <ion-col  class="col-style" size="12" size-md>
-              <ion-text color="dark">Request from</ion-text>
+              <ion-text color="dark">Request accepted by</ion-text>
                         </ion-col>
                         <ion-col  class="col-style" size="12" size-md>
                                 <ion-card-title color="primary">{{value.user['name']}}</ion-card-title>

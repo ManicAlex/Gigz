@@ -12,7 +12,7 @@ export class UserServiceService {
 
   constructor(private http: HttpClient,private storage:Storage) { }
 
-  url = environment.url;
+  url = 'http://www.stefandesigns.org/index.php/';
   user:object;
 
 
@@ -31,8 +31,4 @@ export class UserServiceService {
     });
     return this.user;
   }
-
-
-
-
 }

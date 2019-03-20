@@ -27,7 +27,7 @@ export class EditDetailsPage implements OnInit {
       "locationId": null,
       "updated_at": null
   };
-  url = environment.url;
+  url = 'http://www.stefandesigns.org/index.php/';
   token;
   authenticationState = new BehaviorSubject(false);
 

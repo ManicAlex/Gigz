@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class AddDetailsPage implements OnInit {
   credentialsForm: FormGroup;
   userId: number;
-  url = environment.url;
+  url = 'http://www.stefandesigns.org/index.php/';
   token;
   authenticationState = new BehaviorSubject(false);
 
