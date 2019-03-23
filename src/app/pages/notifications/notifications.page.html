@@ -12,8 +12,8 @@
 <ion-content padding>
     <div *ngIf="test">
     <ion-text *ngIf="findIfEmpty()">No notifications yet.</ion-text>
-    <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
-        <ion-card-header  (click)='goToRequest(t)'>
+    <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="t">
+        <ion-card-header>
             <ion-grid>
                 <div class="hcs">
                 <ion-row align-items-start >
@@ -23,7 +23,7 @@
             </ion-avatar>
                     </ion-col>
                     <ion-col align-items-start class="col-style" size="12" size-md>
-          <ion-card-title>Request hass been accpted by {{value.user['name']}}</ion-card-title>
+          <ion-card-title>Request has been accpted by {{value.user['name']}}</ion-card-title>
                     </ion-col>
                     <ion-col  class="col-style" size="12" size-md>
                         <ion-text color="success">Accepted</ion-text>
@@ -118,7 +118,7 @@
 
 
 
-        <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
+        <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="t">
             <ion-card-header>
                 <ion-grid>
                     <div class="hcs">

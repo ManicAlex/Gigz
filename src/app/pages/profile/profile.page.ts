@@ -63,10 +63,9 @@ export class ProfilePage implements OnInit {
        this.getUser.getUserDetails(token)
        .subscribe(data2 => {
          this.user = data2['data']['0'];
-       })
+       });
     });
 
-    
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
     });

@@ -41,7 +41,7 @@ export class EditDetailsPage implements OnInit {
       this.details.getUserDetails(token)
       .subscribe(data2 => {
         this.user = data2['data']['0'];
-      }) 
+      });
     });
     this.credentialsForm = this.formBuilder.group({
       genre: ['', Validators.required],
@@ -52,5 +52,9 @@ export class EditDetailsPage implements OnInit {
 
   onSubmit() {
     this.details.editDetails(this.credentialsForm.value,this.token).subscribe();
+  }
+
+  moveToImage() {
+    this.router.navigate(['/upload-image']);
   }
 }

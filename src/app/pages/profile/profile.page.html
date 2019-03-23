@@ -15,7 +15,7 @@
 
     <ion-card *ngIf="data">
         <ion-card-header>
-            <ion-card-title padding color="primary" text-center>{{user.name}}</ion-card-title>
+            <ion-card-title padding color="primary" text-center>{{user['name']}}</ion-card-title>
             <ion-grid>
                 <ion-row class="row-style">
                     <ion-col class="col-style" size="12" size-md="6">
@@ -27,11 +27,11 @@
               
 
                   <ion-col class="col-style" size="12" size-md="6">
-          <ion-card-subtitle color="dark" text-center>Genre: {{user.user_details.genre}}</ion-card-subtitle>
+          <ion-card-subtitle color="dark" text-center>Genre: {{user['user_details']['genre']}}</ion-card-subtitle>
           <br>
-          <ion-card-subtitle color="dark" text-center>Number: {{user.user_details.contactNumber}}</ion-card-subtitle>
+          <ion-card-subtitle color="dark" text-center>Number: {{user['user_details']['contactNumber']}}</ion-card-subtitle>
           <br>
-          <ion-card-subtitle color="dark" text-center>Email: {{user.email}}</ion-card-subtitle>
+          <ion-card-subtitle color="dark" text-center>Email: {{user['email']}}</ion-card-subtitle>
         </ion-col>
             </ion-row>
         </ion-grid>
