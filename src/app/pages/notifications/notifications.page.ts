@@ -11,7 +11,7 @@ import {SharedDetailsService} from 'src/app/services/shared-details.service'
 })
 export class NotificationsPage implements OnInit {
 
-  test: any;
+ skel: any;
 
   constructor(
     private details: UserDetailsUtilityService,
@@ -96,10 +96,10 @@ export class NotificationsPage implements OnInit {
 
   ionViewWillEnter() {
     setTimeout(() => {
-      this.test = {
+      this.skel = {
 
       };
-    }, 3000);
+    }, 2000);
   }
 
 }

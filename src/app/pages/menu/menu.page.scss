@@ -13,3 +13,20 @@
     flex-direction: row;
     align-items: center;
   }
+
+  ion-content {
+    --background: #fff no-repeat 100% 100% / cover !important;
+  
+  }
+
+.count:nth-last-of-type(1)
+{
+    color: red !important;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+
+
+}

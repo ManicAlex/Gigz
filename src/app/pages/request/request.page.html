@@ -3,56 +3,83 @@
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
           </ion-buttons>
-<ion-title>Request</ion-title>
+<ion-title text-center>Request</ion-title>
 </ion-toolbar>
 </ion-header>
 
 
 
-<ion-content>
+<ion-content padding>
+        <div *ngIf="skel">
     <ion-card>
         <ion-card-header>
             <ion-card-title padding color="primary" text-center>{{user.name}}</ion-card-title>
             <ion-grid>
-                <ion-row class="row-style">
+                <ion-row class="row-main">
                     <ion-col size="12" size-md="6">
             <ion-avatar class="avatar">
                 <img src="../../../assets/img/default.png">
               </ion-avatar>
                     </ion-col>
                     <ion-col size="12" size-md="6">
-            <ion-card-subtitle color="dark" font="90px" text-center>Genre: {{user.user_details['genre']}}</ion-card-subtitle>
-            <br>
-
-            <ion-card-subtitle color="dark" text-center>Number: {{user.user_details.contactNumber}}</ion-card-subtitle>
-            <br>
-            <ion-card-subtitle color="dark" text-center>Email: {{user.email}}</ion-card-subtitle>
-            <br>
+                            <ion-row>
+                                    <ion-col class="col-style" size="12" size-md>
+                            <ion-text color="primary">Genre:</ion-text>
+                            <ion-text padding color="dark">{{user.user_details['genre']}}</ion-text>
+                                    </ion-col>
+                            </ion-row>
+            
+            <ion-row>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Number:</ion-text>
+            <ion-text padding color="dark">{{user.user_details.contactNumber}}</ion-text>
+                    </ion-col>
+            </ion-row>
+           
+            <ion-row>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Email:</ion-text>
+            <ion-text padding color="dark">{{user.email}}</ion-text>
+                    </ion-col>
+            </ion-row>
+        
             </ion-col>
               </ion-row>
             </ion-grid>
 
         </ion-card-header>
-        <ion-card-title padding color="primary" text-center>Request Details</ion-card-title>
-            <div *ngFor="let request of requests">
+
+        <ion-card-title class="reviews" padding color="primary" text-center>Request Details</ion-card-title>
+        
+        <div *ngFor="let request of requests">
             <ion-grid>
-                <ion-row padding >
-                    <ion-col>
-            <ion-text>Price: {{request.price}}</ion-text>
+                <div class="line">
+                <ion-row>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Price:</ion-text>
+            <ion-text padding color="dark">€{{request.price}}</ion-text>
                     </ion-col>
-                    <ion-col>
-            <ion-text>Details: {{request.details}}</ion-text>
+                    <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Date</ion-text>
+            <ion-text padding color="dark">{{getFormattedDate(request.requestDate)}}</ion-text>
                     </ion-col>
-                    <ion-col>
-            <ion-text>Date: {{getFormattedDate(request.requestDate)}}</ion-text>
-                    </ion-col>
-            <ion-col >
-            <ion-text>Time: {{getFormattedTime(request.requestDate)}}</ion-text>
+            <ion-col class="col-style" size="12" size-md >
+            <ion-text color="primary">Time:</ion-text>
+            <ion-text padding color="dark">{{getFormattedTime(request.requestDate)}}</ion-text>
             </ion-col>
-            <ion-col>
-            <ion-text>Status: {{getStatus(request.status)}}</ion-text>
+            <ion-col class="col-style" size="12" size-md>
+            <ion-text color="primary">Status:</ion-text>
+            <ion-text padding color="dark">{{getStatus(request.status)}}</ion-text>
             </ion-col>
                 </ion-row>
+                <ion-row>
+                        <ion-col class="col-style" size="12" size-md>
+                                <ion-text color="primary">Details:</ion-text><br>
+                                <ion-text padding color="dark">{{request.details}}</ion-text>
+                                        </ion-col>
+
+                </ion-row>
+                </div>
             </ion-grid>
 
             <ion-grid>
@@ -63,12 +90,102 @@
                     <ion-col size="6">
     <ion-button margin="5px" expand="full" color="danger" (click)='decline(request.id)' *ngIf='request.status === 0'>Decline</ion-button>
   </ion-col>
-  <hr>
+  
 </ion-row>
 </ion-grid>
 
-  </div>
+    </div>
       </ion-card>
+      </div>
+
+      <div *ngIf="!skel">
+            <ion-card>
+                    <ion-card-header>
+                        <ion-card-title padding color="primary" text-center><ion-skeleton-text animated style="width: 30%"> </ion-skeleton-text></ion-card-title>
+                        <ion-grid>
+                            <ion-row class="row-main">
+                                <ion-col size="12" size-md="6">
+                                    <ion-avatar class="fakeavatar">
+                                        <ion-spinner></ion-spinner>
+                                        </ion-avatar>
+                                </ion-col>
+                                <ion-col size="12" size-md="6">
+                                        <ion-row>
+                                                <ion-col class="col-style" size="12" size-md>
+                                        
+                                        <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                                </ion-col>
+                                        </ion-row>
+                        
+                        <ion-row>
+                                <ion-col class="col-style" size="12" size-md>
+                        
+                        <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                </ion-col>
+                        </ion-row>
+                       
+                        <ion-row>
+                                <ion-col class="col-style" size="12" size-md>
+                        
+                        <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                </ion-col>
+                        </ion-row>
+                    
+                        </ion-col>
+                          </ion-row>
+                        </ion-grid>
+            
+                    </ion-card-header>
+        
+                <ion-card-title class="reviews" padding color="primary" text-center>Request Details</ion-card-title>
+                
+                <div *ngFor="let request of requests">
+                    <ion-grid>
+                        <div class="line">
+                        <ion-row>
+                            <ion-col class="col-style" size="12" size-md>
+                    <ion-text color="primary"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-text>
+                    <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                            </ion-col>
+                            <ion-col class="col-style" size="12" size-md>
+                    <ion-text color="primary"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-text>
+                    <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                            </ion-col>
+                    <ion-col class="col-style" size="12" size-md >
+                    <ion-text color="primary"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-text>
+                    <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                    </ion-col>
+                    <ion-col class="col-style" size="12" size-md>
+                    <ion-text color="primary"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-text>
+                    <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                    </ion-col>
+                        </ion-row>
+                        <ion-row>
+                                <ion-col class="col-style" size="12" size-md>
+                                        <ion-text color="primary"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-text><br>
+                                        <ion-text padding color="dark"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                                        <br><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></ion-text>
+                                                </ion-col>
+        
+                        </ion-row>
+                        </div>
+                    </ion-grid>
+        
+                    <ion-grid>
+                        <ion-row padding>
+                            <ion-col size="6">
+                <ion-button margin="5px" expand="full" color="success" (click)='acceptRequest(request.id)' *ngIf='request.status === 0'>Accept</ion-button>
+                            </ion-col>
+                            <ion-col size="6">
+            <ion-button margin="5px" expand="full" color="danger" (click)='decline(request.id)' *ngIf='request.status === 0'>Decline</ion-button>
+          </ion-col>
+          
+        </ion-row>
+        </ion-grid>
+        
+            </div>
+              </ion-card>
+              </div>
 
    
           

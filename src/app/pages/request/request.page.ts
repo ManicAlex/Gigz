@@ -41,6 +41,7 @@ export class RequestPage implements OnInit {
     requests;
     token: string;
     id;
+    skel: any;
 
   ngOnInit() {
     this.user = this.sharedDetails.getData();
@@ -120,6 +121,15 @@ export class RequestPage implements OnInit {
       hours = hours ? hours : 12;
       return `${hours}:${mins} ${ampm}`;
     }
+
+    ionViewWillEnter() {
+      setTimeout(() => {
+        this.skel  = {
+  
+        };
+      }, 2000);
+    }
+  
 }
 
 

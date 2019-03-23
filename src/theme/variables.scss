@@ -75,4 +75,16 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+
+  ion-content {
+    --background: url('../assets/img/login.jpg') no-repeat 100% 100% / cover !important;
+  
+  }
+}
+:root,
+:root[mode=ios],
+:root[mode=md] {
+  --ion-font-family: "Palatino", "Lucida Sans Unicode", serif !important;
+
+  font-family: "Palatino", "Lucida Sans Unicode", serif !important;
 }

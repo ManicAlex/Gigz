@@ -27,7 +27,7 @@ export class UserProfilePage implements OnInit {
     credentialsForm: FormGroup;
     token: string;
     reviews;
-    test: any;
+    skel: any;
 
   ngOnInit() {
     this.user = {
@@ -140,9 +140,9 @@ export class UserProfilePage implements OnInit {
 
   ionViewWillEnter() {
     setTimeout(() => {
-      this.test = {
+      this.skel = {
 
       };
-    }, 3000);
+    }, 2000);
   }
 }

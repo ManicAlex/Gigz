@@ -1,8 +1,8 @@
 
 .avatar{
     margin: auto;  
-    max-width: 120px !important;  //any size
-    max-height: 120px !important; //any size 
+    max-width: 6rem !important;  //any size
+    max-height: 6rem !important; //any size 
  }
 
  $white-color: #fff;
@@ -11,7 +11,13 @@
 ion-grid {
     width:100%;
     height: $height100;
-    background-image: url('../../../assets/img/login.jpg');
+
+    
+}
+
+h4 {
+    font-size: 2rem;
+    color: #3880ff;
 }
 
 ion-row {
@@ -34,4 +40,8 @@ ion-button {
     ion-col {
         border: none;
     }
+    ion-content {
+        --background: #fff no-repeat 100% 100% / cover !important;
+      
+      }
 }
