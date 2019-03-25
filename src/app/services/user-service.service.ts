@@ -12,7 +12,7 @@ export class UserServiceService {
 
   constructor(private http: HttpClient,private storage:Storage) { }
 
-  url = 'http://www.stefandesigns.org/index.php/';
+  url = 'https://www.stefandesigns.org/index.php';
   user:object;
 
 

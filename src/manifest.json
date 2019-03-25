@@ -1,0 +1,16 @@
+{
+    "short_name": "Gigz2",
+    "name": "Gigz2",
+    "icons": [
+      {
+        "src": "assets/img/appLogo.png",
+        "type": "image/png",
+        "sizes": "300x300"
+      }
+    ],
+    "start_url": "register",
+    "background_color": "#222428",
+    "display": "fullscreen",
+    "scope": "/app/",
+    "theme_color": "#222428"
+  }

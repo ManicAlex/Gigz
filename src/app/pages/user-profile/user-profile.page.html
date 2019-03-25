@@ -54,7 +54,7 @@
           </ion-card-content>
           <ion-button margin="5px" expand="full" type="submit" (click)='book()'>Book</ion-button>
         </ion-card>
-        <ion-card>
+        <ion-card (click)="scroll()">
             <ion-card-title class="reviews" padding color="primary" text-center>Reviews</ion-card-title>
         </ion-card>
 
@@ -75,7 +75,7 @@
           </ion-card-header>
         </ion-card>
 
-        <ion-card>
+        <ion-card id='targeted'>
           <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
               <ion-title padding color="primary" text-center>Add review</ion-title>
               <ion-item>

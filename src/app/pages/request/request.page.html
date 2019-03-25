@@ -85,10 +85,10 @@
             <ion-grid>
                 <ion-row padding>
                     <ion-col size="6">
-        <ion-button margin="5px" expand="full" color="success" (click)='acceptRequest(request.id)' *ngIf='request.status === 0'>Accept</ion-button>
+        <ion-button margin="5px" expand="full" color="success" (click)='acceptRequest(request.id)' *ngIf="request['status'] == 0">Accept</ion-button>
                     </ion-col>
                     <ion-col size="6">
-    <ion-button margin="5px" expand="full" color="danger" (click)='decline(request.id)' *ngIf='request.status === 0'>Decline</ion-button>
+    <ion-button margin="5px" expand="full" color="danger" (click)='decline(request.id)' *ngIf='request.status == 0'>Decline</ion-button>
   </ion-col>
   
 </ion-row>

@@ -27,7 +27,7 @@ export class EditDetailsPage implements OnInit {
       "locationId": null,
       "updated_at": null
   };
-  url = 'http://www.stefandesigns.org/index.php/';
+  url = 'https://www.stefandesigns.org/index.php';
   token;
   authenticationState = new BehaviorSubject(false);
 
@@ -41,12 +41,12 @@ export class EditDetailsPage implements OnInit {
       this.details.getUserDetails(token)
       .subscribe(data2 => {
         this.user = data2['data']['0'];
-      }) 
+      });
     });
     this.credentialsForm = this.formBuilder.group({
-      genre: ['', Validators.required],
+      genre: [''],
       bios: ['', Validators.required],
-      contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{10}$/)]],
+      contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{10,}$/)]],
     });
   }
 

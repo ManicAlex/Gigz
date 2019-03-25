@@ -1,0 +1,40 @@
+{
+  "name": "Gigz",
+  "short_name": "Gigz",
+  "theme_color": "#222428",
+  "background_color": "#222428",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+        "src": "assets/icons/IconLogo_550x550.png",
+        "type": "image/png",
+        "sizes": "550x550"
+      },
+      {
+        "src": "assets/icons/IconLogo_300x300.png",
+        "type": "image/png",
+        "sizes": "550x550"
+      },
+      {
+        "src": "assets/icons/IconLogo_120x120.png",
+        "type": "image/png",
+        "sizes": "550x550"
+      },
+      {
+        "src": "assets/icons/IconLogo.webp",
+        "type": "image/webp",
+        "sizes": "48x48"
+      },  
+      {
+        "src": "assets/icons/IconLogo.ico",
+        "sizes": "72x72 96x96 128x128 256x256"
+      },
+      {
+        "src": "assets/icons/IconLogo.svg",
+        "sizes": "72x72"
+      }   
+
+  ]
+}

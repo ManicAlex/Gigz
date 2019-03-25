@@ -28,6 +28,7 @@ export class UserProfilePage implements OnInit {
     token: string;
     reviews;
     skel: any;
+    element:any;
 
   ngOnInit() {
     this.user = {
@@ -64,13 +65,9 @@ export class UserProfilePage implements OnInit {
         console.log(this.id);
       });
     });
-    console.log(this.token);
-    console.log(this.user);
     this.storage.get('access_token').then((token) => {
-      console.log(this.id);
       this.service.showReviewsById(token, this.id).subscribe(val => {
         this.reviews = val['data'];
-          console.log(val['data']);
         }
       );
   });
@@ -78,6 +75,13 @@ export class UserProfilePage implements OnInit {
       rating: ['', [Validators.required]],
       body: ['', [Validators.required]]
     });
+  }
+  ngAfterViewInit() {
+    setTimeout(
+      () => {
+        this.element = document.querySelector('#targeted');
+      }, 2000
+    );
   }
 
   book() {
@@ -90,6 +94,10 @@ export class UserProfilePage implements OnInit {
         res => {
           if (res['success']) {
             this.service.presentPositiveToast('Review added successfully');
+            this.service.showReviewsById(token, this.id).subscribe(val => {
+              this.reviews = val['data'];
+              }
+            );
           } else {
             this.service.presentToast('Review failed to be added');
           }
@@ -106,6 +114,12 @@ export class UserProfilePage implements OnInit {
           res => {
             if (res['success']) {
               this.service.presentPositiveToast('Added to favourites');
+              setTimeout(
+                () => {
+                  this.router.navigate(['menu/favourite']);
+                }, 4000
+              );
+              this.router.navigate(['menu/favourite']);
             } else {
               this.service.presentToast('Failed to add to favourites');
             }
@@ -138,5 +152,9 @@ export class UserProfilePage implements OnInit {
 
       };
     }, 2000);
+  }
+  
+  public scroll() {
+    this.element.scrollIntoView();
   }
 }

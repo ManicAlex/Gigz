@@ -16,7 +16,7 @@ const TOKEN_KEY = 'access_token';
 })
 export class AuthService {
  
-  url = 'http://www.stefandesigns.org/index.php/';
+  url = 'https://www.stefandesigns.org/index.php';
   user = null;
   authenticationState = new BehaviorSubject(false);
   halfRegisteredState = new BehaviorSubject(false);

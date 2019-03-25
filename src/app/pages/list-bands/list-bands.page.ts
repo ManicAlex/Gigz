@@ -23,7 +23,6 @@ export class ListBandsPage implements OnInit {
     this.details.getAllBands()
     .subscribe(data => {
       this.users = data['data'];
-      console.log(this.users);
     });
   }
 
@@ -44,6 +43,18 @@ export class ListBandsPage implements OnInit {
       this.user = {
 
       };
+    }, 2000);
+  }
+
+  doRefresh(event) {
+    this.details.getAllBands()
+    .subscribe(data => {
+      this.users = data['data'];
+    });
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
     }, 2000);
   }
 

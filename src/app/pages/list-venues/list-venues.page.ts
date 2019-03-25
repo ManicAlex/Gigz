@@ -53,5 +53,16 @@ export class ListVenuesPage implements OnInit {
     }, 2000);
   }
 
+  doRefresh(event) {
+    this.details.getAllVenues()
+    .subscribe(data => {
+      this.users = data['data'];
+    });
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
 
 }

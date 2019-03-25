@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class AddDetailsPage implements OnInit {
   credentialsForm: FormGroup;
   userId: number;
-  url = 'http://www.stefandesigns.org/index.php/';
+  url = 'https://www.stefandesigns.org/index.php';
   token;
   authenticationState = new BehaviorSubject(false);
 
@@ -33,7 +33,7 @@ export class AddDetailsPage implements OnInit {
       genre: ['', Validators.required],
       bios: ['', Validators.required],
       //avatarURL: [],
-      contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{10}$/)]],
+      contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{10,}$/), Validators.required]],
       //locationId: [],
     });
     this.storage.get('access_token').then((token) => {

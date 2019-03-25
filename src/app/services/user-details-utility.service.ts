@@ -20,7 +20,7 @@ export class UserDetailsUtilityService {
     private toastController: ToastController
     ) { }
 
-  url = 'http://www.stefandesigns.org/index.php/';
+  url = 'https://www.stefandesigns.org/index.php';
   id = '';
 
   getUser(token) {

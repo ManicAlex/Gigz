@@ -25,35 +25,32 @@ export class NotificationsPage implements OnInit {
     acceptedValues: object;
     acceptedValuesOther: object;
     declinedValues: object;
+    token;
 
   ngOnInit() {
     this.values, this.acceptedValues, this.declinedValues = null;
     this.storage.get('access_token').then((token) => {
+      this.token = token;
       this.details.displayAcceptedRequestsFromSelf(token).subscribe(
         data => {
           this.acceptedValuesOther = data['data'];
-          console.log(this.acceptedValuesOther);
         }
       );
       this.details.displayAcceptedRequests(token).subscribe(
         data => {
           this.acceptedValues = data['data'];
-          console.log(this.acceptedValues);
         }
       );
       this.details.displayRejectedRequests(token).subscribe(
         data => {
           this.declinedValues = data['data'];
-          console.log(this.declinedValues);
         }
       );
       this.details.displayRequestsRecievedDetails(token).subscribe(
         data => {
           this.values = data['data'];
-          console.log(data);
         }
       );
-      console.log(this.values);
     }
     );
   }
@@ -99,6 +96,34 @@ export class NotificationsPage implements OnInit {
       this.skel = {
 
       };
+    }, 2000);
+  }
+
+  doRefresh(event) {
+    this.details.displayAcceptedRequestsFromSelf(this.token).subscribe(
+      data => {
+        this.acceptedValuesOther = data['data'];
+      }
+    );
+    this.details.displayAcceptedRequests(this.token).subscribe(
+      data => {
+        this.acceptedValues = data['data'];
+      }
+    );
+    this.details.displayRejectedRequests(this.token).subscribe(
+      data => {
+        this.declinedValues = data['data'];
+      }
+    );
+    this.details.displayRequestsRecievedDetails(this.token).subscribe(
+      data => {
+        this.values = data['data'];
+      }
+    );
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
     }, 2000);
   }
 

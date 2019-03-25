@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 export class FavouritePage implements OnInit {
 
   users;
-  
+
   constructor(
-    private storage: Storage, 
-    private details: UserDetailsUtilityService, 
+    private storage: Storage,
+    private details: UserDetailsUtilityService,
     private http: HttpClient,
     private router: Router
   ) { }
@@ -29,7 +29,6 @@ export class FavouritePage implements OnInit {
       this.details.getAllFavourites(token)
       .subscribe(data => {
         this.users = data['data'];
-        console.log(this.users);
       });
    });
   }
@@ -39,22 +38,32 @@ export class FavouritePage implements OnInit {
   }
 
   unfavourite(id) {
-    this.details.unfavourite(id,this.token).subscribe(
+    this.details.unfavourite(id, this.token).subscribe(
       res => {
         if (res['success']) {
           this.details.presentPositiveToast('User has been unfavourited');
           this.details.getAllFavourites(this.token)
           .subscribe(data => {
             this.users = data['data'];
-            console.log(this.users);
           });
         } else {
           this.details.presentToast('Sorry, failed to unfavourite');
         }
       }
-    )
+    );
   }
 
+  doRefresh(event) {
+    this.details.getAllFavourites(this.token)
+      .subscribe(data => {
+        this.users = data['data'];
+      });
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
 
   findIfEmpty() {
     if (this.users['length'] === 0) {

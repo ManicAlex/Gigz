@@ -62,7 +62,7 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
     this.getNotifications();
-    setTimeout(
+    window.setInterval(
       () => {
         this.totalCount = this.pendingCount + this.acceptedCount;
         console.log(this.totalCount);
