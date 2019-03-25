@@ -90,6 +90,11 @@ export class UserProfilePage implements OnInit {
         res => {
           if (res['success']) {
             this.service.presentPositiveToast('Review added successfully');
+            this.service.showReviewsById(token, this.id).subscribe(val => {
+              this.reviews = val['data'];
+                console.log(val['data']);
+              }
+            );
           } else {
             this.service.presentToast('Review failed to be added');
           }
@@ -100,6 +105,7 @@ export class UserProfilePage implements OnInit {
   }
 
   storeFav(id) {
+    console.log('clicked');
     this.storage.get('access_token').then(
       token => {
         this.service.storeFav(id, token).subscribe(

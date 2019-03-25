@@ -64,11 +64,16 @@ const routes: Routes = [
     loadChildren: './pages/show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule',
     canActivate: [AuthGuardService]
    },
-  { path: 'request', loadChildren: './pages/request/request.module#RequestPageModule' },
- 
-
-
-
+  {
+    path: 'request',
+    loadChildren: './pages/request/request.module#RequestPageModule',
+    canActivate: [AuthGuardService]
+   },
+  {
+    path: 'upload-image',
+    loadChildren: './pages/upload-image/upload-image.module#UploadImagePageModule',
+    canActivate: [AuthGuardService]
+   }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

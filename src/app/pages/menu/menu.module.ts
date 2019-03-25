@@ -13,33 +13,33 @@ const routes: Routes = [
     path: '',
     component: MenuPage,
     children: [
-      { path: 'register', 
-    loadChildren: '../register/register.module#RegisterPageModule' 
+      { path: 'register',
+    loadChildren: '../register/register.module#RegisterPageModule'
   },
-  { 
-    path: 'add-details', 
+  {
+    path: 'add-details',
     loadChildren: '../add-details/add-details.module#AddDetailsPageModule',
-    canActivate: [AuthGuardService]  
+    canActivate: [AuthGuardService]
 },
-  { 
-    path: 'edit-details', 
+  {
+    path: 'edit-details',
     loadChildren: '../edit-details/edit-details.module#EditDetailsPageModule',
-    canActivate: [AuthGuardService] 
+    canActivate: [AuthGuardService]
 },
-{ 
-  path: 'profile', 
-  loadChildren: '../profile/profile.module#ProfilePageModule', 
-  canActivate: [AuthGuardService] 
+{
+  path: 'profile',
+  loadChildren: '../profile/profile.module#ProfilePageModule',
+  canActivate: [AuthGuardService]
 },
-{ 
-  path: 'list-venues', 
-  loadChildren: '../list-venues/list-venues.module#ListVenuesPageModule', 
-  canActivate: [AuthGuardService] 
+{
+  path: 'list-venues',
+  loadChildren: '../list-venues/list-venues.module#ListVenuesPageModule',
+  canActivate: [AuthGuardService]
 },
-{ 
-  path: 'list-bands', 
+{
+  path: 'list-bands',
   loadChildren: '../list-bands/list-bands.module#ListBandsPageModule',
-  canActivate: [AuthGuardService] 
+  canActivate: [AuthGuardService]
 },
 {
   path: 'user-profile',
@@ -58,30 +58,35 @@ canActivate: [AuthGuardService]
 loadChildren: '../notifications/notifications.module#NotificationsPageModule',
 canActivate: [AuthGuardService]
 },
-{ 
-  path: 'send-request', 
+{
+  path: 'send-request',
   loadChildren: '../send-request/send-request.module#SendRequestPageModule',
-  canActivate: [AuthGuardService] 
+  canActivate: [AuthGuardService]
 },
-{ 
-  path: 'show-my-requests', 
+{
+  path: 'show-my-requests',
   loadChildren: '../show-my-requests/show-my-requests.module#ShowMyRequestsPageModule',
-  canActivate: [AuthGuardService] 
+  canActivate: [AuthGuardService]
 },
-{ 
-  path: 'show-requests-received', 
+{
+  path: 'show-requests-received',
   loadChildren: '../show-requests-received/show-requests-received.module#ShowRequestsReceivedPageModule',
-  canActivate: [AuthGuardService] 
+  canActivate: [AuthGuardService]
 },
 { path: 'request',
  loadChildren: '../request/request.module#RequestPageModule',
- canActivate: [AuthGuardService] 
- }
+ canActivate: [AuthGuardService]
+ },
+ {
+   path: 'upload-image',
+   loadChildren: '../upload-image/upload-image.module#UploadImagePageModule',
+   canActivate: [AuthGuardService]
+  }
 
     ]
   },
   {
-    path:'',
+    path: '',
     redirectTo: '/menu/profile'
   }
 ];

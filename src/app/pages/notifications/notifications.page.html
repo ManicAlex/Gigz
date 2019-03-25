@@ -10,6 +10,30 @@
 
 
 <ion-content padding>
+<<<<<<< HEAD
+    <div *ngIf="test">
+    <ion-text *ngIf="findIfEmpty()">No notifications yet.</ion-text>
+    <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="t">
+        <ion-card-header>
+            <ion-grid>
+                <div class="hcs">
+                <ion-row align-items-start >
+                    <ion-col size="12" size-md>
+            <ion-avatar class="avatar">
+          <img src="../../../assets/img/default.png">
+            </ion-avatar>
+                    </ion-col>
+                    <ion-col align-items-start class="col-style" size="12" size-md>
+          <ion-card-title>Request has been accpted by {{value.user['name']}}</ion-card-title>
+                    </ion-col>
+                    <ion-col  class="col-style" size="12" size-md>
+                        <ion-text color="success">Accepted</ion-text>
+                                  </ion-col>
+                    
+                </ion-row>
+                </div>
+            </ion-grid>
+=======
     <div *ngIf="skel">
 
                     <ion-card padding *ngIf="findIfEmpty()">
@@ -41,6 +65,7 @@
                                       </ion-col>
                     </ion-row>
                 </ion-grid>
+>>>>>>> 023ed37b5d01ac180e8388742d4f60a722999fa4
         </ion-card-header>
     </ion-card>
     
@@ -135,7 +160,7 @@
 
 
 
-        <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
+        <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="t">
             <ion-card-header>
                 <ion-grid>
                     <div class="hcs">
