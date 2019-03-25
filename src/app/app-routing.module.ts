@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
+  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'inside',
     loadChildren: './pages/inside/inside.module#InsidePageModule',
@@ -64,6 +65,8 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
    },
   { path: 'request', loadChildren: './pages/request/request.module#RequestPageModule' },
+ 
+
 
 
 ];

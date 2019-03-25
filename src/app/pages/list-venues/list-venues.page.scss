@@ -6,6 +6,10 @@ ion-card {
   margin-bottom: 1rem;
   border: 0.07rem solid var(--ion-color-dark);
 }
+.hover:hover { 
+
+  background-color: #f1f0f0 !important;
+}
 
 
 // ion-card-title{
@@ -79,8 +83,11 @@ ion-button {
 
 @media (min-width: 240px) and (max-width: 768px) {
   ion-content {
-    --background: rgba(224, 219, 219, 0.473) !important;
+    --background: url('../../../assets/img/sback.png') no-repeat 100% 100% / cover !important;
   
+  }
+  ion-card-content {
+    margin-bottom: 1rem !important;
   }
   ion-card {
     background-color: white !important;

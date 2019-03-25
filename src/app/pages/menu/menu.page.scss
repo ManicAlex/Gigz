@@ -18,6 +18,9 @@
     --background: #fff no-repeat 100% 100% / cover !important;
   
   }
+  ion-item:hover { 
+    --background: var(--ion-color-primary-tint)!important;
+  }
 
 .count:nth-last-of-type(1)
 {

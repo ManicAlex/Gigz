@@ -11,7 +11,7 @@
 
     <ion-content padding>
         <div *ngIf="user">
-          <ion-card *ngIf="findIfEmpty()">
+          <ion-card  *ngIf="findIfEmpty()">
               <ion-row  class="row-style">
                   <ion-col  class="row-style" size="12" size-md>
               <ion-card-title padding text-center color="primary">No Favourites Yet</ion-card-title>
@@ -19,7 +19,7 @@
               </ion-row>
           </ion-card>
         
-        <ion-card *ngFor="let user of users">
+        <ion-card class="hover" *ngFor="let user of users">
             <ion-card-content no-padding (click)='goToProfile(user.id)'>
               <ion-grid>
                 <ion-row class="row-style">

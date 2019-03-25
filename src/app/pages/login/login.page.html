@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="dark" text-center>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
     <ion-title>GigZ</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -29,7 +32,7 @@
     </ion-item>
  
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
-    <ion-button expand="full" type="button"  routerLink="/register" class="button1">Register</ion-button>
+    <ion-button fill="clear" expand="full" type="button"  routerLink="/register" class="button1">Don’t have an account? Sign up now</ion-button>
   </form>
   </div>
 </ion-col>

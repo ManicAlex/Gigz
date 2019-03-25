@@ -4,14 +4,15 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-      <ion-title text-center>List Bands</ion-title>
+      <ion-title text-center>Entertainer List</ion-title>
     </ion-toolbar>
   </ion-header>
   
   <ion-content padding>
-      <ion-text *ngIf="findIfEmpty()">No bands yet.</ion-text>
+      <ion-text *ngIf="findIfEmpty()">No Entertainers yet.</ion-text>
       <div *ngIf="user">
-      <ion-card *ngFor="let user of users">
+  
+      <ion-card class="hover" *ngFor="let user of users">
           <ion-card-content no-padding (click)='goToProfile(user.id)'>
                   <ion-grid>
                       <ion-row class="row-style">
@@ -46,8 +47,10 @@
                   </ion-col>
                 </ion-row>
               </ion-grid>
+            
           </ion-card-content>
-        </ion-card>    
+        </ion-card>  
+      
       </div>
 
       <div *ngIf="!user">

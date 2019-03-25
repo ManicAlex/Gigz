@@ -20,7 +20,7 @@
                         </ion-row>
                     </ion-card>
 
-    <ion-card *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
+    <ion-card class="hover" *ngFor="let value of acceptedValuesOther; let t = index" [attr.data-index]="i">
         <ion-card-header no-padding  (click)='goToRequest(t)'>
 
             <ion-grid>
@@ -44,7 +44,7 @@
         </ion-card-header>
     </ion-card>
     
-    <ion-card *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="b">
+    <ion-card class="hover" *ngFor="let value of acceptedValues; let b = index" [attr.data-index]="b">
         <ion-card-header no-padding  (click)='goToAcceptedRequest(b)'>
             <ion-grid>
                 <ion-row class="row-style">
@@ -67,7 +67,7 @@
         </ion-card-header>
     </ion-card>
 
-    <ion-card *ngFor="let value of declinedValues; let l = index" [attr.data-index]="l">
+    <ion-card class="hover" *ngFor="let value of declinedValues; let l = index" [attr.data-index]="l">
         <ion-card-header no-padding   (click)='goToRejectedRequest(l)'>
           
           <ion-grid>
@@ -92,7 +92,7 @@
         </ion-card-header>
     </ion-card>
 
-    <ion-card *ngFor="let value of values; let i = index" [attr.data-index]="i">
+    <ion-card class="hover" *ngFor="let value of values; let i = index" [attr.data-index]="i">
       <ion-card-header no-padding  (click)='goToRequest(i)'>
          
           <ion-grid>

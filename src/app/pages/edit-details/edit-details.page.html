@@ -23,15 +23,21 @@
       <ion-label position="stacked">Genre</ion-label>
       <select expand="full" type="email" formControlName="genre" value="{{user['genre']}}">
           <option disabled selected>Select One</option>
-          <option  value="Jazz">Jazz</option>
+          <option  value="Acoustic">Acoustic</option>
+          <option  value="DJ">DJ</option>
           <option  value="Rock">Rock</option>
+          <option  value="Metal">Metal</option>
+          <option  value="Aribute Act">Tribute Act</option>
+          <option  value="Singer">Singer</option>
+          <option  value="Jazz">Jazz</option>
+          <option  value="R&B">R&B</option>
           <option  value="Pop">Pop</option>
           <option  value="Folk">Folk</option>
           <option  value="Hip hop">Hip hop</option>
           <option  value="Country">Country</option>
           <option  value="Dance">Dance</option>
           <option  value="Funk">Funk</option>
-          <option  value="Techno">Techno</option>
+          <option  value="Indie">Indie</option>
         </select>
 
     </ion-item>
@@ -43,7 +49,7 @@
 
     <ion-item>
       <ion-label position="stacked">Contact Number</ion-label>
-      <ion-input type="text" formControlName="contactNumber"  value="{{user['contactNumber']}}"></ion-input>
+      <ion-input type="number"  formControlName="contactNumber"  value="{{user['contactNumber']}}"></ion-input>
     </ion-item>
  
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>
