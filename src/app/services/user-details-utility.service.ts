@@ -13,10 +13,10 @@ import {ToastController} from '@ionic/angular';
 export class UserDetailsUtilityService {
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private storage: Storage,
     private router: Router,
-    private authservice:AuthService,
+    private authservice: AuthService,
     private toastController: ToastController
     ) { }
 
@@ -28,34 +28,34 @@ export class UserDetailsUtilityService {
   }
 
   getUserDetails(token) {
-    return this.http.get(`${this.url}/api/editAuthUserDetails`,{
-      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+    return this.http.get(`${this.url}/api/editAuthUserDetails`, {
+      headers: {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/x-www-form-urlencoded'}
    });
   }
 
   getAllUserDetails(token) {
-    return this.http.get(`${this.url}/api/showUserAndDetails`,{
-      headers: {'Authorization':`Bearer ${token}`}
+    return this.http.get(`${this.url}/api/showUserAndDetails`, {
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   getAllBands() {
-    return this.http.get(`${this.url}/api/showRole0`)
+    return this.http.get(`${this.url}/api/showRole0`);
   }
 
   getAllVenues() {
-    return this.http.get(`${this.url}/api/showRole1`)
+    return this.http.get(`${this.url}/api/showRole1`);
   }
 
-  getUserById(token,id) {
-    return this.http.get(`${this.url}/api/showUserAndDetails/${id}`,{
-      headers: {'Authorization':`Bearer ${token}`}
+  getUserById(token, id) {
+    return this.http.get(`${this.url}/api/showUserAndDetails/${id}`, {
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   addDetails(credentials, token) {
-    return this.http.post(`${this.url}/api/storeUserDetails`, this.getFormUrlEncoded(credentials),{
-      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+    return this.http.post(`${this.url}/api/storeUserDetails`, this.getFormUrlEncoded(credentials), {
+      headers: {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/x-www-form-urlencoded'}
    }).pipe(
     tap(() => {
       this.authservice.authenticationState.next(true);
@@ -69,8 +69,8 @@ export class UserDetailsUtilityService {
 
    editDetails(credentials, token) {
     console.log(credentials);
-    return this.http.patch(`${this.url}/api/updateAuthUserDetails`, this.getFormUrlEncoded(credentials),{
-      headers: {'Authorization':`Bearer ${token}`,'Content-Type':'application/x-www-form-urlencoded'}
+    return this.http.patch(`${this.url}/api/updateAuthUserDetails`, this.getFormUrlEncoded(credentials), {
+      headers: {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/x-www-form-urlencoded'}
    }).pipe(
     tap(() => {
       this.router.navigate(['menu/profile']);
@@ -81,75 +81,75 @@ export class UserDetailsUtilityService {
   );
   }
 
-  sendRequest(credentials,token,id) {
+  sendRequest(credentials, token, id) {
     return this.http.post(
-      `${this.url}/api/storeRequest/${id}`, 
+      `${this.url}/api/storeRequest/${id}`,
       credentials,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   showRequestsByUser(token) {
     return this.http.get(
-      `${this.url}/api/showRequestsByUser`, 
+      `${this.url}/api/showRequestsByUser`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   acceptRequest(id,token) {
     return this.http.patch(
-      `${this.url}/api/acceptRequest/${id}`,'', 
+      `${this.url}/api/acceptRequest/${id}`, '',
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
-  declineRequest(id,token) {
+  declineRequest(id, token) {
     return this.http.patch(
       `${this.url}/api/declineRequest/${id}`, '',
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   displayRequestsRecievedDetails(token) {
     return this.http.get(
-      `${this.url}/api/requestingUsersToAuth`, 
+      `${this.url}/api/requestingUsersToAuth`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   displayAcceptedRequests(token) {
     return this.http.get(
-      `${this.url}/api/requestingUsersToAuthAccept`, 
+      `${this.url}/api/requestingUsersToAuthAccept`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   displayRejectedRequests(token) {
     return this.http.get(
-      `${this.url}/api/requestingUsersToAuthDecline`, 
+      `${this.url}/api/requestingUsersToAuthDecline`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
   displayAcceptedRequestsFromSelf(token) {
     return this.http.get(
-      `${this.url}/api/showRequestedFromUserAccepted`, 
+      `${this.url}/api/showRequestedFromUserAccepted`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   getRequest(id, token) {
     return this.http.get(
-      `${this.url}/api/showRequestsToAuth/${id}`, 
+      `${this.url}/api/showRequestsToAuth/${id}`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
@@ -161,7 +161,7 @@ export class UserDetailsUtilityService {
     });
     toast.present();
   }
-  async presentPositiveToast(msg:string) {
+  async presentPositiveToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
       duration: 4000,
@@ -171,72 +171,80 @@ export class UserDetailsUtilityService {
   }
 
   getFormUrlEncoded(toConvert) {
-		const formBody = [];
-		for (const property in toConvert) {
-			const encodedKey = encodeURIComponent(property);
-			const encodedValue = encodeURIComponent(toConvert[property]);
-			formBody.push(encodedKey + '=' + encodedValue);
-		}
+    const formBody = [];
+      for (const property in toConvert) {
+        const encodedKey = encodeURIComponent(property);
+        const encodedValue = encodeURIComponent(toConvert[property]);
+        formBody.push(encodedKey + '=' + encodedValue);
+      }
 		return formBody.join('&');
   }
 
   storeFav(id, token) {
     return this.http.post(
-      `${this.url}/api/storeFav/${id}`,'',
+      `${this.url}/api/storeFav/${id}`, '',
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
-  getAllFavourites(token){
+  getAllFavourites(token) {
     return this.http.get(
       `${this.url}/api/favoritedUsersTrue`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
 
   unfavourite(id, token) {
     return this.http.patch(
-      `${this.url}/api/unFavorite/${id}`,'',
+      `${this.url}/api/unFavorite/${id}`, '',
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
-  storeReview(credentials,token,id) {
+  storeReview(credentials, token, id) {
     return this.http.post(
-      `${this.url}/api/storeReview/${id}`, 
+      `${this.url}/api/storeReview/${id}`,
       credentials,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
   showReviewsById(token,id) {
     return this.http.get(
       `${this.url}/api/showReviews/${id}`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
   showAuthUsersReviews(token) {
     return this.http.get(
       `${this.url}/api/myReviews`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
   showAcceptedCount(token) {
     return this.http.get(
       `${this.url}/api/showAcceptedCount`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
   }
   showPendingCount(token) {
     return this.http.get(
       `${this.url}/api/showPendingCount`,
       {
-      headers: {'Authorization':`Bearer ${token}`}
+      headers: {'Authorization': `Bearer ${token}`}
    });
+  }
+  uploadImage(token, credentials) {
+    return this.http.post(
+      `${this.url}/api/update_avatar`,
+      credentials,
+    {
+    headers: {'Authorization': `Bearer ${token}`}
+ });
   }
 }

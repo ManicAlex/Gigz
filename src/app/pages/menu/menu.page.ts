@@ -29,12 +29,12 @@ export class MenuPage implements OnInit {
       icon: 'star'
     },
     {
-      title: 'Venue Feed',
+      title: 'Venue List',
       url: '/menu/list-venues',
       icon: 'business'
     },
     {
-      title: 'Band Feed',
+      title: 'Entertainer List',
       url: '/menu/list-bands',
       icon: 'microphone'
     },

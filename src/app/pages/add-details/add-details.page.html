@@ -26,27 +26,33 @@
           <ion-label position="stacked">Genre</ion-label>
           <select type="email" formControlName="genre">
               <option disabled selected>Select One</option>
-              <option  value="Jazz">Jazz</option>
+              <option  value="Acoustic">Acoustic</option>
+              <option  value="DJ">DJ</option>
               <option  value="Rock">Rock</option>
+              <option  value="Metal">Metal</option>
+              <option  value="Aribute Act">Tribute Act</option>
+              <option  value="Singer">Singer</option>
+              <option  value="Jazz">Jazz</option>
+              <option  value="R&B">R&B</option>
               <option  value="Pop">Pop</option>
               <option  value="Folk">Folk</option>
               <option  value="Hip hop">Hip hop</option>
               <option  value="Country">Country</option>
               <option  value="Dance">Dance</option>
               <option  value="Funk">Funk</option>
-              <option  value="Techno">Techno</option>
+              <option  value="Indie">Indie</option>
             </select>
     
         </ion-item>
  
     <ion-item>
       <ion-label position="floating">Bio</ion-label>
-      <ion-textarea formControlName="bios"></ion-textarea>
+      <ion-textarea placeholder="Hoping to get more bookings for our..." formControlName="bios"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Contact Number</ion-label>
-      <ion-input type="text" formControlName="contactNumber"></ion-input>
+      <ion-input type="number" placeholder="0494374433" formControlName="contactNumber"></ion-input>
     </ion-item>
  
     <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>

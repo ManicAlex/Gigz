@@ -32,6 +32,9 @@ ion-col {
 ion-button {
     font-weight: 300;
 }
+ion-button:hover { 
+    --background: var(--ion-color-secondary)!important;
+  }
 
 @media (min-width: 240px) and (max-width: 768px) {
     ion-grid {

@@ -46,11 +46,15 @@ export class EditDetailsPage implements OnInit {
     this.credentialsForm = this.formBuilder.group({
       genre: [''],
       bios: ['', Validators.required],
-      contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{10,}$/)]],
+      contactNumber: ['', [Validators.minLength(10),Validators.pattern(/^[0-9]{9,}$/)]],
     });
   }
 
   onSubmit() {
     this.details.editDetails(this.credentialsForm.value,this.token).subscribe();
+  }
+
+  moveToImage() {
+    this.router.navigate(['/upload-image']);
   }
 }

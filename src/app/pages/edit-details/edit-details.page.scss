@@ -32,16 +32,22 @@ ion-card {
 ion-button {
     font-weight: 300;
 }
+ion-button:hover { 
+  --background: var(--ion-color-secondary)!important;
+}
 
 @media (min-width: 240px) and (max-width: 768px) {
-    ion-content {
-        --background: rgba(224, 219, 219, 0.473) !important;
-      
-      }
+  ion-content {
+    --background: url('../../../assets/img/sback.png') no-repeat 100% 100% / cover !important;
+  
+  }
+  ion-card-content {
+    margin-bottom: 1rem !important;
+  }
       ion-card {
         background-color: white !important;
         color: var(--ion-color-primary);
-        width: 80%;
+        width: 90%;
     
       }
 }

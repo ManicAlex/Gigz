@@ -108,6 +108,7 @@ export class UserProfilePage implements OnInit {
   }
 
   storeFav(id) {
+    console.log('clicked');
     this.storage.get('access_token').then(
       token => {
         this.service.storeFav(id, token).subscribe(

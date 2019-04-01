@@ -12,7 +12,7 @@
     <div *ngIf="skel">
       <ion-card>
           <ion-card-header>
-              <img src="../../../assets/img/favourite.jpg" class='favourites' (click)="storeFav(user.id)">
+              <img src="../../../assets/img/favourited.jpg" class='favourites' (click)="storeFav(user.id)">
               <ion-card-title padding color="primary" text-center>{{user.name}}</ion-card-title>
               <ion-grid>
                   <ion-row class="row-main">
@@ -95,8 +95,9 @@
                 <ion-label padding position="floating">Message</ion-label>
                 <ion-input padding type="text" formControlName="body"></ion-input>
               </ion-item>
-           
+              
               <ion-button margin="5px" expand="full" type="submit" [disabled]="!credentialsForm.valid">Add review</ion-button>
+           
             </form>
         </ion-card>
     </div>
@@ -105,7 +106,7 @@
     <div *ngIf="!skel">
         <ion-card>
             <ion-card-header>
-                <img src="../../../assets/img/favourite.jpg" class='favourites' (click)="storeFav(user.id)">
+                <img src="../../../assets/img/favourited.jpg" class='favourites' (click)="storeFav(user.id)">
                 <ion-card-title padding color="primary" text-center><ion-skeleton-text animated style="width: 30%"> </ion-skeleton-text></ion-card-title>
                 <ion-grid>
                     <ion-row class="row-main">

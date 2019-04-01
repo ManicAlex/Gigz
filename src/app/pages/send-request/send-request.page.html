@@ -19,23 +19,23 @@
               <div padding>
     <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
       <ion-item>
-        <ion-label position="floating">Location</ion-label>
-        <ion-input type="text" formControlName="location"></ion-input>
+        <ion-label position="floating">Your Location</ion-label>
+        <ion-input type="text" placeholder="Dundalk" formControlName="location"></ion-input>
       </ion-item>
    
       <ion-item>
         <ion-label position="floating">Details</ion-label>
-        <ion-textarea formControlName="details"></ion-textarea>
+        <ion-textarea placeholder="I would like to book you for a wedding.." formControlName="details"></ion-textarea>
       </ion-item>
   
       <ion-item>
-        <ion-label position="floating">Price</ion-label>
-        <ion-input type="text" formControlName="price"></ion-input>
+        <ion-label position="floating">Price €</ion-label>
+        <ion-input type="number" placeholder="150" formControlName="price"></ion-input>
       </ion-item>
 
       <ion-item>
           <ion-label position="floating">Date: YYYY-MM-DD HH:mm(24h)</ion-label>
-          <ion-datetime  display-format="YYYY-MM-DD HH:mm:ss" min="2019" max="2022" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
+          <ion-datetime placeholder="YYYY-MM-DD HH:mm" display-format="YYYY-MM-DD HH:mm:ss" min="2019" max="2022" picker-format="YYYY-MM-DD HH:mm" formControlName="requestDate"></ion-datetime>
       </ion-item>
    
       <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Booking Request</ion-button>

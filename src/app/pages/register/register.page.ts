@@ -13,10 +13,10 @@ export class RegisterPage implements OnInit {
 
   credentialsForm: FormGroup;
   config: Config;
- 
+
   constructor(
-    private formBuilder: FormBuilder, 
-    private authService: AuthService, 
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
     private api: ConnectApiService,
     private router: Router
     ) { }
@@ -30,7 +30,7 @@ export class RegisterPage implements OnInit {
     this.credentialsForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
       password_confirmation: ['', Validators.required],
       role: ['', Validators.required]
     });
