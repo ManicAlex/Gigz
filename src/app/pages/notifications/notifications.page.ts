@@ -26,6 +26,7 @@ export class NotificationsPage implements OnInit {
     acceptedValuesOther: object;
     declinedValues: object;
     token;
+    icon = 'notifications';
 
   ngOnInit() {
     this.values, this.acceptedValues, this.declinedValues = null;
