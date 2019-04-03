@@ -39,4 +39,14 @@ export class RegisterPage implements OnInit {
   onSubmit() {
     this.authService.register(this.credentialsForm.value).subscribe();
   }
+
+  checkPasswordValidation() {
+    if (this.credentialsForm.value.password !== this.credentialsForm.value.password_confirmation) {
+      console.log(this.credentialsForm.value.password);
+      return false;
+    } else {
+      console.log('true');
+      return true;
+    }
+  }
 }

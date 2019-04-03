@@ -49,7 +49,7 @@
       <ion-label position="floating">Confirm password*</ion-label>
       <ion-input type="password" formControlName="password_confirmation"></ion-input>
     </ion-item>
-    <ion-text *ngIf="(credentialsForm.value.password !== credentialsForm.value.password_confirmation) && !(credentialsForm.controls.password.dirty)" color="danger">
+    <ion-text *ngIf="!checkPasswordValidation()" color="danger">
       <span>Passwords musts match.</span>
     </ion-text>
 
