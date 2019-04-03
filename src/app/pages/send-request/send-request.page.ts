@@ -14,6 +14,7 @@ import {ToastController} from '@ionic/angular';
 export class SendRequestPage implements OnInit {
 
   credentialsForm: FormGroup;
+  credentialsFormUpdated: FormGroup;
   id: number;
 
   constructor(
@@ -33,15 +34,25 @@ export class SendRequestPage implements OnInit {
       location: ['', Validators.required],
       details: ['', Validators.required],
       price: ['', Validators.required],
-      requestDate: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
       status: [0]
     });
   }
 
   onSubmit() {
-    this.credentialsForm.value['requestDate'] = this.credentialsForm.value['requestDate'].split('T').join(' ').split('Z').join('');
+    this.credentialsFormUpdated = this.formBuilder.group({
+      location: [this.credentialsForm.value['location'], Validators.required],
+      details: [this.credentialsForm.value['details'], Validators.required],
+      price: [this.credentialsForm.value['price'], Validators.required],
+      requestDate: [this.credentialsForm.value['date'] + ' ' + this.credentialsForm.value['time'], Validators.required],
+      status: [0]
+    });
+    this.credentialsFormUpdated.value['requestDate'] =
+    this.credentialsFormUpdated.value['requestDate'].split('T').join(' ').split('Z').join('');
+    console.log(this.credentialsFormUpdated.value);
     this.storage.get('access_token').then((token) => {
-      this.details.sendRequest(this.credentialsForm.value, token, this.id)
+      this.details.sendRequest(this.credentialsFormUpdated.value, token, this.id)
       .subscribe(res => {
         this.presentToast();
         this.router.navigate([`menu/profile`]);

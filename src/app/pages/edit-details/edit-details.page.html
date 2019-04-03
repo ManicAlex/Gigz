@@ -20,7 +20,7 @@
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
     <ion-item lines="none">
-      <ion-label position="stacked">Genre</ion-label>
+      <ion-label position="stacked">Genre*</ion-label>
       <select expand="full" type="email" formControlName="genre" value="{{user['genre']}}">
           <option disabled selected>Select One</option>
           <option  value="Acoustic">Acoustic</option>
@@ -43,16 +43,16 @@
     </ion-item>
  
     <ion-item>
-      <ion-label position="stacked">Bio</ion-label>
+      <ion-label position="stacked">Bio*</ion-label>
       <ion-textarea formControlName="bios" value="{{user['bios']}}"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Contact Number</ion-label>
+      <ion-label position="stacked">Contact Number*</ion-label>
       <ion-input type="number"  formControlName="contactNumber"  value="{{user['contactNumber']}}"></ion-input>
     </ion-item>
  
-    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Add details*</ion-button>
   </form>
   <ion-button expand="full" (click)="moveToImage()">Change image</ion-button>
 </div>

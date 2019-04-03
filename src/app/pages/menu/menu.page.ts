@@ -3,6 +3,8 @@ import { Router, RouterEvent } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { UserDetailsUtilityService } from './../../services/user-details-utility.service';
 import { Storage } from '@ionic/storage';
+import { UserServiceService } from './../../services/user-service.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -15,33 +17,39 @@ export class MenuPage implements OnInit {
     {
       title: 'Profile',
       url: '/menu/profile',
-      icon: 'person'
+      icon: 'person',
+      role: '3'
     },
     {
       title: 'Notifications',
       url: '/menu/notifications',
       icon: 'notifications',
-      count: 'totalCount()'
+      count: 'totalCount()',
+      role: '3'
     },
     {
       title: 'Favourites',
       url: '/menu/favourite',
-      icon: 'star'
+      icon: 'star',
+      role: '3'
     },
     {
       title: 'Venue List',
       url: '/menu/list-venues',
-      icon: 'business'
+      icon: 'business',
+      role: '1'
     },
     {
       title: 'Entertainer List',
       url: '/menu/list-bands',
-      icon: 'microphone'
+      icon: 'microphone',
+      role: '0'
     },
     {
       title: 'Edit Profile',
       url: '/menu/edit-details',
-      icon: 'create'
+      icon: 'create',
+      role: '3'
     }
   ];
 
@@ -49,14 +57,22 @@ export class MenuPage implements OnInit {
   pendingCount: number;
   acceptedCount: number;
   totalCount: number;
+  userInfo: any;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private details: UserDetailsUtilityService,
-    private storage: Storage ) {
+    private storage: Storage,
+    private user: UserServiceService ) {
     this.router.events.subscribe((event: RouterEvent) => {
       this.selectedPath = event.url;
+    });
+    this.storage.get('access_token').then(token => {
+      this.user.getUserDetails(token).subscribe(val => {
+        this.userInfo = val['data'][0];
+      }
+      );
     });
    }
 
@@ -69,7 +85,7 @@ export class MenuPage implements OnInit {
       }, 6000
     );
   }
-
+ 
   logout() {
     this.authService.logout();
   }
@@ -91,6 +107,14 @@ export class MenuPage implements OnInit {
       );
       }
     );
+  }
+
+  getRole(page) {
+    if (page['role'] !== this.userInfo.role){
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 

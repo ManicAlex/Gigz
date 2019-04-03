@@ -23,7 +23,7 @@
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
       <ion-item lines="none">
-          <ion-label position="stacked">Genre</ion-label>
+          <ion-label position="stacked">Genre*</ion-label>
           <select type="email" formControlName="genre">
               <option disabled selected>Select One</option>
               <option  value="Acoustic">Acoustic</option>
@@ -46,12 +46,12 @@
         </ion-item>
  
     <ion-item>
-      <ion-label position="floating">Bio</ion-label>
+      <ion-label position="floating">Bio*</ion-label>
       <ion-textarea placeholder="Hoping to get more bookings for our..." formControlName="bios"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Contact Number</ion-label>
+      <ion-label position="floating">Contact Number*</ion-label>
       <ion-input type="number" placeholder="0494374433" formControlName="contactNumber"></ion-input>
     </ion-item>
  

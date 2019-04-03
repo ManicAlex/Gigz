@@ -80,7 +80,7 @@
               <ion-title padding color="primary" text-center>Add review</ion-title>
               <ion-item>
 
-                  <ion-label position="stacked">Rating</ion-label>
+                  <ion-label position="stacked">Rating*</ion-label>
                   <select expand="full" type="email" formControlName="rating">
                       <option disabled selected>Select One</option>
                       <option  value="1">1</option>
@@ -92,7 +92,7 @@
               </ion-item>
            
               <ion-item>
-                <ion-label padding position="floating">Message</ion-label>
+                <ion-label padding position="floating">Message*</ion-label>
                 <ion-input padding type="text" formControlName="body"></ion-input>
               </ion-item>
               
@@ -176,12 +176,12 @@
             <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
                 <ion-title padding color="primary" text-center>Add review</ion-title>
                 <ion-item>
-                  <ion-label padding position="floating">Rating</ion-label>
+                  <ion-label padding position="floating">Rating*</ion-label>
                   <ion-input padding type="text" formControlName="rating"></ion-input>
                 </ion-item>
              
                 <ion-item>
-                  <ion-label padding position="floating">Message</ion-label>
+                  <ion-label padding position="floating">Message*</ion-label>
                   <ion-input padding type="text" formControlName="body"></ion-input>
                 </ion-item>
              
