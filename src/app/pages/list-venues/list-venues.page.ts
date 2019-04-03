@@ -25,6 +25,7 @@ export class ListVenuesPage implements OnInit {
     this.details.getAllVenues()
     .subscribe(data => {
       this.users = data['data'];
+      console.log(this.users);
     });
   }
 
